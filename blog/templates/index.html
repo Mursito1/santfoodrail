@@ -1,43 +1,446 @@
-{% load static %}
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Sant Food</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  </head>
-  <body>
-    <nav class="navbar fixed-top navbar-dark bg-dark navbar-expand-lg bg-body-tertiary position-relative" data-bs-theme="dark">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="{% url 'index' %}"><img src="{% static '/images/logo_empresa.png' %}"></a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'index' %}">Inicio</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'menus' %}">Menús</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'nosotros' %}">Nosotros</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'contacto' %}">Contáctanos</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'login' %}">Ingresar</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    <h1>Hello, world!</h1>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <h1>Home</h1>
-<h1>hola</h1>
 
-<img src="{% static '/images/djangologo.png' %}" alt="" style="width: 200px;">
+<head>
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    
+    <title>SantFood</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+</head>
+
+
+<body class="main-layout">
+    
+    <div class="loader_bg">
+        <div class="loader"><img src="{% static 'images/loading.gif' %}" alt="" /></div>
+    </div>
+
+    <div class="wrapper">
+    
+
+     <div class="sidebar">
+            
+            <nav id="sidebar">
+
+                <div id="dismiss">
+                    <i class="fa fa-arrow-left"></i>
+                </div>
+
+                <ul class="list-unstyled components">
+
+                    <li class="active">
+                        <a href="{% url 'index' %}">Inicio</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'menus' %}">Menus</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'nosotros' %}">Nuestra Empresa</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'registro' %}">Registrate</a>
+                    </li>
+                </ul>
+
+            </nav>
+        </div>
+
+    <div id="content">
+    
+    <header>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="full">
+                        <a href="{% url 'index' %}"><img src="{% static 'images/logo_empresa.png' %}" alt=""></a> 
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="full">
+                        <div class="right_header_info">
+                            <ul>
+                                <li class="dinone"><img style="margin-right: 15px;margin-left: 15px;" src="{% static 'images/phone_icon.png' %}" alt="#">+56930729548</a></li>
+                                <li class="dinone"><img style="margin-right: 15px;" src="{% static 'images/mail_icon.png' %}" alt="#">santfood@gmail.com</a></li>
+                                <li class="dinone"><img style="margin-right: 15px;height: 21px;position: relative;top: -2px;" src="{% static 'images/location_icon.png' %}" alt="#">Av. Republica #104</a></li>
+                                <li class="dinone"><img style="margin-right: 15px;height: 21px;position: relative;top: -2px;" src="{% static 'images/username-icon.svg' %}" alt="#"><a href="{% url 'registro' %}">Tu Cuenta</a></li>
+                                <li>
+                                    <button type="button" id="sidebarCollapse">
+                                        <img src="{% static 'images/menu_icon.png' %}" alt="#">
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <div class="slider_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="full">
+                        <div id="main_slider" class="carousel vert slide" data-ride="carousel" data-interval="5000">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <div class="slider_cont">
+                                                <h3>Bienvenidos al mejor lugar de comida <br>Todo esto a un paso de ti ! </h3>
+                                                <p>Si no encuentras el producto que buscas, Te invitamos a dejar tu comentario para el futuro!</p>                                                                                               
+                                            </div>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <div class="slider_image full text_align_center">
+                                                <img class="img-responsive" src="{% static 'images/slider1.png' %}" alt="#" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+<!-- Tarjetas de comida nuevo menu-->
+    
+<section class="resip_section">
+        <div class="container">
+            <div class="row">
+         <div class="col-md-12">
+       <div class="ourheading">
+    <center><h2>Nuestras Recetas!</h2></center>
+  </div>
+</div>    
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="owl-carousel owl-theme">
+
+                <div class="item">
+                    <div class="product_blog_img">
+                        <a href="{% url 'menus' %}"><img src="{% static 'images/food1.png' %}" alt="#" /></a>
+                    </div>
+                    <div class="product_blog_cont">
+                        <h3>Hambuguesa Tradicional</h3>
+                        
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="product_blog_img">
+                        <a href="{% url 'menus' %}"><img src="{% static 'images/food2.png' %}" alt="#" /></a>
+                    </div>
+                    <div class="product_blog_cont">
+                        <h3>Jamon De Pavo</h3>
+                        
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="product_blog_img">
+                        <a href="{% url 'menus' %}"><img src="{% static 'images/food3.png' %}" alt="#" /></a>
+                    </div>
+                    <div class="product_blog_cont">
+                        <h3>Pollo Estilo Teriyaki</h3>
+                        
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="product_blog_img">
+                        <a href="{% url 'menus' %}"><img src="{% static 'images/food4.png' %}" alt="#" /></a>
+                    </div>
+                    <div class="product_blog_cont">
+                        <h3>Burrito De Carne</h3>
+                        
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="product_blog_img">
+                        <a href="{% url 'menus' %}"><img src="{% static 'images/food5.png' %}" alt="#" /></a>
+                    </div>
+                    <div class="product_blog_cont">
+                        <h3>Burrito Vegetariano</h3>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</section>
+
+
+
+
+<div class="bg_bg">
+
+<div class="about">
+    <div class="container">
+      <div class="row">
+         <div class="col-md-12">
+             <div class="title">
+                <i><img src="{% static 'images/title.png' %}" alt="#"/></i>
+                <h2>Sobre Nuestra Comida Y Restaurante</h2>
+                <span>Nuestros platillos de comida, son realizados por los mejores cocineros que aman su profesión,
+                   <br> cada uno de ellos realiza cada platillo con amor y dedicación, estan invitados a probarlos cuando gusten! 
+                </span>
+             </div>
+          </div>
+       </div>
+       <div class="row">
+         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+             <div class="about_box">
+                 <h3>Mejor Comida</h3>
+                 <p>Este platillo, es uno de tantos que ha sido escogido por nuestra amada clientela como uno de los mejores de la semana, filetes de salmon con una salsa agridulce, 
+                     con cibullete picado y sesamo, este plato se prepara con mucha dedicación por nuestros chef, cada plato que a sido escogido por semana a sido unico en el paladar 
+                     y muy recomendados por nuestra amada clientela.
+                 </p>
+                 <a href="{% url 'menus' %}">Leer Mas! <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+             </div>
+         </div>
+          <div class="col-xl-5 col-lg-5 col-md-10 col-sm-12 about_img_boxpdnt">
+             <div class="about_img">
+                 <figure><img src="{% static 'images/about-img.jpg' %}" alt="#/"></figure>
+             </div>
+         </div>      
+       </div> 
+    </div>
+</div>
+
+
+
+<div class="blog">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="title">
+          <i><img src="{% static 'images/title.png' %}" alt="#"/></i>
+          <center><h2>Nuestro Blog</h2></center>
+          <span>Observa algunas de las publicaciones sobre nuestras comidas</span>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 mar_bottom">
+        <div class="blog_box">
+          <div class="blog_img_box">
+            <figure><img src="{% static 'images/food1.png' %}" alt="#"/>
+             <span>02 FEB 2024</span>
+            </figure>
+          </div>
+          <h3>Delivery Burger</h3>
+          <p>Hambuguesa seleccionada con los mejores ingredientes, especial para poder salir de un apuro en comer algo delicioso, carne de primera seleccion acompañado de 
+              tomate, lechuga, cebolla y una rica capa de mayonesa casera con cibullete que le da un toque de sabor unico, que quedaras encantado y no te podras resistir a probar otra.
+          </p>
+        </div>
+      </div>
+       <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 mar_bottom">
+        <div class="blog_box">
+          <div class="blog_img_box">
+            <figure><img src="{% static 'images/blog_img2.png' %}" alt="#"/>
+             <span>05 FEB 2024</span>
+            </figure>
+          </div>
+          <h3>Menu Vegetariano</h3>
+          <p>En todas las situaciones tenemos que tener una variedad para todos nuestros clientes, en este espacio respetamos la decision de todos entorno a que comer, es por esto
+              que tenemos este menu especial de huevos cocidos, con hojas de lechuga, acompañado de rodajas de tomate, con pan de molde como acompañamiento perfecto.</p>
+        </div>
+      </div>
+       <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+        <div class="blog_box">
+          <div class="blog_img_box">
+            <figure><img src="{% static 'images/food9.png' %}" alt="#"/>
+             <span>08 FEB 2024</span>
+            </figure>
+          </div>
+          <h3>Pizza</h3>
+          <p>Como en todo local, siempre nos intentamos adecuar a todos los gustos, es por esto que no podemos dejar de lado las pizzas, con los mejores ingredientes, una base de masa delgada con bordes de queso, ademas de una base de salsa de tomate, queso mozzarella y peperonni para darle un sazon de picante. </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="Client">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="title">
+          <i><img src="{% static 'images/title.png' %}" alt="#"/></i>
+          <center><h2>Nuestros Clientes !</h2></center>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+         <div class="Client_box">
+           <img src="{% static 'images/client.jpg' %}" alt="#"/>
+           <h3>Camilo Vergara</h3>
+           <h3><span class="theme_color">Comentario Destacado De La Semana !</span></h3>
+           <p>Durante mis cortos tiempos libres, siempre estoy buscando nuevas opciones de comida, los cuales son bastante dificiles al dia de hoy, muchos locales repiten los platos de comida
+               y eso genera que uno, no siempre tenga la idea clara de donde poder comprar, en SantDelivery elimine todas esas dudas de comer un platillo repetitivo dia tras dia, en este lugar encontre
+               variedad de comida todos los dias y un sabor unico que hace que ya sea cliente frecuente hace mas de 2 meses, si aun no han probado el sabor de cada plato de este lugar, los invito a hacerlo y a disfrutarlo sin miedo, no se arrepentiran.</p>
+           <i><img src="{% static 'images/client_icon.png' %}" alt="#"/></i>
+         </div>
+      </div>
+    </div>
+  </div>
+</div>  
+
+</div>
+    
+    <footer>
+        <div class="footer">
+            <div class="container-fluid">
+                <div class="row">
+                  <div class=" col-md-12">
+                    <h2>Contactanos</h2>
+                  </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                      
+                        <form class="main_form">
+                            <div class="row">
+                             
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                    <input class="form-control" placeholder="Nombre" type="text" name="Name">
+                                </div>
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                    <input class="form-control" placeholder="Email" type="text" name="Email">
+                                </div>
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                    <input class="form-control" placeholder="Telefono" type="text" name="Phone">
+                                </div>
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                    <textarea class="textarea" placeholder="Mensaje" type="text" name="Message"></textarea>
+                                </div>
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                    <button class="send">Enviar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                        <div class="img-box">
+                            <figure><img src="{% static 'images/img.jpg' %}" alt="img" /></figure>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="footer_logo">
+                            <a href="{% url 'index' %}"><img src="{% static 'images/logo_empresa.png' %}" alt="logo1" /></a>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="new">
+                            <h3>Noticia</h3>
+                            <form class="newtetter">
+                                <input class="tetter" placeholder="Ingrese su Email" type="text" name="Your email">
+                                <button class="submit">Suscribete !</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <div class="container">
+                    <p>© 2024 Todos Los Derechos Reservados. </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+
+    </div>
+    </div>
+    <div class="overlay"></div>
+    
+    <script src="{% static  'js/jquery.min.js' %}"></script>
+    <script src="{% static  'js/popper.min.js' %}"></script>
+    <script src="{% static  'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static  'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static  'js/custom.js' %}"></script>
+     <script src="{% static 'js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+    
+     <script src="{% static  'core/js/jquery-3.0.0.min.js' %}"></script>
+   <script type="text/javascript">
+        $(document).ready(function() {
+            $("#sidebar").mCustomScrollbar({
+                theme: "minimal"
+            });
+
+            $('#dismiss, .overlay').on('click', function() {
+                $('#sidebar').removeClass('active');
+                $('.overlay').removeClass('active');
+            });
+
+            $('#sidebarCollapse').on('click', function() {
+                $('#sidebar').addClass('active');
+                $('.overlay').addClass('active');
+                $('.collapse.in').toggleClass('in');
+                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+            });
+        });
+    </script>
+
+    <style>
+    #owl-demo .item{
+        margin: 3px;
+    }
+    #owl-demo .item img{
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+    </style>
+
+     
+      <script>
+         $(document).ready(function() {
+           var owl = $('.owl-carousel');
+           owl.owlCarousel({
+             margin: 10,
+             nav: true,
+             loop: true,
+             responsive: {
+               0: {
+                 items: 1
+               },
+               600: {
+                 items: 2
+               },
+               1000: {
+                 items: 5
+               }
+             }
+           })
+         })
+      </script>
+
+</body>
+
+</html>

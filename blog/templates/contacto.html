@@ -98,8 +98,9 @@
   </header>
 
 
-<div>
-  <footer>
+</div>
+    
+<footer>
     <div class="footer">
         <div class="container-fluid">
             <div class="row">
@@ -131,14 +132,14 @@
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                     <div class="img-box">
-                        <figure><img src="{% static 'images/img.jpg' %}" alt="img" /></figure>
+                        <figure><img src="{% static 'blog/images/img.jpg' %}" alt="img" /></figure>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
                     <div class="footer_logo">
-                        <a href="{% url 'index' %}"><img src="{% static 'images/logo_empresa.png' %}" alt="logo1" /></a>
+                      <a href="{% url 'index' %}"><img src="{% static 'blog/images/logo.png' %}" alt="logo1" /></a>
                     </div>
                 </div>
                 <div class="col-md-12">
@@ -158,8 +159,74 @@
             </div>
         </div>
     </div>
-  </footer>
+</footer>
+
+
 </div>
+</div>
+<div class="overlay"></div>
+
+<script src="{% static  'core/js/jquery.min.js' %}"></script>
+<script src="{% static  'core/js/popper.min.js' %}"></script>
+<script src="{% static  'core/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static  'core/js/owl.carousel.min.js' %}"></script>
+<script src="{% static  'core/js/custom.js' %}"></script>
+ <script src="{% static  'core/js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+
+ <script src="{% static  'core/js/jquery-3.0.0.min.js' %}"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#sidebar").mCustomScrollbar({
+            theme: "minimal"
+        });
+
+        $('#dismiss, .overlay').on('click', function() {
+            $('#sidebar').removeClass('active');
+            $('.overlay').removeClass('active');
+        });
+
+        $('#sidebarCollapse').on('click', function() {
+            $('#sidebar').addClass('active');
+            $('.overlay').addClass('active');
+            $('.collapse.in').toggleClass('in');
+            $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+        });
+    });
+</script>
+
+<style>
+#owl-demo .item{
+    margin: 3px;
+}
+#owl-demo .item img{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+</style>
+
+ 
+  <script>
+     $(document).ready(function() {
+       var owl = $('.owl-carousel');
+       owl.owlCarousel({
+         margin: 10,
+         nav: true,
+         loop: true,
+         responsive: {
+           0: {
+             items: 1
+           },
+           600: {
+             items: 2
+           },
+           1000: {
+             items: 5
+           }
+         }
+       })
+     })
+  </script>
 
 </body>
 

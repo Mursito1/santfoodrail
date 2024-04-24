@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     
     <meta charset="utf-8">
@@ -26,76 +25,103 @@
  
 </head>
 
-
 <body class="main-layout about_page">
     
-  <div class="loader_bg">
-      <div class="loader"><img src="{% static 'images/loading.gif' %}" alt="" /></div>
-  </div>
+    <div class="loader_bg">
+        <div class="loader"><img src="{% static 'images/loading.gif' %}" alt="" /></div>
+    </div>
 
-  <div class="wrapper">
-  
-   <div class="sidebar">
-          
-          <nav id="sidebar">
+    <div class="wrapper">
+    
+     <div class="sidebar">
+            
+            <nav id="sidebar">
 
-              <div id="dismiss">
-                  <i class="fa fa-arrow-left"></i>
-              </div>
+                <div id="dismiss">
+                    <i class="fa fa-arrow-left"></i>
+                </div>
 
-              <ul class="list-unstyled components">
+                <ul class="list-unstyled components">
 
-                <li>
-                    <a href="{% url 'index' %}">Inicio</a>
-                </li>
-                <li>
-                    <a href="{% url 'menus' %}">Menús</a>
-                </li>
-                <li class="active">
-                    <a href="{% url 'nosotros' %}">Nuestra Empresa</a>
-                </li>
-                <li>
-                    <a href="{% url 'login' %}">Registrate</a>
-                </li>
-                <li>
-                    <a href="{% url 'contacto' %}">Contáctanos</a>
-                </li>
-            </ul>
+                  <li>
+                      <a href="{% url 'index' %}">Inicio</a>
+                  </li>
+                  <li class="active">
+                      <a href="{% url 'menus' %}">Menús</a>
+                  </li>
+                  <li>
+                      <a href="{% url 'nosotros' %}">Nuestra Empresa</a>
+                  </li>
+                  <li>
+                      <a href="{% url 'login' %}">Ingresa</a>
+                  </li>
+                  <li>
+                      <a href="{% url 'contacto' %}">Contáctanos</a>
+                  </li>
+              </ul>
 
-          </nav>
-      </div>
+            </nav>
+        </div>
 
-  <div id="content">
-  
-  <header>
-      <div class="container-fluid">
-          <div class="row">
-              <div class="col-md-3">
-                  <div class="full">
-                      <a class="logo" href="{% url 'index' %}"><img src="{% static 'images/logo_empresa.png' %}" alt="#" /></a>
-                  </div>
-              </div>
-              <div class="col-md-9">
-                  <div class="full">
-                      <div class="right_header_info">
-                          <ul>
-                              <li class="dinone"><img style="margin-right: 15px;margin-left: 15px;" src="{% static 'images/phone_icon.png' %}" alt="#">+56930729548</a></li>
-                              <li class="dinone"><img style="margin-right: 15px;" src="{% static 'images/mail_icon.png' %}" alt="#">santfood@gmail.com</a></li>
-                              <li class="dinone"><img style="margin-right: 15px;height: 21px;position: relative;top: -2px;" src="{% static 'images/location_icon.png' %}" alt="#">Av. Republica #104</a></li>
-                              
-                              
-                              <li>
-                                  <button type="button" id="sidebarCollapse">
-                                      <img src="{% static 'images/menu_icon.png' %}" alt="#">
-                                  </button>
-                              </li>
-                          </ul>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </header>
+    <div id="content">
+    
+    <header>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="full">
+                        <a class="logo" href="{% url 'index' %}"><img src="{% static 'images/logo_empresa.png' %}" alt="#" /></a>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="full">
+                        <div class="right_header_info">
+                            <ul>
+                                <li class="dinone"><img style="margin-right: 15px;margin-left: 15px;" src="{% static 'images/phone_icon.png' %}" alt="#">+56930729548</a></li>
+                                <li class="dinone"><img style="margin-right: 15px;" src="{% static 'images/mail_icon.png' %}" alt="#">santfood@gmail.com</a></li>
+                                <li class="dinone"><img style="margin-right: 15px;height: 21px;position: relative;top: -2px;" src="{% static 'images/location_icon.png' %}" alt="#">Av. Republica #104</a></li>
+                                <li>
+                                    <button type="button" id="sidebarCollapse">
+                                        <img src="{% static 'images/menu_icon.png' %}" alt="#">
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+    <script src="{% static 'js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+    
+     <script src="{% static 'js/jquery-3.0.0.min.js' %}"></script>
+   <script type="text/javascript">
+        $(document).ready(function() {
+            $("#sidebar").mCustomScrollbar({
+                theme: "minimal"
+            });
+
+            $('#dismiss, .overlay').on('click', function() {
+                $('#sidebar').removeClass('active');
+                $('.overlay').removeClass('active');
+            });
+
+            $('#sidebarCollapse').on('click', function() {
+                $('#sidebar').addClass('active');
+                $('.overlay').addClass('active');
+                $('.collapse.in').toggleClass('in');
+                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+            });
+        });
+    </script>
 
 </body>
 </html>

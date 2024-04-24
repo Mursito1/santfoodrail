@@ -155,6 +155,7 @@
      margin: 0;
      padding: 0;
 }
+
 /**-- heading section --**/
  .main_heading {
      text-align: center;
@@ -430,7 +431,7 @@
      background: #ffffff;
 }
  .product_blog_cont h3 {
-     color: #fff;
+     color: #000000;
      font-size: 22px;
      font-weight: 400;
      text-align: center;

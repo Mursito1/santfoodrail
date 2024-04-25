@@ -93,66 +93,77 @@
         </div>
     </header>
 
-    <footer>
-        <div class="footer">
-            <div class="container-fluid">
-                <div class="row">
-                  <div class=" col-md-12">
-                    <h2>Contactanos</h2>
-                  </div>
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
-                      
-                        <form class="main_form">
-                            <div class="row">
-                             
-                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                                    <input class="form-control" placeholder="Nombre" type="text" name="Name">
-                                </div>
-                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                                    <input class="form-control" placeholder="Email" type="text" name="Email">
-                                </div>
-                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                                    <input class="form-control" placeholder="Telefono" type="text" name="Phone">
-                                </div>
-                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                                    <textarea class="textarea" placeholder="Mensaje" type="text" name="Message"></textarea>
-                                </div>
-                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                                    <button class="send">Enviar</button>
-                                </div>
-                            </div>
-                        </form>
+    <div class="yellow_bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="title">
+                        <h2>Sobre Nosotros</h2> 
                     </div>
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
-                        <div class="img-box">
-                            <figure><img src="{% static 'images/img.jpg' %}" alt="img" /></figure>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="footer_logo">
-                            <a href="{% url 'index' %}"><img src="{% static 'images/logo_empresa.png' %}" alt="logo1" /></a>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="new">
-                            <h3>Noticia</h3>
-                            <form class="newtetter">
-                                <input class="tetter" placeholder="Ingrese su Email" type="text" name="Your email">
-                                <button class="submit">Suscribete !</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="copyright">
-                <div class="container">
-                    <p>© 2024 Todos Los Derechos Reservados. </p>
                 </div>
             </div>
         </div>
-    </footer>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+          <div class=" col-md-12">
+            <h2>Contactanos</h2>
+          </div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+              
+                <form class="main_form">
+                    <div class="row">
+                     
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                            <input class="form-control" placeholder="Nombre" type="text" name="Name">
+                        </div>
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                            <input class="form-control" placeholder="Email" type="text" name="Email">
+                        </div>
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                            <input class="form-control" placeholder="Telefono" type="text" name="Phone">
+                        </div>
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                            <textarea class="textarea" placeholder="Mensaje" type="text" name="Message"></textarea>
+                        </div>
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                            <button class="send">Enviar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                <div class="img-box">
+                    <figure><img src="{% static 'images/img.jpg' %}" alt="img" /></figure>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="footer_logo">
+                    <a href="{% url 'index' %}"><img src="{% static 'images/logo_empresa.png' %}" alt="logo1" /></a>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="new">
+                    <h3>Noticia</h3>
+                    <form class="newtetter">
+                        <input class="tetter" placeholder="Ingrese su Email" type="text" name="Your email">
+                        <button class="submit">Suscribete !</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        <div class="container">
+            <p>© 2024 Todos Los Derechos Reservados. </p>
+        </div>
+    </div>
+</div>
+            
+    
 
     
     <script src="{% static 'js/jquery.min.js' %}"></script>

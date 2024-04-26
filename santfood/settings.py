@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
     'blog',
     'contactos',
+    'clientes',
     'rest_framework'
 ]
 

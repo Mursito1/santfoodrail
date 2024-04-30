@@ -18,7 +18,7 @@ class Contacto(models.Model):
     nombre = models.CharField(max_length=50)
     correo = models.CharField(max_length=50)
     tipo_contacto = models.ForeignKey(Tipo_contacto, on_delete=models.PROTECT)
-    mensaje = models.TextField()
+    mensaje_contacto = models.TextField()
     estado_contacto = models.ForeignKey(Estado_contacto, on_delete=models.PROTECT)
     
     def __str__(self):

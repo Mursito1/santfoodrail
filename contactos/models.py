@@ -3,13 +3,13 @@ from django.db import models
 # Create your models here.
 
 class Tipo_contacto(models.Model):
-    tipo_contacto = models.CharField(max_length=50)
+    tipo_contacto = models.CharField(max_length=50, primary_key=True)
 
     def __str__(self):
         return self.tipo_contacto
     
 class Estado_contacto(models.Model):
-    estado_contacto = models.CharField(max_length=50)
+    estado_contacto = models.CharField(max_length=50, primary_key=True)
 
     def __str__(self):
         return self.estado_contacto

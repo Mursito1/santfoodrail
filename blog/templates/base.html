@@ -26,7 +26,31 @@
     {% block js%}{% endblock %}
 </head>
 <body>
-    <nav class="navbar fixed-top navbar-dark bg-dark navbar-expand-lg bg-body-tertiary position-relative"
+    
+    <nav class = "nav">
+      <div class="logo">SantFood</div>
+      <ul class="menu">
+        <li>
+          <a href="{% url 'index'}"> Inicio</a>
+        </li>
+        <li>
+          <a href="{% url 'nosotros'}"> Nosotros</a>
+        </li>
+        <li>
+          <a href="{% url 'login'}"> Ingresa</a>
+        </li>
+        <li>
+          <a href="{% url 'menus'}"> Menus</a>
+        </li>
+        <li>
+          <a href="{% url 'registro'}"> Registrate</a>
+        </li>
+      </ul>
+
+    </nav>
+  
+  
+    <!-- <nav class="navbar fixed-top navbar-dark bg-dark navbar-expand-lg bg-body-tertiary position-relative"
     data-bs-theme="dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="{% url 'index' %}">
@@ -57,7 +81,7 @@
         </ul>
       </div>
     </div>
-  </nav>
+  </nav> -->
   <footer>
     <div class="footer">
         <div class="container-fluid">

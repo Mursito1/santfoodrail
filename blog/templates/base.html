@@ -26,11 +26,14 @@
     {% block js%}{% endblock %}
 </head>
 <body>
-    <div class="loader_bg">
-      <div class="loader"><img src="{% static 'images/loading.gif' %}" alt="" /></div>
-    </div>
-
+  
     <nav class = "nav">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'index' %}">
+          <img src="{% static 'images/logo_empresa.png'%}" alt="logo" width="200" height="100"
+            class="d-inline-block align-text-top" />
+        </a>
+      </div>
       <ul class="menu">
         <li>
           <a href="{% url 'index'}"> Inicio</a>

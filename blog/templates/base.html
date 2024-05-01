@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    
+    <title>SantFood</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    {% block js%}{% endblock %}
+</head>
+<body>
+    <nav class="navbar fixed-top navbar-dark bg-dark navbar-expand-lg bg-body-tertiary position-relative"
+    data-bs-theme="dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href={% url 'index' %}>
+        <img src="{% static 'images/logo_empresa.png'%}" alt="logo" width="200" height="100"
+          class="d-inline-block align-text-top" />
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">*
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item {% if active_page == 'index' %}active{% endif %}">
+            <a class="nav-link" href="{% url 'index' %}">Inicio</a>
+          </li>
+          <li class="nav-item {% if active_page == 'aboutus' %}active{% endif %}">
+            <a class="nav-link" href="{% url 'nosotros' %}">Sobre nosotros</a>
+          </li>
+          <li class="nav-item {% if active_page == 'login' %}active{% endif %}">
+            <a class="nav-link" href="{% url 'login' %}">Ingresa</a>
+          </li>
+          <li class="nav-item {% if active_page == 'menus' %}active{% endif %}">
+            <a class="nav-link" href="{% url 'menus' %}">Pide aquí</a>
+          </li>
+          <li class="nav-item {% if active_page == 'registro' %}active{% endif %}">
+            <a class="nav-link" href="{% url 'registro' %}">Regístrate</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <footer>
+    <div class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="footer_logo">
+                        <a href="{% url 'index' %}"><img src="{% static 'images/logo_empresa.png' %}" alt="logo1" /></a>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="new">
+                        <h3>Noticia</h3>
+                        <form class="newtetter">
+                            <input class="tetter" placeholder="Ingrese su Email" type="text" name="Your email">
+                            <button class="submit">Subscríbete !</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <div class="container">
+                <p>© 2024 Todos Los Derechos Reservados. </p>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>

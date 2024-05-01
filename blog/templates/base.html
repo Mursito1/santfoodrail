@@ -31,6 +31,12 @@
     </div>
 
     <nav class = "nav">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'index' %}">
+          <img src="{% static 'images/logo_empresa.png'%}" alt="logo" width="200" height="100"
+            class="d-inline-block align-text-top" />
+        </a>
+      </div>
       <ul class="menu">
         <li>
           <a href="{% url 'index'}"> Inicio</a>
@@ -48,19 +54,10 @@
           <a href="{% url 'registro'}"> Registrate</a>
         </li>
       </ul>
+      
     </nav>
     
-    <header>
-      <div class="container-fluid">
-          <div class="row">
-              <div class="col-md-3">
-                  <div class="full">
-                    <a href="{% url 'index' %}"><img src="{% static 'images/logo_empresa.png' %}" alt=""></a>
-                  </div>    
-            </div>
-          </div>
-      </div>           
-    </header>
+    
     
   <footer>
     <div class="footer">

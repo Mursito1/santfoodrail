@@ -31,30 +31,6 @@
     <div class="loader"><img src="{% static 'images/loading.gif' %}" alt="" /></div>
   </div>
 
-  <div class="sidebar">
-    <nav id="sidebar">
-      <div id="dismiss">
-        <i class="fa fa-arrow-left"></i>
-      </div>
-        <ul class="list-unstyled components">
-          <li class="active">
-            <a href="{% url 'index' %}">Inicio</a>
-          </li>
-          <li>
-            <a href="{% url 'menus' %}">Menús</a>
-          </li>
-          <li>
-            <a href="{% url 'nosotros' %}">Nuestra Empresa</a>
-          </li>
-          <li>
-            <a href="{% url 'login' %}">Iniciar Sesion</a>
-          </li>
-          <li>
-            <a href="{% url 'contacto' %}">Contáctanos</a>
-          </li>
-        </ul>
-    </nav>
-  </div>
   <header>
     <div class = "container-fluid">
       <div class = "row">
@@ -81,6 +57,30 @@
           </div>
         </div>
       </div>
+    </div>
+    <div class="sidebar">
+      <nav id="sidebar">
+        <div id="dismiss">
+          <i class="fa fa-arrow-left"></i>
+        </div>
+          <ul class="list-unstyled components">
+            <li class="active">
+              <a href="{% url 'index' %}">Inicio</a>
+            </li>
+            <li>
+              <a href="{% url 'menus' %}">Menús</a>
+            </li>
+            <li>
+              <a href="{% url 'nosotros' %}">Nuestra Empresa</a>
+            </li>
+            <li>
+              <a href="{% url 'login' %}">Iniciar Sesion</a>
+            </li>
+            <li>
+              <a href="{% url 'contacto' %}">Contáctanos</a>
+            </li>
+          </ul>
+      </nav>
     </div>
   </header>
 

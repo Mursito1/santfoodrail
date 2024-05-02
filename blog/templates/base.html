@@ -30,7 +30,7 @@
   <div class="loader_bg">
     <div class="loader"><img src="{% static 'images/loading.gif' %}" alt="" /></div>
   </div>
-  
+
   <div class="sidebar">
     <nav id="sidebar">
       <div id="dismiss">
@@ -55,36 +55,34 @@
         </ul>
     </nav>
   </div>
-
-    <header>
-      <div class = "container-fluid">
-        <div class = "row">
-          <div class = "col-md-3">
-            <div class = "full">
-              <a href="{% url 'index' %}"><img src="{% static 'images/logo_empresa.png' %}" alt=""></a> 
-            </div>
+  <header>
+    <div class = "container-fluid">
+      <div class = "row">
+        <div class = "col-md-3">
+          <div class = "full">
+            <a href="{% url 'index' %}"><img src="{% static 'images/logo_empresa.png' %}" alt=""></a> 
           </div>
-          <div class = "cold-md-9">
-            <div class = "full">
-              <div class = "right_header_info">
-                <ul>
-                  <li class="dinone"><img style="margin-right: 15px;margin-left: 15px;" src="{% static 'images/phone_icon.png' %}" alt="#">+56930729548</a></li>
-                  <li class="dinone"><img style="margin-right: 15px;" src="{% static 'images/mail_icon.png' %}" alt="#">santfood@gmail.com</a></li>
-                  <li class="dinone"><img style="margin-right: 15px;height: 21px;position: relative;top: -2px;" src="{% static 'images/location_icon.png' %}" alt="#">Av. Republica #104</a></li>
-                  <li class="dinone"><img style="margin-right: 15px;height: 21px;position: relative;top: -2px;" src="{% static 'images/username-icon.svg' %}" alt="#"><a href="{% url 'registro' %}">Tu Cuenta</a></li>
-                  <li>
-                    <button type="button" id="sidebarCollapse">
-                      <img src="{% static 'images/menu_icon.png' %}" alt="#">
-                    </button>
-                  </li>
-                </ul>
-              </div>
+        </div>
+        <div class = "cold-md-9">
+          <div class = "full">
+            <div class = "right_header_info">
+              <ul>
+                <li class="dinone"><img style="margin-right: 15px;margin-left: 15px;" src="{% static 'images/phone_icon.png' %}" alt="#">+56930729548</a></li>
+                <li class="dinone"><img style="margin-right: 15px;" src="{% static 'images/mail_icon.png' %}" alt="#">santfood@gmail.com</a></li>
+                <li class="dinone"><img style="margin-right: 15px;height: 21px;position: relative;top: -2px;" src="{% static 'images/location_icon.png' %}" alt="#">Av. Republica #104</a></li>
+                <li class="dinone"><img style="margin-right: 15px;height: 21px;position: relative;top: -2px;" src="{% static 'images/username-icon.svg' %}" alt="#"><a href="{% url 'registro' %}">Tu Cuenta</a></li>
+                <li>
+                  <button type="button" id="sidebarCollapse">
+                    <img src="{% static 'images/menu_icon.png' %}" alt="#">
+                  </button>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
       </div>
-    </header>
-
+    </div>
+  </header>
 
   <footer>
     <div class="footer">

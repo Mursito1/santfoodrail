@@ -286,7 +286,7 @@
      text-decoration: none;
      font-size: bold;
      transition: all 0.5s ease;
-     font-size: 15px;
+     font-size: x-large;
 }
 .menu li a:hover{
      padding: 5px 10px;

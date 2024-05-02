@@ -39,49 +39,33 @@
             <a href="{% url 'index' %}"><img src="{% static 'images/logo_empresa.png' %}" alt=""></a> 
           </div>
         </div>
-        <div class = "cold-md-9">
-          <div class = "full">
-            <div class = "right_header_info">
-              <ul>
-                <li class="dinone"><img style="margin-right: 15px;margin-left: 15px;" src="{% static 'images/phone_icon.png' %}" alt="#">+56930729548</a></li>
-                <li class="dinone"><img style="margin-right: 15px;" src="{% static 'images/mail_icon.png' %}" alt="#">santfood@gmail.com</a></li>
-                <li class="dinone"><img style="margin-right: 15px;height: 21px;position: relative;top: -2px;" src="{% static 'images/location_icon.png' %}" alt="#">Av. Republica #104</a></li>
-                <li class="dinone"><img style="margin-right: 15px;height: 21px;position: relative;top: -2px;" src="{% static 'images/username-icon.svg' %}" alt="#"><a href="{% url 'registro' %}">Tu Cuenta</a></li>
-                <li>
-                  <button type="button" id="sidebarCollapse">
-                    <img src="{% static 'images/menu_icon.png' %}" alt="#">
-                  </button>
-                </li>
-              </ul>
-            </div>
+      <div class="sidebar">
+        <button type="button" id="sidebarCollapse">
+          <img src="{% static 'images/menu_icon.png' %}" alt="#">
+        </button>
+        <nav id="sidebar">
+          <div id="dismiss">
+            <i class="fa fa-arrow-left"></i>
           </div>
-        </div>
+            <ul class="list-unstyled components">
+              <li class="active">
+                <a href="{% url 'index' %}">Inicio</a>
+              </li>
+              <li>
+                <a href="{% url 'menus' %}">Menús</a>
+              </li>
+              <li>
+                <a href="{% url 'nosotros' %}">Nuestra Empresa</a>
+              </li>
+              <li>
+                <a href="{% url 'login' %}">Iniciar Sesion</a>
+              </li>
+              <li>
+                <a href="{% url 'contacto' %}">Contáctanos</a>
+              </li>
+            </ul>
+        </nav>
       </div>
-    </div>
-    <div class="sidebar">
-      <nav id="sidebar">
-        <div id="dismiss">
-          <i class="fa fa-arrow-left"></i>
-        </div>
-          <ul class="list-unstyled components">
-            <li class="active">
-              <a href="{% url 'index' %}">Inicio</a>
-            </li>
-            <li>
-              <a href="{% url 'menus' %}">Menús</a>
-            </li>
-            <li>
-              <a href="{% url 'nosotros' %}">Nuestra Empresa</a>
-            </li>
-            <li>
-              <a href="{% url 'login' %}">Iniciar Sesion</a>
-            </li>
-            <li>
-              <a href="{% url 'contacto' %}">Contáctanos</a>
-            </li>
-          </ul>
-      </nav>
-    </div>
   </header>
 
   <footer>

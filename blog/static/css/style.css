@@ -266,10 +266,9 @@
      top: 0;
      left: 0;
      z-index: 998;
-}
- .container-fluid {
      justify-content: space-between;
 }
+
 
  .button_user a {
      float: left;

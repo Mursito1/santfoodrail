@@ -33,6 +33,23 @@
       <a class="navbar-brand" href="{% url 'index' %}">
         <img src="{% static 'images/logo_empresa.png'%}" class="d-inline-block align-text-top" />
       </a>
+      <ul class="list-unstyled components">
+        <li class="active">
+            <a href="{% url 'index' %}">Inicio</a>
+        </li>
+        <li>
+            <a href="{% url 'menus' %}">Menús</a>
+        </li>
+        <li>
+            <a href="{% url 'nosotros' %}">Nuestra Empresa</a>
+        </li>
+        <li>
+            <a href="{% url 'login' %}">Iniciar Sesion</a>
+        </li>
+        <li>
+            <a href="{% url 'contacto' %}">Contáctanos</a>
+        </li>
+      </ul>
     </div>
     
   </header>

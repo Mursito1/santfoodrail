@@ -39,33 +39,42 @@
             <a href="{% url 'index' %}"><img src="{% static 'images/logo_empresa.png' %}" alt=""></a> 
           </div>
         </div>
-      <div class="sidebar">
-        <button type="button" id="sidebarCollapse">
-          <img src="{% static 'images/menu_icon.png' %}" alt="#">
-        </button>
-        <nav id="sidebar">
-          <div id="dismiss">
-            <i class="fa fa-arrow-left"></i>
+        <div class = "cold-md-9">
+          <div class = "full">
+            <div class = "right_header_info">
+              <div class="sidebar">
+                <button type="button" id="sidebarCollapse">
+                  <img src="{% static 'images/menu_icon.png' %}" alt="#">
+                </button>
+                <nav id="sidebar">
+                  <div id="dismiss">
+                    <i class="fa fa-arrow-left"></i>
+                  </div>
+                    <ul class="list-unstyled components">
+                      <li class="active">
+                        <a href="{% url 'index' %}">Inicio</a>
+                      </li>
+                      <li>
+                        <a href="{% url 'menus' %}">Menús</a>
+                      </li>
+                      <li>
+                        <a href="{% url 'nosotros' %}">Nuestra Empresa</a>
+                      </li>
+                      <li>
+                        <a href="{% url 'login' %}">Iniciar Sesion</a>
+                      </li>
+                      <li>
+                        <a href="{% url 'contacto' %}">Contáctanos</a>
+                      </li>
+                    </ul>
+                </nav>
+              </div>
+            </div>
           </div>
-            <ul class="list-unstyled components">
-              <li class="active">
-                <a href="{% url 'index' %}">Inicio</a>
-              </li>
-              <li>
-                <a href="{% url 'menus' %}">Menús</a>
-              </li>
-              <li>
-                <a href="{% url 'nosotros' %}">Nuestra Empresa</a>
-              </li>
-              <li>
-                <a href="{% url 'login' %}">Iniciar Sesion</a>
-              </li>
-              <li>
-                <a href="{% url 'contacto' %}">Contáctanos</a>
-              </li>
-            </ul>
-        </nav>
+        </div>
       </div>
+    </div>
+    
   </header>
 
   <footer>

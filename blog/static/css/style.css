@@ -267,33 +267,10 @@
      left: 0;
      z-index: 998;
 }
- header .container-fluid {
-     max-width: 1850px;
+ .container-fluid {
      justify-content: space-between;
 }
- .right_header_info {
-     width: 100%;
-     float: left;
-     padding: 20px 0 0;
-}
- .right_header_info ul {
-     list-style: none;
-     padding: 0;
-     margin: 0;
-     float: right;
-}
- .right_header_info ul li {
-     display: inline;
-     font-size: 16px;
-     margin-left: 45px;
-     color: #eaeaea;
-     font-weight: 400;
-     float: left;
-}
- .right_header_info ul li a {
-     color: #eaeaea;
-     font-weight: 300;
-}
+
  .button_user a {
      float: left;
      min-width: 75px;

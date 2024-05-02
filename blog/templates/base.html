@@ -39,30 +39,26 @@
             <a href="{% url 'index' %}"><img src="{% static 'images/logo_empresa.png' %}" alt=""></a> 
           </div>
         </div>
-        <div class = "cold-md-9">
-          <div class = "full">
-            <div class = "right_header_info">
-                <nav id="sidebar">
-                    <ul class="list-unstyled components">
-                      <li class="active">
-                        <a href="{% url 'index' %}">Inicio</a>
-                      </li>
-                      <li>
-                        <a href="{% url 'menus' %}">Menús</a>
-                      </li>
-                      <li>
-                        <a href="{% url 'nosotros' %}">Nuestra Empresa</a>
-                      </li>
-                      <li>
-                        <a href="{% url 'login' %}">Iniciar Sesion</a>
-                      </li>
-                      <li>
-                        <a href="{% url 'contacto' %}">Contáctanos</a>
-                      </li>
-                    </ul>
-                </nav>
-            </div>
-          </div>
+        <div class="sidebar">
+          <nav id="sidebar">
+              <ul class="list-unstyled components">
+                <li class="active">
+                  <a href="{% url 'index' %}">Inicio</a>
+                </li>
+                <li>
+                  <a href="{% url 'menus' %}">Menús</a>
+                </li>
+                <li>
+                  <a href="{% url 'nosotros' %}">Nuestra Empresa</a>
+                </li>
+                <li>
+                  <a href="{% url 'login' %}">Iniciar Sesion</a>
+                </li>
+                <li>
+                  <a href="{% url 'contacto' %}">Contáctanos</a>
+                </li>
+              </ul>
+          </nav>
         </div>
       </div>
     </div>
@@ -72,30 +68,30 @@
   <footer>
     <div class="footer">
         <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="footer_logo">
-                        <a href="{% url 'index' %}"><img src="{% static 'images/logo_empresa.png' %}" alt="logo1" /></a>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="new">
-                        <h3>Noticia</h3>
-                        <form class="newtetter">
-                            <input class="tetter" placeholder="Ingrese su Email" type="text" name="Your email">
-                            <button class="submit">Subscríbete !</button>
-                        </form>
-                    </div>
-                </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="footer_logo">
+                <a href="{% url 'index' %}"><img src="{% static 'images/logo_empresa.png' %}" alt="logo1" /></a>
+              </div>
             </div>
-        </div>
-        <div class="copyright">
-            <div class="container">
-                <p>© 2024 Todos Los Derechos Reservados. </p>
+          <div class="col-md-12">
+            <div class="new">
+              <h3>Noticia</h3>
+              <form class="newtetter">
+                <input class="tetter" placeholder="Ingrese su Email" type="text" name="Your email">
+                  <button class="submit">Subscríbete !</button>
+              </form>
             </div>
+          </div>
         </div>
+      </div>
+      <div class="copyright">
+        <div class="container">
+          <p>© 2024 Todos Los Derechos Reservados. </p>
+        </div>
+      </div>
     </div>
-</footer>
+  </footer>
 
 
 

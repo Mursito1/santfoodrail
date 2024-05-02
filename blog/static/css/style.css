@@ -269,6 +269,7 @@
 }
  header .container-fluid {
      max-width: 1850px;
+     justify-content: space-between;
 }
  .right_header_info {
      width: 100%;

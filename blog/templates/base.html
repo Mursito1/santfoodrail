@@ -33,23 +33,25 @@
       <a class="navbar-brand" href="{% url 'index' %}">
         <img src="{% static 'images/logo_empresa.png'%}" class="d-inline-block align-text-top" />
       </a>
-      <ul class = "menu">
-        <li>
-          <a href="{% url 'index' %}">Inicio</a>
-        </li>
-        <li>
-          <a href="{% url 'menus' %}">Menús</a>
-        </li>
-        <li>
-          <a href="{% url 'nosotros' %}">Nuestra Empresa</a>
-        </li>
-        <li>
-          <a href="{% url 'login' %}">Iniciar Sesion</a>
-        </li>
-        <li>
-          <a href="{% url 'contacto' %}">Contáctanos</a>
-        </li>
-      </ul>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item {% if active_page == 'index' %}active{% endif %}">
+            <a class="nav-link" href="{% url 'index' %}">Inicio</a>
+          </li>
+          <li class="nav-item {% if active_page == 'aboutus' %}active{% endif %}">
+            <a class="nav-link" href="{% url 'nosotros' %}">Sobre nosotros</a>
+          </li>
+          <li class="nav-item {% if active_page == 'login' %}active{% endif %}">
+            <a class="nav-link" href="{% url 'login' %}">Ingresa</a>
+          </li>
+          <li class="nav-item {% if active_page == 'menus' %}active{% endif %}">
+            <a class="nav-link" href="{% url 'menus' %}">Pide aquí</a>
+          </li>
+          <li class="nav-item {% if active_page == 'registro' %}active{% endif %}">
+            <a class="nav-link" href="{% url 'registro' %}">Regístrate</a>
+          </li>
+        </ul>
+      </div>
     </div>
     
   </header>

@@ -38,16 +38,17 @@
           <a href="{% url 'index' %}">Inicio</a>
         </li>
         <li>
-          <a href="{% url 'nosotros' %}">Sobre Nosotros</a>
+          <a href="{% url 'contacto' %}">Contáctanos</a>
+        </li>
+        <li>
+          <a href="{% url 'menus' %}">Pide Aquí</a>
         </li>
         <li>
           <a href="{% url 'login' %}">Ingresa</a>
         </li>
+        
         <li>
-          <a href="{% url 'menus' %}">Pide Aqui</a>
-        </li>
-        <li>
-          <a href="{% url 'registro' %}">Registrate</a>
+          <a href="{% url 'registro' %}">Regístrate</a>
         </li>
       </ul>
     </div>
@@ -69,7 +70,7 @@
             </div>
           <div class="col-md-12">
             <div class="new">
-              <h3>Noticia</h3>
+              <a href="{% url 'nosotros' %}">Sobre nosotros</a>
               <form class="newtetter">
                 <input class="tetter" placeholder="Ingrese su Email" type="text" name="Your email">
                   <button class="submit">Subscríbete !</button>
@@ -85,9 +86,6 @@
       </div>
     </div>
   </footer>
-
-
-
 </body>
 
 

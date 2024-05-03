@@ -1,5 +1,7 @@
 from django.shortcuts import render
 
+from menus.models import Menu
+
 # Create your views here.
 def render_articles(request):
     return render(request, 'index.html')
@@ -18,3 +20,7 @@ def nosotros(request):
 
 def registro(request):
     return render(request, 'registro.html')
+
+def menus(request):
+    menus = Menu.objects.all()
+    return render(request, 'menus.html', {'menus': menus})

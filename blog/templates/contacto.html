@@ -2,5 +2,83 @@
 {% load static %}
 
 {%block contenido%}
-  
+<section id="contacto" class="contacto my-5 ">
+
+    <div class="container dark-shadow" style="padding-bottom: 20px;">
+
+      <h1 class="text-center my-5">Contacto</h1>
+
+      <div id="contenedor-formulario">
+
+        <div class="text-center" id="mensaje-alerta" style="display: none;"></div>
+
+        <form id="formulario-contacto" class="row g-3 needs-validation" novalidate>
+
+          {% csrf_token %}
+
+          <div class="col-md-12">
+
+            <label for="validationCustom01" class="form-label">Nombre</label>
+
+            <input type="text" class="form-control" id="validationCustom01" placeholder="Nombre" name="nombreCliente" required>
+
+            <div class="valid-feedback">¡Se ve bien!</div>
+
+            <div class="invalid-feedback">Por favor, ingrese su nombre.</div>
+
+          </div>
+
+          <div class="col-md-6">
+
+            <label for="validationCustom02" class="form-label">Email</label>
+
+            <input type="email" class="form-control" id="validationCustom02" placeholder="Correo electrónico" name="correo_electronico" required>
+
+            <div class="valid-feedback">¡Se ve bien!</div>
+
+            <div class="invalid-feedback">Por favor, ingrese un correo electrónico válido.</div>
+
+          </div>
+
+          <div class="col-md-6">
+
+            <label for="validationCustom03" class="form-label">Número de teléfono</label>
+
+            <input type="text" class="form-control" id="validationCustom03" placeholder="9 1234 5678" name="telefono" required pattern="[0-9]{9}">
+
+            <div class="valid-feedback">¡Se ve bien!</div>
+
+            <div class="invalid-feedback">Por favor, ingrese un número de teléfono válido (9 dígitos).</div>
+
+          </div>
+
+          <div class="md-12">
+
+            <label for="validationTextarea" class="form-label">Consulta</label>
+
+            <textarea class="form-control" id="validationTextarea" name="consulta" placeholder="Aquí puede ingresar su consulta!" required></textarea>
+
+            <div class="valid-feedback">¡Se ve bien!</div>
+
+            <div class="invalid-feedback">Por favor, ingrese su consulta antes de enviar.</div>
+
+          </div>
+
+          <div class="col-12">
+
+            <button id="btn-enviar" class="btn btn-outline-secondary" type="submit">Enviar</button>
+
+            <button id="btn-limpiar" class="btn btn-outline-danger" type="reset">Limpiar</button>
+
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+
+    
+
+  </section>
 {%endblock%}

@@ -15,3 +15,4 @@ class Tipo_contactoViewSet(viewsets.ModelViewSet):
 class Estado_contactoViewSet(viewsets.ModelViewSet):
     queryset = Estado_contacto.objects.all()
     serializer_class = Estado_contactoSerializer
+

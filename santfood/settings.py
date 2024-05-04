@@ -34,6 +34,10 @@ ALLOWED_HOSTS = ['localhost', 'web-production-9590.up.railway.app', '*']
 
 CSRF_TRUSTED_ORIGINS = ['http://*', 'https://web-production-9590.up.railway.app']
 
+LOGIN_REDIRECT_URL = '/'
+
+LOGOUT_REDIRECT_URL = '/'
+
 
 # Application definition
 
@@ -51,6 +55,7 @@ INSTALLED_APPS = [
     'menus',
     'rest_framework'
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

@@ -43,13 +43,30 @@
         <li>
           <a href="{% url 'menus' %}">Pide Aquí</a>
         </li>
+        {% if user.is_authenticated %}
+          {% if user.username == 'admin' %}
+          <li>
+            <a href="{% url 'crud' %}">CRUD</a>
+          </li>
+          <li>
+            <a href="{% url 'logout' %}">Cerrar Sesión</a>
+          </li>
+          <li>
+            <a href="#">@{{ user.username }}</a>
+          </li>
+          {% else %}
+          <li>
+            <a href="{% url 'logout' %}">Cerrar Sesión</a>
+          </li>
+          <li>
+            <a href="#">@{{ user.username }}</a>
+          </li>
+          {% endif %}
+        {% else %}
         <li>
-          <a href="{% url 'login' %}">Ingresa</a>
+          <a href="{% url 'login' %}">Iniciar Sesión</a>
         </li>
-        
-        <li>
-          <a href="{% url 'registro' %}">Regístrate</a>
-        </li>
+        {% endif %}
       </ul>
     </div>
     

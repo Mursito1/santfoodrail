@@ -1,19 +1,36 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from contactos.forms import ContactoForm
+from .forms import CustomUserCreationForm
 from menus.models import Menu
+from django.contrib import messages
+from django.contrib.auth import authenticate, login
 
 # Create your views here.
 def render_articles(request):
     return render(request, 'index.html')
 
-def login(request):
-    return render(request, 'login.html')
-
 def nosotros(request):
     return render(request, 'nosotros.html')
 
+def crud(request):
+    return render(request, 'crud.html')
+
 def registro(request):
-    return render(request, 'registro.html')
+    data = {
+        'form': CustomUserCreationForm()
+    }
+
+    if request.method == 'POST':
+        formulario = CustomUserCreationForm(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            user = authenticate(username=formulario.cleaned_data["username"], password=formulario.cleaned_data["password1"])
+            login(request, user)
+            messages.success(request, "Te has registrado correctamente")
+            return redirect(to="index")
+        data["form"] = formulario
+
+    return render(request, 'registration/registro.html', data)
 
 def menus(request):
     menus = Menu.objects.all()

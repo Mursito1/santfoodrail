@@ -5,7 +5,6 @@
  @import url('https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
 /*--------------------------------------------------------------------- basic ---------------------------------------------------------------------*/
  body {
-     color: #666666;
      font-size: 14px;
      font-family: 'poppins', sans-serif;
      line-height: 1.80857;
@@ -194,7 +193,7 @@
      display: flex;
      align-items: center;
      padding: 25px;
-     font-weight: 600;
+     font-weight: 700;
 }
 .menu{
      display: flex;
@@ -217,6 +216,12 @@
      color: #000;
      border-radius: 15px;
 }
+
+.navbar-brand img{
+     display: flex;
+     height: 50px;
+}
+
 
 @media (max-width : 700px){
      header{

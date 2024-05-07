@@ -4,6 +4,7 @@ from .forms import CustomUserCreationForm
 from menus.models import Menu
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
+from django.core.paginator import Paginator
 
 # Create your views here.
 def render_articles(request):
@@ -45,7 +46,7 @@ def contacto(request):
         formulario = ContactoForm(data=request.POST)
         if formulario.is_valid():
             formulario.save()
-            data["mensaje"] = "contacto guardado"
+            messages.success(request, "Se ha guardado tu contacto correctamente")
         else:
             data["form"] = formulario
 

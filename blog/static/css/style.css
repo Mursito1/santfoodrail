@@ -156,85 +156,6 @@
      padding: 0;
 }
 
-/**-- heading section --**/
- .main_heading {
-     text-align: center;
-     display: flex;
-     justify-content: center;
-     position: relative;
-     margin-bottom: 50px;
-}
- .main_heading h2 {
-     padding: 0;
-     font-size: 48px;
-     line-height: 60px;
-     font-weight: 400;
-     position: relative;
-     letter-spacing: -0.5px;
-     color: #114c7d;
-     border-left: solid #38c8a8 10px;
-     padding-left: 15px;
-}
- .main_heading h2 strong {
-     background: #38c8a8;
-     color: #fff;
-     font-weight: 600;
-     padding: 0 15px;
-     line-height: 68px;
-}
- .white_heading_main h2 {
-     color: #fff;
-}
- .small_main_heading {
-     margin-top: 25px;
-     float: left;
-     width: 100%;
-     border-bottom: solid rgba(0, 0, 0, 0.07) 1px;
-     margin-bottom: 25px;
-}
- .small_main_heading h2 {
-     padding: 2px 0 20px 0;
-     color: #114c7d;
-     font-weight: 400;
-     font-size: 28px;
-     background-image: url('../images/fevicon.png');
-     background-repeat: no-repeat;
-     padding-left: 55px;
-     letter-spacing: -0.5px;
-}
- .small_main_heading h2 strong {
-     color: #38c8a8;
-     font-weight: 600;
-}
- .main_bt {
-     background: #38c8a8;
-     color: #fff;
-     padding: 8px 25px 8px 20px;
-     float: left;
-     font-size: 15px;
-     font-weight: 300;
-     border-left: solid #114c7d 5px;
-     border-radius: 0;
-}
- a.readmore_bt {
-     color: #fff;
-     font-weight: 300;
-     text-decoration: underline !important;
-}
- .main_bt:hover, .main_bt:focus {
-     background: #114c7d;
-     border-left: solid #38c8a8 5px;
-     color: #fff;
-}
- .margin_top_50 {
-     margin-top: 50px;
-}
- .margin_bottom_30_all {
-     margin-bottom: 30px;
-}
- .text_align_center {
-     text-align: center;
-}
 /*---------------------------- preloader area ----------------------------*/
  .loader_bg {
      position: fixed;
@@ -258,10 +179,9 @@
 }
 /*--------------------------------------------------------------------- header ---------------------------------------------------------------------*/
  header {
-     min-height: 90px;
+     min-height: 70px;
      background: #212020;
      padding: 15px;
-     position: fixed;
      width: 100%;
      top: 0;
      left: 0;

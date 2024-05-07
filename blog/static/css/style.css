@@ -260,7 +260,7 @@
  header {
      min-height: 90px;
      background: #212020;
-     padding: 15px 0;
+     padding: 15px;
      position: fixed;
      width: 100%;
      top: 0;
@@ -273,6 +273,7 @@
      display: flex;
      align-items: center;
      padding: 25px;
+     font-weight: 600;
 }
 .menu{
      display: flex;

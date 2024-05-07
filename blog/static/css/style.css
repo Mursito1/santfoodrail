@@ -207,7 +207,9 @@
      margin: 0 auto;
 }
 
-@media (max-width : 600px){
+/* modalidad responsiva */
+
+@media (max-width : 991px){
      header{
           flex-direction: column;
      }

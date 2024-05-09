@@ -10,7 +10,7 @@
      line-height: 1.80857;
      font-weight: normal;
      background: url(../images/bg4.jpg);
-     background-size: 600px;
+     background-size: 500px;
      background-repeat: repeat;
 }
 
@@ -145,8 +145,30 @@
      padding: 0;
 }
 
+.slider_section {
+     background-color: #212020; /* Color de fondo negro */
+     color: #fff; /* Color de texto blanco */
+     padding: 50px 0; /* Espaciado interno superior e inferior */
+   }
+   
+   .slider_cont {
+     padding: 20px; /* Espaciado interno dentro del contenedor de texto */
+   }
+   
+   .slider_image img {
+     max-width: 100%; /* Ajusta la imagen al 100% del ancho del contenedor */
+     height: auto; /* Permite que la altura de la imagen se ajuste automáticamente */
+   }
+   
+   @media (max-width: 768px) {
+     /* Estilos para dispositivos móviles (puedes ajustar según sea necesario) */
+     .slider_cont {
+       text-align: center; /* Centra el texto en dispositivos móviles */
+     }
+   }
 /*--------------------------------------------------------------------- header ---------------------------------------------------------------------*/
  header {
+     position: fixed;
      min-height: 70px;
      background: #212020;
      padding: 15px;
@@ -161,7 +183,7 @@
      display: flex;
      align-items: center;
      padding: 25px;
-     font-weight: 900;
+     font-weight: 600;
 }
 .menu{
      display: flex;
@@ -238,18 +260,6 @@
      width: 100%;
      max-width: 1920px;
 }
- .vert .carousel-item-next.carousel-item-left, .vert .carousel-item-prev.carousel-item-right {
-     -webkit-transform: translate3d(0, 0, 0);
-     transform: translate3d(0, 0, 0);
-}
- .vert .carousel-item-next, .vert .active.carousel-item-right {
-     -webkit-transform: translate3d(0, 100%, 0);
-     transform: translate3d(0, 100% 0);
-}
- .vert .carousel-item-prev, .vert .active.carousel-item-left {
-     -webkit-transform: translate3d(0,-100%, 0);
-     transform: translate3d(0,-100%, 0);
-}
  .slider_cont {
      padding-left: 190px;
      float: left;
@@ -269,7 +279,7 @@
      font-weight: 300;
      margin-top: 15px;
      margin-bottom: 10px;
-     padding-right: 30px;
+
 }
 
  .main_bt_border {
@@ -468,8 +478,9 @@
 /*--------------------------------------------------------------------- footer ---------------------------------------------------------------------*/
  .footer {
      background: #252525;
-     padding-top:90px;
-     margin-top: 90px;
+     padding-top:60px;
+     margin-top: 60px;
+     width: 100%;
 }
  .footer h2 {
      color: #000;

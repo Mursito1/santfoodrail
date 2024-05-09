@@ -1,37 +1,37 @@
 {% extends "base.html"%}
 {% load static %}
 {%block contenido%}
-
 <div class="slider_section">
   <div class="container">
-      <div class="row">
-          <div class="col-md-12">
-              <div class="full">
-                  <div id="main_slider" class="carousel vert slide" data-ride="carousel" data-interval="5000">
-                      <div class="carousel-inner">
-                          <div class="carousel-item active">
-                              <div class="row">
-                                  <div class="col-md-5">
-                                      <div class="slider_cont">
-                                          <h3>Bienvenido al mejor local de comida solo a un paso de ti</h3>
-                                          <p>Si no encuentras el producto que buscas, Te invitamos a dejar tu comentario para el futuro!</p>                                                                                               
-                                      </div>
-                                  </div>
-                                  <div class="col-md-7">
-                                      <div class="slider_image full text_align_center">
-                                          <img class="img-responsive" src="{% static 'images/slider1.png' %}" alt="#" />
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="full">
+          <div id="main_slider" class="carousel vert slide" data-ride="carousel" data-interval="5000">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="row">
+                  <div class="col-md-5">
+                    <div class="slider_cont">
+                      <h3>Bienvenido al mejor local de comida a solo un paso de ti</h3>
+                      <p>Si no encuentras el producto que buscas, ¡te invitamos a dejar tu comentario para el futuro!</p>
+                    </div>
                   </div>
+                  <div class="col-md-7">
+                    <div class="slider_image full text_align_center">
+                      <img class="img-responsive" src="{% static 'images/slider1.png' %}" alt="#" />
+                    </div>
+                  </div>
+                </div>
               </div>
+            </div>
           </div>
+        </div>
       </div>
+    </div>
   </div>
 </div>
-</div>
 
+  
     <div class="blog">
     <div class="row">
       <div class="col-md-12">
@@ -84,33 +84,7 @@
 </div>
 
 
-<div class="Client">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="title">
-          <i><img src="{% static 'images/title.png' %}" alt="#"/></i>
-          <center><h2>Nuestros Clientes !</h2></center>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-6 offset-md-3">
-         <div class="Client_box">
-           <img src="{% static 'images/client.jpg' %}" alt="#"/>
-           <h3>Camilo Vergara</h3>
-           <h3><span class="theme_color">Comentario Destacado De La Semana !</span></h3>
-           <p>Durante mis cortos tiempos libres, siempre estoy buscando nuevas opciones de comida, los cuales son bastante dificiles al dia de hoy, muchos locales repiten los platos de comida
-               y eso genera que uno, no siempre tenga la idea clara de donde poder comprar, en SantDelivery elimine todas esas dudas de comer un platillo repetitivo dia tras dia, en este lugar encontre
-               variedad de comida todos los dias y un sabor unico que hace que ya sea cliente frecuente hace mas de 2 meses, si aun no han probado el sabor de cada plato de este lugar, los invito a hacerlo y a disfrutarlo sin miedo, no se arrepentiran.</p>
-           <i><img src="{% static 'images/client_icon.png' %}" alt="#"/></i>
-         </div>
-      </div>
-    </div>
-  </div>
-</div>
-<br>
-<br>
+
 
 
 {%endblock%}

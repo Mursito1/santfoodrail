@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from contactos.forms import ContactoForm
+from contactos.models import Contacto
 from .forms import CustomUserCreationForm
 from menus.models import Menu
 from django.contrib import messages
@@ -14,7 +15,8 @@ def nosotros(request):
     return render(request, 'nosotros.html')
 
 def crud(request):
-    return render(request, 'crud.html')
+    contactos = Contacto.objects.all()
+    return render(request, 'crud.html', {'contactos': contactos})
 
 def registro(request):
     data = {

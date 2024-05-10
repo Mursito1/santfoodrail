@@ -9,11 +9,37 @@
 <br>
 <br>
 <br>
-
+<style>
+  body{
+    background: url(../images/bg.jpg);
+    background-size: 100%;
+  }
+</style>
   <div class="container-fluid">
-    <h1>Catalogo de productos</h1>
+    <h1>Catálogo de productos</h1>
     <div id="menu" class="row">
       {% for menu in menus %}
+      {% if user.username == 'admin' %}
+      <div class="col">
+        <div class="card" style="width: 18rem;">
+          <img src="{{ menu.imagen.url }}" class="card-img-top" alt="{{ menu.nombre_menu }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ menu.nombre_menu }}</h5>
+            <p class="card-text">{{ menu.precio }}</p>
+            <button data-menu-id="{{ menu.ganancia }}" class="btn btn-success">Agregar</button>
+            <button data-menu-id="{{ menu.id }}" class="btn btn-primary btn-edit">Editar</button>
+            <div class="form-check">
+              <input 
+                type="checkbox" 
+                class="form-check-input menu-status-toggle" 
+                data-menu-id="{{ menu.id }}" 
+                {% if menu.estado_menu %} checked {% endif %}>
+              <label class="form-check-label">Estado del Menú</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% else %}
   <div class="col">
     <div class="card" style="width: 18rem;">
       <img src="{{ menu.imagen.url }}" class="card-img-top" alt="{{ menu.nombre_menu }}">
@@ -24,7 +50,45 @@
       </div>
     </div>
   </div>
+      {% endif %}
 {% endfor %}
     </div>
   </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const menuStatusToggles = document.querySelectorAll('.menu-status-toggle');
+  
+      menuStatusToggles.forEach(toggle => {
+        toggle.addEventListener('change', async (event) => {
+          const menu_id = event.target.dataset.menu_id;
+          const isChecked = event.target.checked;
+  
+          try {
+            const response = await fetch(`/api/menus/menu/${menu_id}`, {
+              method: 'PUT',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({
+                estado_menu: isChecked
+              })
+            });
+  
+            if (response.ok) {
+              console.log(`Estado del menú con ID ${menu_id} actualizado`);
+            } else {
+              console.error('Error al actualizar el estado del menú');
+              // Vuelve a cambiar el estado del checkbox si hay un error
+              event.target.checked = !isChecked;
+            }
+          } catch (error) {
+            console.error('Error en la solicitud:', error);
+            // Vuelve a cambiar el estado del checkbox si hay un error
+            event.target.checked = !isChecked;
+          }
+        });
+      });
+    });
+  </script>
 {%endblock%}

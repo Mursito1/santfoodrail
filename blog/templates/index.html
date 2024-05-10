@@ -1,6 +1,12 @@
 {% extends "base.html"%}
 {% load static %}
 {%block contenido%}
+<style>
+  body{
+    background: url(static/images/bg.jpg);
+    background-size: 100%;
+  }
+</style>
 <div class="slider_section">
   <div class="container">
     <div class="row">
@@ -30,6 +36,72 @@
     </div>
   </div>
 </div>
+
+<section class="resip_section">
+  <div class="container">
+      <div class="row">
+   <div class="col-md-12">
+ <div class="ourheading">
+<center><h2>Nuestras Recetas!</h2></center>
+</div>
+</div>    
+<div class="container">
+<div class="row">
+  <div class="col-md-12">
+      <div class="owl-carousel owl-theme">
+
+          <div class="item">
+              <div class="product_blog_img">
+                  <a href="{% url 'menus' %}"><img src="{% static 'images/food1.png' %}" alt="#" /></a>
+              </div>
+              <div class="product_blog_cont">
+                  <h3>Hambuguesa Tradicional</h3>
+                  
+              </div>
+          </div>
+          <div class="item">
+              <div class="product_blog_img">
+                  <a href="{% url 'menus' %}"><img src="{% static 'images/food2.png' %}" alt="#" /></a>
+              </div>
+              <div class="product_blog_cont">
+                  <h3>Jamon De Pavo</h3>
+                  
+              </div>
+          </div>
+          <div class="item">
+              <div class="product_blog_img">
+                  <a href="{% url 'menus' %}"><img src="{% static 'images/food3.png' %}" alt="#" /></a>
+              </div>
+              <div class="product_blog_cont">
+                  <h3>Pollo Estilo Teriyaki</h3>
+                  
+              </div>
+          </div>
+          <div class="item">
+              <div class="product_blog_img">
+                  <a href="{% url 'menus' %}"><img src="{% static 'images/food4.png' %}" alt="#" /></a>
+              </div>
+              <div class="product_blog_cont">
+                  <h3>Burrito De Carne</h3>
+                  
+              </div>
+          </div>
+          <div class="item">
+              <div class="product_blog_img">
+                  <a href="{% url 'menus' %}"><img src="{% static 'images/food5.png' %}" alt="#" /></a>
+              </div>
+              <div class="product_blog_cont">
+                  <h3>Burrito Vegetariano</h3>
+                  
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</section>
 
   
     <div class="blog">
@@ -84,7 +156,27 @@
 </div>
 
 
-
+<script>
+  $(document).ready(function() {
+    var owl = $('.owl-carousel');
+    owl.owlCarousel({
+      margin: 10,
+      nav: true,
+      loop: true,
+      responsive: {
+        0: {
+          items: 1
+        },
+        600: {
+          items: 2
+        },
+        1000: {
+          items: 5
+        }
+      }
+    })
+  })
+</script>
 
 
 {%endblock%}

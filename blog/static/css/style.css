@@ -560,10 +560,37 @@
 
 @media screen and (max-width: 991px){
      .footer .grupo-1{
-          width: 85%;
-          grid-template-columns: repeat(1);
-          grid-gap:25px;
-          padding: 20px 0px;
+          width: 90%;
+          grid-template-columns: repeat;
+          grid-gap:30;
+          padding: 35px 0px;
      }
+
+     .footer .grupo-1 .box figure img{
+          width: 120px;
+     }
+     
+     .footer .grupo-1 .box h2{
+          font-size: 13px;
+     }
+     
+}
+
+@media screen and (max-width: 400px){
+     .footer .grupo-1{
+          width: 90%;
+          grid-template-columns: repeat;
+          grid-gap:20;
+          padding: 25px 0px;
+     }
+
+     .footer .grupo-1 .box figure img{
+          width: 100px;
+     }
+     
+     .footer .grupo-1 .box h2{
+          font-size: 10px;
+     }
+     
 }
      

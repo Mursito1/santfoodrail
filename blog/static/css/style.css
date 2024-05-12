@@ -199,7 +199,7 @@
 }
 
 .menu .navbar ul li a{
-     font-size: 18px;
+     font-size: 20px;
      padding: 20px;
      color: #ffffff;
      display: block;
@@ -207,8 +207,7 @@
 }
 
 .menu .navbar ul li a:hover{
-     color: #15a4f9;
-     border-radius: 20px;
+     color:#000000;  
 }
 
 #menu{
@@ -245,7 +244,7 @@
           top: 100%;
           left: 0;
           right: 0;
-          background-color: #2a394f;
+          background-color: #252525;
           display: none;
      }
 

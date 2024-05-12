@@ -208,6 +208,7 @@
 
 .menu .navbar ul li a:hover{
      color: #15a4f9;
+     border-radius: 20px;
 }
 
 #menu{

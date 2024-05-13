@@ -4,14 +4,14 @@
  @import url('https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
  @import url('https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
 /*--------------------------------------------------------------------- basic ---------------------------------------------------------------------*/
- body {
-     font-size: 50px;
+
+body {
      font-family: 'poppins', sans-serif;
-     line-height: 1.80857;
-     font-weight: normal;
-     background: url(../images/bg.jpg);
-     background-size: 300px;
-     background-repeat: repeat;
+     background-image: url(../images/bg3.jpg);
+     background-repeat: no-repeat;
+     background-position: center center;
+     background-size: cover;
+     background-attachment: fixed;
 }
 
  h1, h2, h3, h4, h5, h6 {

@@ -5,8 +5,14 @@
  @import url('https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
 /*--------------------------------------------------------------------- basic ---------------------------------------------------------------------*/
 
+*{
+     padding: 0;
+     margin: 0;
+     box-sizing: border-box;
+     font-family: 'Poppins', sans-serif;
+}
+
 body {
-     font-family: 'poppins', sans-serif;
      background-image: url(../images/bg3.jpg);
      background-repeat: no-repeat;
      background-position: center center;
@@ -236,7 +242,7 @@ body {
      }
 
      .back{
-          padding: 60px 0;
+          padding: 65px 0;
      }
 
      .menu .navbar {
@@ -482,6 +488,76 @@ body {
      display: inline-block;
 }
 /** end Our Client **/
+
+/* menus */
+
+/* .menu-compras{
+     padding: 30px 10px 30px 10px;
+     display: grid;
+     grid-template-columns: repeat(auto-fit,minmax(350px,1fr));
+     grid-gap: 20px 40px;
+} */
+
+.menu-compras{
+     padding: 30px 10px 30px 10px;
+     display: grid;
+     grid-template-columns: repeat(auto-fit,minmax(400px,1fr));
+     grid-gap: 20px 40px;
+}
+
+.food-items{
+     display: grid;
+     position: relative;
+     grid-template-rows: auto 1fr;
+     border-radius: 15px;
+     box-shadow: 20px 20px 40px rgba(0, 0, 0, 6);
+     transition: .2s ease-in-out;
+
+}
+
+.food-items img{
+     width: 92%;
+     position: relative;
+     height: 280px;
+     border-radius: 15px 15px 0 0;
+     cursor: pointer;
+}
+
+.detalles{
+     padding: 20px 10px;
+     display: grid;
+     grid-template-rows: auto 1fr 50px;
+     grid-row-gap: 15px;
+}
+
+.detalles-categoria h5{
+     color: #ffff;
+     font-weight: 700;
+     font-size: 20px;
+}
+
+.precio{
+     text-align: right;
+}
+
+.detalles p{
+     color: #ffff;
+     font-size: 15px;
+     line-height: 28px;
+     font-weight: 400;
+     align-self: stretch;
+}
+
+.detalles button{
+     background: #e84343;
+     border: none;
+     color: #fff;
+     font-size: 16px;
+     font-weight: 600;
+     border-radius: 5px;
+     width: 180px;
+     cursor: pointer;
+}
 
 /*--------------------------------------------------------------------- footer ---------------------------------------------------------------------*/
 .footer{

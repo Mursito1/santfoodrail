@@ -41,49 +41,6 @@
     {% endfor %}
   </div>
 
-
-
-
-  <!-- <div class="container-fluid">
-    <h1>Catálogo de productos</h1>
-    <div id="menu" class="row">
-      {% for menu in menus %}
-      {% if user.username == 'admin' %}
-      <div class="col">
-        <div class="card" style="width: 18rem;">
-          <img src="{{ menu.imagen.url }}" class="card-img-top" alt="{{ menu.nombre_menu }}">
-          <div class="card-body">
-            <h5 class="card-title">{{ menu.nombre_menu }}</h5>
-            <p class="card-text">{{ menu.precio }}</p>
-            <button data-menu-id="{{ menu.ganancia }}" class="btn btn-success">Agregar</button>
-            <button data-menu-id="{{ menu.id }}" class="btn btn-primary btn-edit">Editar</button>
-            <div class="form-check">
-              <input 
-                type="checkbox" 
-                class="form-check-input menu-status-toggle" 
-                data-menu-id="{{ menu.id }}" 
-                {% if menu.estado_menu %} checked {% endif %}>
-              <label class="form-check-label">Estado del Menú</label>
-            </div>
-          </div>
-        </div>
-      </div>
-      {% else %}
-  <div class="col">
-    <div class="card" style="width: 18rem;">
-      <img src="{{ menu.imagen.url }}" class="card-img-top" alt="{{ menu.nombre_menu }}">
-      <div class="card-body">
-        <h5 class="card-title">{{ menu.nombre_menu }}</h5>
-        <p class="card-text">{{ menu.precio }}</p>
-        <button data-menu-id="{{ menu.ganancia }}" class="btn btn-success">Agregar</button>
-      </div>
-    </div>
-  </div>
-      {% endif %}
-{% endfor %}
-    </div>
-  </div> -->
-
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const menuStatusToggles = document.querySelectorAll('.menu-status-toggle');

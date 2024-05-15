@@ -32,7 +32,6 @@ def registro(request):
             messages.success(request, "Te has registrado correctamente")
             return redirect(to="index")
         data["form"] = formulario
-
     return render(request, 'registration/registro.html', data)
 
 def menus(request):

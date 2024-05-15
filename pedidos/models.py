@@ -10,7 +10,7 @@ class Pedido(models.Model):
     total = models.PositiveIntegerField()
     ganancia_total = models.PositiveIntegerField()
 
-    def __str__(self):
+    def int(self):
         return self.nombre_cliente
     
 class Pedido_menu(models.Model):
@@ -18,4 +18,4 @@ class Pedido_menu(models.Model):
     id_pedido = models.ForeignKey(Pedido, on_delete=models.PROTECT)
 
     def int(self):
-        return self.id
+        return self.id_pedido

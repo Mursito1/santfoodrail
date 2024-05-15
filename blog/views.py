@@ -52,5 +52,3 @@ def contacto(request):
             data["form"] = formulario
 
     return render(request, 'contacto.html', data)
-
-

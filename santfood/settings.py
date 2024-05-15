@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'blog',
     'contactos',
     'menus',
+    'pedidos',
     'rest_framework'
 ]
 

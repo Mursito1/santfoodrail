@@ -14,6 +14,7 @@ class Menu(models.Model):
     precio = models.PositiveIntegerField()
     ganancia = models.PositiveIntegerField()
     estado_menu = models.BooleanField()
+    descripcion_menu = models.CharField(max_length=300)
     imagen = models.ImageField(upload_to='images/')
 
     def __str__(self):

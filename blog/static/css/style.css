@@ -506,7 +506,7 @@ body {
 }
 
 .food-items{
-     display: grid;
+     background-color: white;
      position: relative;
      grid-template-rows: auto 1fr;
      border-radius: 15px;
@@ -531,17 +531,17 @@ body {
 }
 
 .detalles-categoria h5{
-     color: #ffff;
+     color: #252525;
      font-weight: 700;
      font-size: 20px;
 }
 
 .precio{
-     text-align: right;
+     text-align: left;
 }
 
 .detalles p{
-     color: #ffff;
+     color: #252525;
      font-size: 15px;
      line-height: 28px;
      font-weight: 400;
@@ -549,7 +549,7 @@ body {
 }
 
 .detalles button{
-     background: #e84343;
+     background: #00460c;
      border: none;
      color: #fff;
      font-size: 16px;

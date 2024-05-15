@@ -2,22 +2,7 @@
 {% extends "base.html"%}
 {% load static %}
 {% block contenido %}
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<style>
-  body{
-    background: url(static/images/bg.jpg);
-    background-size: 100%;
-  }
-</style>
   <div class="container-fluid">
-    <h1>CRUD de contáctos</h1>
     <div id="contacto" class="row">
       {% for contacto in contactos %}
       <div class="col">

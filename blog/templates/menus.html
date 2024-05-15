@@ -1,126 +1,44 @@
 {% extends "base.html"%}
 {% load static %}
 {% block contenido %}
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 
 
-  <div class = "menu-compras">
+  <div class="menu-compras">
+    {% for menu in menus %}
+    {% if user.username == 'admin' %}
     <div class="food-items">
-      <img src="{% static 'images/food1.png'%}"/>
+      <img src="{{ menu.imagen.url }}"/>
       <div class="detalles">
         <div class="detalles-categoria">
-          <h5>Hamburgesa</h5>
-          <h5 class = "precio">Precio</h5>
+          <h5>{{ menu.nombre_menu }}</h5>
+          <h5 class = "precio">{{ menu.precio }}</h5>
         </div>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-        <button> Agregar al carro</button>
+        <p>{{ menu.descripcion_menu}}</p>
+          <button class="btn btn-primary btn-edit">Editar</button>
+            <div class="form-check">
+              <input 
+                type="checkbox" 
+                class="form-check-input menu-status-toggle" 
+                data-menu-id="{{ menu.id }}" 
+                {% if menu.estado_menu %} checked {% endif %}>
+              <label class="form-check-label">Estado del Menú</label>
+            </div>
       </div>
     </div>
-
-
+    {% else %}
     <div class="food-items">
-      <img src="{% static 'images/food2.png'%}"/>
+      <img src="{{ menu.imagen.url }}"/>
       <div class="detalles">
         <div class="detalles-categoria">
-          <h5>Hamburgesa</h5>
-          <h5 class = "precio">Precio</h5>
+          <h5>{{ menu.nombre_menu }}</h5>
+          <h5 class = "precio">Precio: ${{ menu.precio }}</h5>
         </div>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-        <button> Agregar al carro</button>
+        <p>{{ menu.descripcion_menu}}</p>
+        <button class="btn btn-success">Agregar al carrito</button>
       </div>
     </div>
-
-    <div class="food-items">
-      <img src="{% static 'images/food3.png'%}"/>
-      <div class="detalles">
-        <div class="detalles-categoria">
-          <h5>Hamburgesa</h5>
-          <h5 class = "precio">Precio</h5>
-        </div>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-        <button> Agregar al carro</button>
-      </div>
-    </div>
-
-    <div class="food-items">
-      <img src="{% static 'images/food3.png'%}"/>
-      <div class="detalles">
-        <div class="detalles-categoria">
-          <h5>Hamburgesa</h5>
-          <h5 class = "precio">Precio</h5>
-        </div>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-        <button> Agregar al carro</button>
-      </div>
-    </div>
-
-    <div class="food-items">
-      <img src="{% static 'images/food3.png'%}"/>
-      <div class="detalles">
-        <div class="detalles-categoria">
-          <h5>Hamburgesa</h5>
-          <h5 class = "precio">Precio</h5>
-        </div>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-        <button> Agregar al carro</button>
-      </div>
-    </div>
-
-    <div class="food-items">
-      <img src="{% static 'images/food3.png'%}"/>
-      <div class="detalles">
-        <div class="detalles-categoria">
-          <h5>Hamburgesa</h5>
-          <h5 class = "precio">Precio</h5>
-        </div>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-        <button> Agregar al carro</button>
-      </div>
-    </div>
-
-    <div class="food-items">
-      <img src="{% static 'images/food3.png'%}"/>
-      <div class="detalles">
-        <div class="detalles-categoria">
-          <h5>Hamburgesa</h5>
-          <h5 class = "precio">Precio</h5>
-        </div>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-        <button> Agregar al carro</button>
-      </div>
-    </div>
-
-    <div class="food-items">
-      <img src="{% static 'images/food3.png'%}"/>
-      <div class="detalles">
-        <div class="detalles-categoria">
-          <h5>Hamburgesa</h5>
-          <h5 class = "precio">Precio</h5>
-        </div>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-        <button> Agregar al carro</button>
-      </div>
-    </div>
-
-    <div class="food-items">
-      <img src="{% static 'images/food3.png'%}"/>
-      <div class="detalles">
-        <div class="detalles-categoria">
-          <h5>Hamburgesa</h5>
-          <h5 class = "precio">Precio</h5>
-        </div>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-        <button> Agregar al carro</button>
-      </div>
-    </div>
-
+    {% endif %}
+    {% endfor %}
   </div>
 
 
@@ -189,7 +107,7 @@
             if (response.ok) {
               console.log(`Estado del menú con ID ${menu_id} actualizado`);
             } else {
-              console.error('Error al actualizar el estado del menú');
+              console.error(`Error al actualizar el estado del menú ${menu_id}`);
               // Vuelve a cambiar el estado del checkbox si hay un error
               event.target.checked = !isChecked;
             }
@@ -204,5 +122,5 @@
   </script>
 
 
-<br><br><br><br><br><br><br>
+
 {%endblock%}

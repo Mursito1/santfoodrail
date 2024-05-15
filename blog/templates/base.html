@@ -53,19 +53,19 @@
         </label>
         <nav class = "navbar">
           <ul>
-            <li>
-              <a href="{% url 'index' %}">Inicio</a>
-            </li>
-            <li>
-              <a href="{% url 'contacto' %}">Contáctanos</a>
-            </li>
-            <li>
-              <a href="{% url 'menus' %}">Pide Aquí</a>
-            </li>
+            
+            
+            
             {% if user.is_authenticated %}
               {% if user.username == 'admin' %}
               <li>
-                <a href="{% url 'crud' %}">CRUD</a>
+                <a href="{% url 'index' %}">Inicio</a>
+              </li>
+              <li>
+                <a href="{% url 'menus' %}">Menús</a>
+              </li>
+              <li>
+                <a href="{% url 'crud' %}">Contactos</a>
               </li>
               <li>
                 <a href="{% url 'logout' %}">Cerrar Sesión</a>
@@ -75,6 +75,15 @@
               </li>
               {% else %}
               <li>
+                <a href="{% url 'index' %}">Inicio</a>
+              </li>
+              <li>
+                <a href="{% url 'menus' %}">Pide Aquí</a>
+              </li>
+              <li>
+                <a href="{% url 'contacto' %}">Contáctanos</a>
+              </li>
+              <li>
                 <a href="{% url 'logout' %}">Cerrar Sesión</a>
               </li>
               <li>
@@ -82,6 +91,15 @@
               </li>
               {% endif %}
             {% else %}
+            <li>
+              <a href="{% url 'index' %}">Inicio</a>
+            </li>
+            <li>
+              <a href="{% url 'menus' %}">Pide Aquí</a>
+            </li>
+            <li>
+              <a href="{% url 'contacto' %}">Contáctanos</a>
+            </li>
             <li>
               <a href="{% url 'login' %}">Iniciar Sesión</a>
             </li>

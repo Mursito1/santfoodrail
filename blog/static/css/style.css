@@ -447,6 +447,7 @@ body {
      padding-top: 30px;
      padding-bottom: 15px;
      font-weight: bold;
+     text-decoration: underline;
 }
  .blog .blog_box p {
      color: #ffffff;
@@ -454,7 +455,7 @@ body {
      line-height: 28px;
      padding: 0px 20px;
      padding-bottom:28px;
-     font-weight: bold;
+     
 }
 
 
@@ -469,7 +470,7 @@ body {
 }
 
 .food-items{
-     background-color: white;
+     background-color: rgb(36, 33, 33);
      position: relative;
      grid-template-rows: auto 1fr;
      border-radius: 15px;
@@ -492,9 +493,10 @@ body {
 }
 
 .detalles-categoria h5{
-     color: #252525;
+     color: #ffffff;
      font-weight: 700;
      font-size: 20px;
+     font-weight: bold;
 }
 
 .precio{
@@ -502,11 +504,12 @@ body {
 }
 
 .detalles p{
-     color: #252525;
+     color: #ffffff;
      font-size: 15px;
      line-height: 28px;
      font-weight: 400;
      align-self: stretch;
+     
 }
 
 .detalles button{

@@ -9,5 +9,9 @@ urlpatterns = [
     path('contacto', views.contacto, name = 'contacto'),
     path('login', views.login, name = 'login'),
     path('registro', views.registro, name = 'registro'),
-    path('crud', views.crud, name = 'crud')
+    path('crud', views.crud, name = 'crud'),
+    path('agregar/<int:menu_id>/', views.agregar_menu, name='Add'),
+    path('eliminar/<int:menu_id>/', views.eliminar_menu, name='Del'),
+    path('restar/<int:menu_id>/', views.restar_menu, name='Sub'),
+    path('limpiar/', views.limpiar_carrito, name='CLS'),
 ]

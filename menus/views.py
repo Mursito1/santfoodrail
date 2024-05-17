@@ -15,4 +15,3 @@ class MenuViewSet(viewsets.ModelViewSet):
 class Ingrediente_menuViewSet(viewsets.ModelViewSet):
     queryset = Ingrediente_menu.objects.all()
     serializer_class = Ingrediente_menuSerializer
-

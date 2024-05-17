@@ -31,18 +31,13 @@
       <div class="detalles">
         <div class="detalles-categoria">
           <h5>{{ menu.nombre_menu }}</h5>
-          <h5 class = "precio">Precio: ${{ menu.precio }}</h5>
+          <p class = "precio">Precio: ${{ menu.precio }}</p>
         </div>
         <p>{{ menu.descripcion_menu}}</p>
-        <button>Agregar al carrito</button>
+        <a href="{% url 'Add' menu.id %}" class="btn btn-success">Agregar al carrito</a>
       </div>
     </div>
     {% endif %}
     {% endfor %}
   </div>
-
-  
-<br>
-
-
 {%endblock%}

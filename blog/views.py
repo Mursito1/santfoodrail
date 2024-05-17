@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from contactos.forms import ContactoForm
 from contactos.models import Contacto
+from menus.carrito import Carrito
 from .forms import CustomUserCreationForm
 from menus.models import Menu
 from django.contrib import messages
@@ -52,3 +53,26 @@ def contacto(request):
             data["form"] = formulario
 
     return render(request, 'contacto.html', data)
+
+def agregar_menu(request, menu_id):
+    carrito = Carrito(request)
+    menu = Menu.objects.get(id=menu_id)
+    carrito.agregar(menu)
+    return redirect("menus")
+
+def eliminar_menu(request, menu_id):
+    carrito = Carrito(request)
+    menu = Menu.objects.get(id=menu_id)
+    carrito.eliminar(menu)
+    return redirect("menus")
+
+def restar_menu(request, menu_id):
+    carrito = Carrito(request)
+    menu = Menu.objects.get(id=menu_id)
+    carrito.restar(menu)
+    return redirect("menus")
+
+def limpiar_carrito(request):
+    carrito = Carrito(request)
+    carrito.limpiar()
+    return redirect("menus")

@@ -10,7 +10,8 @@ from django.core.paginator import Paginator
 
 # Create your views here.
 def render_articles(request):
-    return render(request, 'index.html')
+    menus = Menu.objects.all()
+    return render(request, 'index.html', {'menus': menus})
 
 def nosotros(request):
     return render(request, 'nosotros.html')

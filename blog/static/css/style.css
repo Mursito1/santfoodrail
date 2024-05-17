@@ -266,6 +266,106 @@ body {
 }
 
 
+/*-------------------------------- BLOG EN TARJETAS --------------------------- **/
+
+.title {
+     text-align: center;
+     padding-top: 50px;
+ 
+}
+.title h2 {
+    font-size: 45px;
+    font-weight: 500;
+    line-height: 40px;
+    color: #fffffe;
+    padding: 20px 20px;
+    font-weight: bold;
+ }
+.title span {
+     color: #ffffff;
+     font-size: 17px;
+     line-height: 20px;
+     display: block;
+     font-weight: bold;
+     
+}
+
+.container-cards{
+     width: 100%;
+     display: flex;
+     max-width: 1200px;
+     margin: 0 auto;
+     
+}
+
+.card{
+     margin: 10px;
+     border-radius: 10px; /* para que la tarjeta tenga un borde redondeado */
+     color: #ffffff;
+     overflow: hidden;/* todo elemento fuera del contenedor se oculte y no aparezca en la tarjeta */
+     box-shadow: 0px 1px 10px rgb(0,0,0,0,2); /*sombra para las tajetas */
+     cursor: default; /*cursor por defecto al pasar por las tarjetas */
+     transition: all 400ms ease;
+     text-align: center;
+     
+     
+}
+
+.card:hover{
+     box-shadow: 5px 5px 20px rgba(0,0,0,0,4);
+     transform: translateY(-3%); /* el traslado de la tajeta sera en formato vertical en -3 % de su valor */
+
+}
+
+.card .contenido-card{
+     padding: 40px;
+     text-align: center;
+}
+
+.card .contenido-card p{
+     line-height: 1.5; /* Linea de parrafo con espacio entre si */
+     color: #030303;
+     font-size: 18px;
+     
+}
+
+.card .contenido-card h3{
+     font-weight: 600;
+     margin-bottom: 15px;
+     font-weight: bold;
+     
+}
+
+.card .contenido-card a{
+     text-decoration: none;
+     display: inline-block;
+     margin-top: 10px;
+     color: #2fb4cc;
+     border: 1px solid #2fb4cc;
+     border-radius: 4px;
+     transition: all 400ms ease;
+}
+
+.card .contenido-card a:hover{
+     background: #2fb4cc;
+     color: #fff
+}
+
+
+@media (max-width: 991px){
+     .container-cards{
+          width: 100%;
+          display: flex;
+          max-width: 1200px;
+          flex-wrap: wrap;
+          
+     }
+
+     
+     
+}
+
+
 
 /** slider section **/
 
@@ -390,98 +490,6 @@ body {
      padding: 92px 0px 0px 60px;
      margin-right: -64px;
 }
-
-
-
-/** end about **/
-/*-------------------------------- blog -----------------------------------------*/
-
-.container-blog{
-     width: 1800px;
-     margin: 0 auto;
-}
-
-.blog {
-    padding-top: 50px;
-    
-}
- .title {
-    text-align: center;
-     padding-bottom: 30px;
-
-}
- .title h2 {
-    font-size: 45px;
-     font-weight: 500;
-     line-height: 40px;
-     color: #fffffe;
-     padding: 20px 0px;
-     font-weight: bold;
-}
- .title span {
-    color: #ffffff;
-     font-size: 17px;
-     line-height: 20px;
-     display: block;
-     font-weight: bold;
-}
- .blog .blog_box {
-     border:#a1a1a1 solid 4px;
-     background: #252020;
-     
-}
- .blog .blog_box .blog_img_box {
-    background: #fff;
-     box-shadow: #ddd 0px 3px 3px 0px;
-
-}
- .blog .blog_box .blog_img_box figure {
-    margin:0;
-     position: relative;
-}
- .blog_img_box figure img {
-    width: 100%;
-}
- .blog .blog_box .blog_img_box figure span {
-     background: #000;
-     top: 0;
-     text-align: center;
-     padding: 5px 10px;
-     color: #ffffff;
-     right: 0;
-     left: 0;
-     position: absolute;
-     width: 100px;
-}
- .blog .blog_box h3 {
-     color: #ffffff;
-     font-size: 22px;
-     line-height: 25px;
-     font-weight: 500;
-     padding: 0px 20px;
-     padding-top: 30px;
-     padding-bottom: 15px;
-     font-weight: bold;
-     text-decoration: underline;
-}
- .blog .blog_box p {
-     color: #ffffff;
-     font-size: 17px;
-     line-height: 28px;
-     padding: 0px 20px;
-     padding-bottom:28px;
-     
-}
-
-
-@media screen and (max-width: 991px){
-     .container-blog{
-          width: 90%;
-          
-     }
-    
-}
-
 
 /* ---------------------------------------- menus ------------------------------*/
 

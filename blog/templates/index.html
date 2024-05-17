@@ -88,53 +88,50 @@
     </div>
 </section>
   
-<div class = "container-blog">
-  <div class="blog">
-    <div class="title">
-      <i><img src="{% static 'images/title.png' %}" alt="#"/></i>
-      <center><h2>Nuestro Blog</h2></center>
-      <span>Observa algunas de las publicaciones sobre nuestras comidas</span>
-    </div>
-    <div class="row">
-      <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 mar_bottom">
-        <div class="blog_box">
-          <div class="blog_img_box">
-            <figure><img src="{% static 'images/food1.png' %}" alt="#"/>
-            <span>02 FEB 2024</span>
-            </figure>
-          </div>
-          <center><h3>Delivery Burger</h3></center>
-          <p>Hambuguesa seleccionada con los mejores ingredientes, especial para poder salir de un apuro en comer algo delicioso, carne de primera seleccion acompañado de 
-              tomate, lechuga, cebolla y una rica capa de mayonesa casera con cibullete que le da un toque de sabor unico.
-          </p>
-        </div>
-      </div>
-      <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 mar_bottom">
-        <div class="blog_box">
-          <div class="blog_img_box">
-            <figure><img src="{% static 'images/food5.png' %}" alt="#"/>
-            <span>05 FEB 2024</span>
-            </figure>
-          </div>
-          <center><h3>Menu Vegetariano</h3></center>
-          <p>Como nuestra misión es tener variedad para todos nuestros clientes, no puede faltar la opción más liviana y saludable. Preparada con tortilla recién hecha, 
-            los mejores y más frescos ingredientes, tomate, lechuga pepinillo,pollo en tiras y aderezo al gusto</p>
-        </div>
-      </div>
-      <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-        <div class="blog_box">
-          <div class="blog_img_box">
-            <figure><img src="{% static 'images/food9.png' %}" alt="#"/>
-            <span>08 FEB 2024</span>
-            </figure>
-          </div>
-          <center><h3>Pizza</h3></center>
-          <p>Como en todo local, siempre nos intentamos adecuar a todos los gustos, con los mejores ingredientes, una base de masa delgada con bordes de queso, 
-            ademas de una base de salsa de tomate, queso mozzarella y peperonni para darle un sazon de picante. </p>
-        </div>
-      </div>
+
+<div class="title">
+  <i><img src="{% static 'images/title.png' %}" alt="#"/></i>
+  <center><h2>Nuestro Blog</h2></center>
+  <span>Observa algunas de las publicaciones sobre nuestras comidas</span>
+</div>
+
+<div class="container-cards">
+  <div class="card">
+    <figure>
+      <img src="{% static 'images/food1.png' %}" alt="#"/>
+    </figure>
+    <div class="contenido-card">
+      <h3>Delivery Burger</h3>
+      <p>Hambuguesa seleccionada con los mejores ingredientes, especial para poder salir de un apuro en comer algo delicioso, carne de primera seleccion acompañado de 
+        tomate, lechuga, cebolla y una rica capa de mayonesa casera con cibullete que le da un toque de sabor unico.
+      </p>
     </div>
   </div>
+
+  <div class="card">
+    <figure>
+      <img src="{% static 'images/food5.png' %}" alt="#"/>
+    </figure>
+    <div class="contenido-card">
+      <h3>Menu Vegetariano</h3>
+      <p>Como nuestra misión es tener variedad para todos nuestros clientes, no puede faltar la opción más liviana y saludable. Preparada con tortilla recién hecha, 
+        los mejores y más frescos ingredientes, tomate, lechuga pepinillo,pollo en tiras y aderezo al gusto
+      </p>
+    </div>
+  </div>
+
+  <div class="card">
+    <figure>
+      <img src="{% static 'images/food9.png' %}" alt="#"/>
+    </figure>
+    <div class="contenido-card">
+      <h3>Pizza</h3>
+      <p>Como en todo local, siempre nos intentamos adecuar a todos los gustos, con los mejores ingredientes, una base de masa delgada con bordes de queso, 
+        ademas de una base de salsa de tomate, queso mozzarella y peperonni para darle un sazon de picante.
+      </p>
+    </div>
+  </div>
+
 </div>
 
 <br>

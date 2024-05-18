@@ -3,15 +3,16 @@
 {% block contenido %}
 {% load crispy_forms_tags %}
 {% if user.username == 'admin' %}
-    <div class="card">
-                <div class="col-12 col-md6 offset-md-3">
-                    <div class="card-body">
+<div class="bg_bg">
+    <div class="row">
+      <div class="col-12 col-md-6 offset-md-3">
+        <div class="card">
+          <div class="card-body">
                         <h2>Nuevo Producto</h2>
-                        <div class="row">
-                            <form action="" method="post" enctype="multipart/form-data">
+                            <form action="" class="formulario_contacto" method="post" enctype="multipart/form-data">
                                 {% csrf_token %}
                                 {{ form | crispy }}
-
+                                <br>
                                 <div class="d-flex justify-content">
                                     <input type="reset" value="Cancelar" class="btn btn-secondary">
                                     &nbsp;

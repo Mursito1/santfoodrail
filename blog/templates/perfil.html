@@ -24,6 +24,12 @@
           <a href="{% url 'crud' %}" class="btn btn-success">Revisar contactos</a>
         </div>
     </div>
+    <div class="food-items">
+        <img src="{% static 'images/logout.png'%}"/>
+        <div class="detalles">
+            <a href="{% url 'logout' %}" class="btn btn-success">Cerrar Sesión</a>
+        </div>
+    </div>
     {% else %}
     <div class="food-items">
         <img src="{% static 'images/moto.png'%}"/>
@@ -35,6 +41,18 @@
         <img src="{% static 'images/privacidad.png'%}"/>
         <div class="detalles">
           <a href="#" class="btn btn-success">Privacidad</a>
+        </div>
+    </div>
+    <div class="food-items">
+        <img src="{% static 'images/comidas.png'%}"/>
+        <div class="detalles">
+            <a href="{% url 'menus' %}" class="btn btn-success">Hacer un pedido</a>
+        </div>
+    </div>
+    <div class="food-items">
+        <img src="{% static 'images/logout.png'%}"/>
+        <div class="detalles">
+            <a href="{% url 'logout' %}" class="btn btn-success">Cerrar Sesión</a>
         </div>
     </div>
     {% endif %}

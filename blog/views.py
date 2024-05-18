@@ -1,8 +1,8 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from contactos.forms import ContactoForm
 from contactos.models import Contacto
 from menus.carrito import Carrito
-from .forms import CustomUserCreationForm
+from .forms import CustomUserCreationForm, MenuForm
 from menus.models import Menu
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
@@ -35,10 +35,6 @@ def registro(request):
             return redirect(to="index")
         data["form"] = formulario
     return render(request, 'registration/registro.html', data)
-
-def menus(request):
-    menus = Menu.objects.all()
-    return render(request, 'menus.html', {'menus': menus})
 
 def contacto(request):
     data = {
@@ -77,3 +73,36 @@ def limpiar_carrito(request):
     carrito = Carrito(request)
     carrito.limpiar()
     return redirect("menus")
+
+def agregar_producto(request):
+    data = {
+        'form': MenuForm()
+    }
+    if request.method == 'POST':
+        formulario = MenuForm(data=request.POST, files=request.FILES)
+        if formulario.is_valid():
+            formulario.save()
+            data["mensaje"] = "Guardado correctamente"
+        else:
+            data["form"] = formulario
+    return render(request, 'administracion/agregar.html', data)
+
+def perfil(request):
+    return render(request, 'perfil.html')
+
+def modificar_producto(request, id):
+    producto = get_object_or_404(Menu, id=id)
+    data = {
+        'form': MenuForm(instance=producto)
+    }
+    if request.method == 'POST':
+        formulario = MenuForm(data=request.POST, instance=producto, files=request.FILES)
+        if formulario.is_valid():
+            formulario.save()
+            return redirect(to="menus")
+        data["form"] = formulario
+    return render(request, 'administracion/modificar_menu.html', data)
+
+def menus(request):
+    menus = Menu.objects.all()
+    return render(request, 'menus.html', {'menus': menus})

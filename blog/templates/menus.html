@@ -14,15 +14,7 @@
           <h5 class = "precio">{{ menu.precio }}</h5>
         </div>
         <p>{{ menu.descripcion_menu}}</p>
-          <button class="btn btn-primary btn-edit">Editar</button>
-            <div class="form-check">
-              <input 
-                type="checkbox" 
-                class="form-check-input menu-status-toggle" 
-                data-menu-id="{{ menu.id }}" 
-                {% if menu.estado_menu %} checked {% endif %}>
-              <label class="form-check-label">Estado del Menú</label>
-            </div>
+        <a href="{% url 'modificar_producto' menu.id %}" class="btn btn-success">Editar</a>
       </div>
     </div>
     {% else %}

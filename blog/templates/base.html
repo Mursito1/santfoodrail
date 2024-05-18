@@ -72,7 +72,7 @@
                 <a href="{% url 'logout' %}">Cerrar Sesión</a>
               </li>
               <li>
-                <a href="#">@{{ user.username }}</a>
+                <a href="{% url 'perfil' %}">@{{ user.username }}</a>
               </li>
               {% else %}
               <li>
@@ -88,7 +88,7 @@
                 <a href="{% url 'logout' %}">Cerrar Sesión</a>
               </li>
               <li>
-                <a href="#">@{{ user.username }}</a>
+                <a href="{% url 'perfil' %}">@{{ user.username }}</a>
               </li>
               <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#carritoOffcanvas" aria-controls="offcanvasRight">
                 <svg xmlns="http://www.w3.org/2000/svg" width="29" height="21" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">
@@ -182,7 +182,7 @@
         </div>
     </div>
     <div class="grupo-2">
-        <small>&copy; 2024 <b>SantFood</b> - Todos los Derechos Reservados.</small>
+        <small>&copy; 2024 <b>SantFood</b></small>
     </div>
 </footer>
 </body>

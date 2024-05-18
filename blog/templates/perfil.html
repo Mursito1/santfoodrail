@@ -1,0 +1,49 @@
+{% extends "base.html"%}
+{% load static %}
+{% block contenido %}
+
+
+<div class="menu-compras">
+{% if user.is_authenticated %}
+    {% if user.username == 'admin' %}
+    <div class="food-items">
+        <img src="{% static 'images/comidas.png'%}"/>
+        <div class="detalles">
+            <a href="{% url 'agregar_producto' %}" class="btn btn-success">Agregar menús</a>
+        </div>
+    </div>
+    <div class="food-items">
+        <img src="{% static 'images/comidas.png'%}"/>
+        <div class="detalles">
+            <a href="{% url 'menus' %}" class="btn btn-success">Modificar menús</a>
+        </div>
+    </div>
+    <div class="food-items">
+        <img src="{% static 'images/contactos.png'%}"/>
+        <div class="detalles">
+          <a href="{% url 'crud' %}" class="btn btn-success">Revisar contactos</a>
+        </div>
+    </div>
+    {% else %}
+    <div class="food-items">
+        <img src="{% static 'images/moto.png'%}"/>
+        <div class="detalles">
+          <a href="#" class="btn btn-success">Mis pedidos</a>
+        </div>
+    </div>
+    <div class="food-items">
+        <img src="{% static 'images/privacidad.png'%}"/>
+        <div class="detalles">
+          <a href="#" class="btn btn-success">Privacidad</a>
+        </div>
+    </div>
+    {% endif %}
+{% else %}
+<div class="card">
+    <h1>Debes iniciar sesión para ver tu perfil</h1>
+    <a href="{% url 'login' %}">Iniciar Sesión</a>
+</div>
+{% endif %}
+</div>
+
+{%endblock%}

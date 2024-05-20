@@ -164,9 +164,7 @@ body {
        
      }
 
-     
-
-     
+ 
 }
 /*--------------------------------------------------------------------- header ---------------------------------------------------------------------*/
 
@@ -188,7 +186,7 @@ body {
      display: flex;
      align-items: center;
      justify-content: space-between;
-     z-index: 200;
+     z-index: 100;
 }
 
 .logo{
@@ -201,19 +199,18 @@ body {
 }
 
 .menu .navbar li a{
-     font-size: 16px;
-     padding: 20px;
+     padding: 10px;
      color: #ffffff;
      display: block;
-     transition: all 0.5s ease;
+     transition: all 400ms ease;
      font-weight: bold;
 }
 
 .menu .navbar ul li a:hover{
-     padding: 8px 16px;
-     background: #ffff;
-     color: #000;
-     border-radius: 50px; 
+     transform: translateY(-10%);
+     background-color: #ffff;
+     color:#000;
+     border-radius: 45px;
 }
 
 #menu{
@@ -418,7 +415,7 @@ body {
 .resip_section {
     background: #212020;
     margin-top: 0;
-    padding: 60px 0px 50px 0px;
+    padding: 30px 0px 20px 0px;
     border-top: solid rgba(255,255,255,.1) 1px;
     box-shadow: inset 0 10px 30px -16px #000;
 }
@@ -449,47 +446,101 @@ body {
  
 /** ---------------------------  about ---------------------------------**/
 
+.about-1{
+     margin: 30px;
+     padding: 5px;
+     padding-top: 50px;
+}
 
- .about {
-    padding-top: 90px;
+.about-1 h1{
+     text-align: center;
+     color: #000000;
+     font-weight: bold;
 }
- .about .about_box {
-    background: #191918;
-     padding: 55px 40px;
+
+.about-1 p{
+     text-align: center;
+     padding: 3px;
+     color: #000000;
+     
 }
- .about .about_box h3 {
-     font-size: 30px;
-     line-height: 28px;
-     color: #fff;
-     font-weight: 500;
-     padding: 0;
+
+.about-1{
+     margin-bottom: 20px;
+     margin-top: 20px;
+     background-color: rgb(245, 240, 240);
+     padding: 80px,30px;
+     box-shadow: 0 0 9px rgba(0,0,0,6);
+     transition: all 400ms ease;
+     text-align: center;
+     border-radius: 15px;
 }
- .about .about_box p {
-     color: #ffff;
-     font-size: 17px;
-     line-height: 28px;
-     padding: 30px 0px;
-     font-weight: 400;
+
+.about-1:hover{
+     box-shadow: 5px 5px 20px rgba(0,0,0,0,4);
+     transform: translateY(-3%);
+     cursor: default;
+     
 }
- .about .about_box a {
-     color: #fff;
-     font-size: 22px;
-     line-height: 29px;
+
+.about-item{
+     margin-bottom: 20px;
+     margin-top: 20px;
+     background-color: rgb(245, 240, 240);
+     padding: 80px,30px;
+     box-shadow: 0 0 9px rgba(0,0,0,6);
+     transition: all 400ms ease;
+     text-align: center;
+     border-radius: 15px;
 }
- .about .about_box a:hover {
-     color: #e7bb0b;
-}
- .about .about_img {
-     height: 100%;
-     background: #e7bb0b;
-     margin-top: 90px;
-}
- .about .about_img figure {
+
+.about-item i{
+     font-size: 43px;
      margin: 0;
-     margin-right: 0px;
-     padding: 92px 0px 0px 60px;
-     margin-right: -64px;
 }
+
+.about-item h3{
+     font-size: 25px;
+     margin-bottom: 10px;
+     margin-top: 20px;
+
+}
+
+.about-item hr{
+     width: 46px;
+     height: 3px;
+     background-color: #5fbff9;
+     margin: 0 auto;
+     border: nome;
+}
+
+.about-item p{
+     margin-top: 20px;
+
+}
+
+.about-item:hover{
+     box-shadow: 5px 5px 20px rgba(0,0,0,0,4);
+     transform: translateY(-3%);
+     cursor: default;
+
+}
+
+.about-item p{
+     margin-top: 20px;
+}
+
+
+.container-about{
+     width: 100%;
+     max-width: 1200px;
+     margin: 0 auto;
+
+}
+
+
+
+
 
 /* ---------------------------------------- menus ------------------------------*/
 
@@ -501,7 +552,7 @@ body {
 }
 
 .food-items{
-     background-color: rgb(36, 33, 33);
+     background-color: rgb(245, 240, 240);
      position: relative;
      grid-template-rows: auto 1fr;
      border-radius: 15px;
@@ -510,8 +561,8 @@ body {
 }
 
 .food-items img{
-     width: 92%;
-     position: relative;
+     width: 100%;
+     position: center;
      height: 280px;
      border-radius: 15px 15px 0 0;
 }
@@ -521,13 +572,17 @@ body {
      display: grid;
      grid-template-rows: auto 1fr 50px;
      grid-row-gap: 15px;
+    
+     
 }
 
 .detalles-categoria h5{
-     color: #ffffff;
+     color: #000000;
      font-weight: 700;
      font-size: 20px;
      font-weight: bold;
+     text-align: center;
+    
 }
 
 .precio{
@@ -535,16 +590,16 @@ body {
 }
 
 .detalles p{
-     color: #ffffff;
-     font-size: 15px;
+     color: #000000;
+     font-size: 16px;
      line-height: 28px;
-     font-weight: 400;
+     font-weight: bold;
      align-self: stretch;
      
 }
 
 .detalles a{
-     background: #00460c;
+     background: #ff1f01;
      border: none;
      color: #fff;
      font-size: 16px;
@@ -552,6 +607,8 @@ body {
      border-radius: 5px;
      width: 180px;
      cursor: pointer;
+     
+     
 }
 
 /*--------------------------------------------------------------------- footer ---------------------------------------------------------------------*/
@@ -677,4 +734,5 @@ body {
      }
      
 }
-     
+
+

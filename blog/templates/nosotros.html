@@ -2,14 +2,69 @@
 {% load static %}
 
 {%block contenido%}
-<style>
-  body{
-    background: url(static/images/bg.jpg);
-    background-size: 100%;
-  }
-</style> 
 
-<div class="about">
+
+<section id= "about">
+  <div class = "about-1">
+    <h1>Sobre Nosotros</h1>
+    <i><img src="{% static 'images/title.png' %}" alt="#"/></i>
+    <p>Nuestro labor diario es siempre traer los mejores sabores a nuestor clientes, es una meta que cada uno de los involucrados en este lugar queremos lograr,
+      dia a dia, traemos nuevas novedades para nuestra amada clientela, que sientan en cada una de nuestras preparaciones un sabor unico y distintivo frente a otros lugares,
+      queremos siempre lo mejor para nuestros clientes e intentaremos siempre de alcanzar ese punto.
+    </p>
+  </div>
+
+  <div id = "about-2">
+    <div class = "content-box-lg">
+      <div class = "container-about">
+        <div class = "row">
+          <div class = "col-md-4">
+            <div class = "about-item text-center">
+              <br>
+              <i class = "fa fa-book"></i>
+              <h3>MISION </h3>
+              <hr>
+              <p> RELLENO
+
+              </p>
+            </div>
+          </div>
+          
+          <div class = "col-md-4">
+            <div class = "about-item text-center">
+              <br>
+              <i class = "fa fa-globe"></i>
+              <h3>OBJETIVOS </h3>
+              <hr>
+              <p> RELLENO
+
+              </p>
+            </div>
+          </div>
+          
+          <div class = "col-md-4">
+            <div class = "about-item text-center">
+              <br>
+              <i class = "fa fa-pencil"></i>
+              <h3>COMPROMISO </h3>
+              <hr>
+              <p> RELLENO
+
+              </p>
+            </div>
+          </div>  
+        </div>
+      </div> 
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+{% comment %} <div class="about">
     <div class="container">
       <div class="row">
          <div class="col-md-12">
@@ -71,6 +126,6 @@
     </div>
   </div>
   <br>
-  <br>
+  <br> {% endcomment %}
 
 {%endblock%}

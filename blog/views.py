@@ -116,4 +116,4 @@ def detalle_menu(request, id_menu):
         # Manejar el caso en el que el menú no se encuentre
         menu = None
         reviews = None
-    return render(request, 'blog/detalle_menu.html', {'menu': menu, 'reviews': reviews})
+    return render(request, 'detalle_menu.html', {'menu': menu, 'reviews': reviews})

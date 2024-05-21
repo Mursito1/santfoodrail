@@ -394,23 +394,8 @@ body {
      font-weight: bold;
 }
 
- .main_bt_border {
-     color: #fff;
-     font-size: 18px;
-     font-weight: 300;
-     min-width: 150px;
-     border: solid #fff 1px;
-     float: left;
-     text-align: center;
-     min-height: 50px;
-     line-height: 50px;
-     margin-top: 20px;
-}
- .main_bt_border:hover, .main_bt_border:focus {
-     background: #e3d105;
-     border-color: #e3d105;
-     color: #222;
-}
+
+
 
 .resip_section {
     background: #212020;

@@ -57,8 +57,7 @@ INSTALLED_APPS = [
     'contactos',
     'menus',
     'pedidos',
-    'rest_framework',
-    'calificaciones',
+    'rest_framework'
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

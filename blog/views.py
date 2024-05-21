@@ -7,7 +7,7 @@ from menus.models import Menu
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.core.paginator import Paginator
-from calificaciones.models import Menu, Review
+
 
 # Create your views here.
 def render_articles(request):

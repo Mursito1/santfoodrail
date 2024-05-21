@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import include, path
 from blog import views
 
 urlpatterns = [
@@ -17,4 +17,5 @@ urlpatterns = [
     path('agregar-producto/', views.agregar_producto, name='agregar_producto'),
     path('perfil/', views.perfil, name='perfil'),
     path('modificar-producto/<id>/', views.modificar_producto, name='modificar_producto'),
+    path('calificaciones/', include('calificaciones.urls')),
 ]

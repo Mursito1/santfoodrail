@@ -7,6 +7,7 @@ from menus.models import Menu
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.core.paginator import Paginator
+from calificaciones.models import Menu, Review
 
 # Create your views here.
 def render_articles(request):
@@ -106,3 +107,13 @@ def modificar_producto(request, id):
 def menus(request):
     menus = Menu.objects.all()
     return render(request, 'menus.html', {'menus': menus})
+
+def detalle_menu(request, id_menu):
+    try:
+        menu = Menu.objects.get(pk=id_menu)
+        reviews = Review.objects.filter(menu=menu)
+    except Menu.DoesNotExist:
+        # Manejar el caso en el que el menú no se encuentre
+        menu = None
+        reviews = None
+    return render(request, 'blog/detalle_menu.html', {'menu': menu, 'reviews': reviews})

@@ -17,5 +17,5 @@ urlpatterns = [
     path('agregar-producto/', views.agregar_producto, name='agregar_producto'),
     path('perfil/', views.perfil, name='perfil'),
     path('modificar-producto/<id>/', views.modificar_producto, name='modificar_producto'),
-    path('calificaciones/', include('calificaciones.urls')),
+    path('calificaciones/<int:id_menu>/', views.detalle_menu, name='detalle_menu'),
 ]

@@ -199,14 +199,16 @@ body {
 .menu .navbar ul li {
      position: relative;
      float: left;
+
 }
 
 .menu .navbar li a{
      padding: 10px;
      color: #ffffff;
-     display: block;
+     display: flex;
      transition: all 400ms ease;
      font-weight: bold;
+
 }
 
 .menu .navbar ul li a:hover{

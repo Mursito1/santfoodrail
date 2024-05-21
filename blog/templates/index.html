@@ -1,7 +1,28 @@
 {% extends "base.html"%}
 {% load static %}
 {%block contenido%}
-<div class="slider_section">
+
+
+<div class = "content">
+  <div class = "contentBx">
+    <h1>Bienvenido al mejor local de comida a solo un paso de ti</h1>
+    <p> COMENTARIO </p>
+    <a href="{% url 'menus' %}">
+  </div>
+  <div class = "imgBX">
+    <img src="{% static 'images/slider1.png' %}" alt="#" />
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+{% comment %} <div class="slider_section">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
@@ -29,7 +50,7 @@
       </div>
     </div>
   </div>
-</div>
+</div> {% endcomment %}
 
 
 <section class="resip_section">

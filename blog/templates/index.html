@@ -3,26 +3,7 @@
 {%block contenido%}
 
 
-<div class = "content">
-  <div class = "contentBx">
-    <h1>Bienvenido al mejor local de comida a solo un paso de ti</h1>
-    <p> COMENTARIO </p>
-    <a href="{% url 'menus' %}">
-  </div>
-  <div class = "imgBX">
-    <img src="{% static 'images/slider1.png' %}" alt="#" />
-  </div>
-</div>
-
-
-
-
-
-
-
-
-
-{% comment %} <div class="slider_section">
+<div class="slider_section">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
@@ -50,33 +31,9 @@
       </div>
     </div>
   </div>
-</div> {% endcomment %}
+</div> 
 
 
-<section class="resip_section">
-  <div class="container">
-    <div class="ourheading">
-      <center><h2>Nuestras Recetas!</h2></center>
-    </div>
-  </div>
-
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="owl-carousel owl-theme">
-          {% for menu in menus %} 
-            <div class="item">
-                <div class="product_blog_img">
-                    <a href="{% url 'menus' %}"><img src="{{ menu.imagen.url }}" alt="#" /></a>
-                </div>
-                <div class="product_blog_cont">
-                    <h3>{{ menu.nombre_menu }}</h3>   
-                </div>
-            </div>
-          {% endfor %}
-      </div>
-    </div>
-</section>
   
 
 <div class="title">

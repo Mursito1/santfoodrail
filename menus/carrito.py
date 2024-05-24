@@ -9,18 +9,21 @@ class Carrito:
         else:
             self.carrito = carrito
 
-    def agregar(self, menu):
+    def agregar(self, menu, ingredientes=None):
         id = str(menu.id)
         if id not in self.carrito.keys():
-            self.carrito[id]={
+            self.carrito[id] = {
                 "menu_id": menu.id,
                 "nombre": menu.nombre_menu,
                 "acumulado": menu.precio,
                 "cantidad": 1,
+                "ingredientes": [ingrediente.nombre for ingrediente in ingredientes] if ingredientes else []
             }
         else:
             self.carrito[id]["cantidad"] += 1
             self.carrito[id]["acumulado"] += menu.precio
+            if ingredientes:
+                self.carrito[id]["ingredientes"] = list(set(self.carrito[id]["ingredientes"] + [ingrediente.nombre for ingrediente in ingredientes]))
         self.guardar_carrito()
 
     def guardar_carrito(self):
@@ -44,4 +47,3 @@ class Carrito:
     def limpiar(self):
         self.session["carrito"] = {}
         self.session.modified = True
-    

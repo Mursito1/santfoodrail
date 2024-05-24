@@ -13,7 +13,7 @@ class Pedido(models.Model):
     def int(self):
         return self.nombre_cliente
     
-class Pedido_menu(models.Model):
+class Pedido_Menu(models.Model):
     id_menu = models.ForeignKey(Menu, on_delete=models.PROTECT)
     id_pedido = models.ForeignKey(Pedido, on_delete=models.PROTECT)
 

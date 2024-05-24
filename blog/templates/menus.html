@@ -23,7 +23,7 @@
       <div class="detalles">
         <div class="detalles-categoria">
           <h5>{{ menu.nombre_menu }}</h5>
-          <p class = "precio">Precio: ${{ menu.precio }}</p>
+          <p class = "precio">${{ menu.precio }}</p>
         </div>
         <p>{{ menu.descripcion_menu}}</p>
         <a href="{% url 'Add' menu.id %}" class="btn btn-success">Agregar al carrito</a>

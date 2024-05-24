@@ -107,3 +107,4 @@ def modificar_producto(request, id):
 def menus(request):
     menus = Menu.objects.all()
     return render(request, 'menus.html', {'menus': menus})
+

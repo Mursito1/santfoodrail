@@ -114,10 +114,12 @@ def editar_contacto(request, id):
         form = ContactoAdminForm(request.POST, instance=contacto)
         if form.is_valid():
             form.save()
-            return redirect('crud')  # Redirige a la vista de lista de contactos
+            return redirect('crud')
     else:
         form = ContactoAdminForm(instance=contacto)
     return render(request, 'administracion/modificar_contacto.html', {'form': form, 'contacto': contacto})
 
 def pago(request):
-    return render(request, 'pago.html')
+        carrito = Carrito(request)
+        contenido_carrito = carrito.carrito.values()
+        return render(request, 'pago.html', {'contenido_carrito': contenido_carrito})

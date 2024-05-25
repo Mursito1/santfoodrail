@@ -118,3 +118,6 @@ def editar_contacto(request, id):
     else:
         form = ContactoAdminForm(instance=contacto)
     return render(request, 'administracion/modificar_contacto.html', {'form': form, 'contacto': contacto})
+
+def pago(request):
+    return render(request, 'pago.html')

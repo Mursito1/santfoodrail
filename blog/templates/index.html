@@ -33,7 +33,30 @@
   </div>
 </div> 
 
+<section class="resip_section">
+  <div class="container">
+    <div class="ourheading">
+      <center><h2>Nuestras Recetas!</h2></center>
+    </div>
+  </div>
 
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="owl-carousel owl-theme">
+          {% for menu in menus %} 
+            <div class="item">
+                <div class="product_blog_img">
+                    <a href="{% url 'menus' %}"><img src="{{ menu.imagen.url }}" alt="#" /></a>
+                </div>
+                <div class="product_blog_cont">
+                    <h3>{{ menu.nombre_menu }}</h3>   
+                </div>
+            </div>
+          {% endfor %}
+      </div>
+    </div>
+</section>
   
 
 <div class="title">

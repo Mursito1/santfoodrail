@@ -175,6 +175,7 @@ body {
 }
 
 .back{
+     position: sticky;
      padding: 52px 0;
      background-color: #252525;
 }
@@ -197,12 +198,13 @@ body {
 }
 
 .menu .navbar ul li {
-     position: relative;
+     position: sticky;
      float: left;
 
 }
 
 .menu .navbar li a{
+     position: sticky;
      padding: 10px;
      color: #ffffff;
      display: flex;
@@ -248,12 +250,16 @@ body {
      }
 
      .menu .navbar {
-          position: absolute;
+          position: sticky;
           top: 100%;
           left: 0;
           right: 0;
           background-color: #252525;
           display: none;
+     }
+
+     .navbar {
+          position: sticky;
      }
 
      .menu .navbar ul li {

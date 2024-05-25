@@ -2,34 +2,29 @@
 {% load static %}
 {% block contenido %}
 
-
-  <div class="menu-compras">
-    {% for menu in menus %}
-    {% if user.username == 'admin' %}
-    <div class="food-items">
-      <img src="{{ menu.imagen.url }}"/>
-      <div class="detalles">
-        <div class="detalles-categoria">
-          <h5>{{ menu.nombre_menu }}</h5>
-          <h5 class = "precio">{{ menu.precio }}</h5>
+<div class="menu-compras">
+  {% for menu in menus %}
+    {% if user.username == 'admin' or menu.estado_menu %}
+      <div class="food-items">
+        <img src="{{ menu.imagen.url }}"/>
+        <div class="detalles">
+          <div class="detalles-categoria">
+            <h5>{{ menu.nombre_menu }}</h5>
+            <p class="precio">${{ menu.precio }}</p>
+            {% if user.username == 'admin' %}
+              <p>Estado: {{ menu.estado_menu|yesno:"Activo,Inactivo" }}</p>
+            {% endif %}
+          </div>
+          <p>{{ menu.descripcion_menu }}</p>
+          {% if user.username == 'admin' %}
+            <a href="{% url 'modificar_producto' menu.id %}" class="btn btn-success">Editar</a>
+          {% else %}
+            <a href="{% url 'Add' menu.id %}" class="btn btn-success">Agregar al carrito</a>
+          {% endif %}
         </div>
-        <p>{{ menu.descripcion_menu}}</p>
-        <a href="{% url 'modificar_producto' menu.id %}" class="btn btn-success">Editar</a>
       </div>
-    </div>
-    {% else %}
-    <div class="food-items">
-      <img src="{{ menu.imagen.url }}"/>
-      <div class="detalles">
-        <div class="detalles-categoria">
-          <h5>{{ menu.nombre_menu }}</h5>
-          <p class = "precio">${{ menu.precio }}</p>
-        </div>
-        <p>{{ menu.descripcion_menu}}</p>
-        <a href="{% url 'Add' menu.id %}" class="btn btn-success">Agregar al carrito</a>
-      </div>
-    </div>
     {% endif %}
-    {% endfor %}
-  </div>
-{%endblock%}
+  {% endfor %}
+</div>
+
+{% endblock %}

@@ -3,37 +3,269 @@
 {%block contenido%}
 
 
-<div class="slider_section">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="full">
-          <div id="main_slider" class="carousel vert slide" data-ride="carousel" data-interval="5000">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <div class="row">
-                  <div class="col-md-5">
-                    <div class="slider_cont">
-                      <h3>Bienvenido al mejor local de comida a solo un paso de ti</h3>
-                      <p>Si no encuentras el producto que buscas, ¡te invitamos a dejar tu comentario para el futuro!</p>
-                    </div>
-                  </div>
-                  <div class="col-md-7">
-                    <div class="slider_image ">
-                      <img class="img-responsive" src="{% static 'images/slider1.png' %}" alt="#" />
-                    </div>
-                  </div>
-                </div>
+<main class = "inicio">
+  <div class = "slider-content container">
+    <div class = "swiper mySwiper-1">
+      <div class = "swiper-wrapper">
+
+        {% comment %} SLIDER MENU PRINCIPAL - BUCLE  INICIO {% endcomment %}
+        <div class = "swiper-slide">
+          <div class = "slider">
+            <div class = "slider-txt">
+              <h1> Hamburguesa </h1>
+              <p>
+                RELLENO PARA SLIDER
+              </p>
+              <div class = "botones">
+                <a href = "#" class = "btn-1"> Comprar </a>
+                <a href = "#" class = "btn-1"> Menu </a>
               </div>
+            </div>
+            <div class = "slider-img">
+              <img src="{% static 'images/slider1.png'%}" alt = ""/>
             </div>
           </div>
         </div>
+
+        {% comment %} SLIDER MENU PRINCIPAL - BUCLE  FINAL {% endcomment %}
+        {% comment %} BUCLE  INICIO {% endcomment %}
+        <div class = "swiper-slide">
+          <div class = "slider">
+            <div class = "slider-txt">
+              <h1> Burrito </h1>
+              <p>
+                RELLENO PARA SLIDER
+              </p>
+              <div class = "botones">
+                <a href = "#" class = "btn-1"> Comprar </a>
+                <a href = "#" class = "btn-1"> Menu </a>
+              </div>
+            </div>
+            <div class = "slider-img">
+              <img src="{% static 'images/slider2.png'%}" alt = ""/>
+            </div>
+          </div>
+        </div>
+        {% comment %} BUCLE  FIN {% endcomment %}
+        {% comment %} BUCLE  INICIO {% endcomment %}
+        <div class = "swiper-slide">
+          <div class = "slider">
+            <div class = "slider-txt">
+              <h1> Hambuguesa </h1>
+              <p>
+                RELLENO PARA SLIDER
+              </p>
+              <div class = "botones">
+                <a href = "#" class = "btn-1"> Comprar </a>
+                <a href = "#" class = "btn-1"> Menu </a>
+              </div>
+            </div>
+            <div class = "slider-img">
+              <img src="{% static 'images/slider3.png'%}" alt = ""/>
+            </div>
+          </div>
+        </div>
+        {% comment %} BUCLE  FIN {% endcomment %}
       </div>
+
+      {% comment %} BOTONES ANTERIOR - SIGUIENTE {% endcomment %}
+
+      <div class = "swiper-button-next"></div>
+      <div class = "swiper-button-prev"></div>
+      <div class = "swiper-button-pagination"></div>
+
     </div>
   </div>
-</div> 
+</main>
 
 
+
+
+<main class = "products">
+  <div class = "tabs container">
+    
+    <input type = "radio" name = "tabs" id = "tab1" checked = "checked" class = "tabInput" value ="1">
+    <label for = "tab1"> Hamburguesa</label>
+
+    <div class = "tab">
+      <div class = "swiper mySwiper-2" id = "swiper1">
+        <div class = "swiper-wrapper">
+
+          <div class = "swiper-slide">
+            <div class = "product">
+
+              <div class = "product-img">
+                <h4> Nuevo </h4>
+                <img src="{% static 'images/food1.png' %}" alt="#"/>
+              </div>
+              <div class = "product-txt">
+                <h4> Producto <h4>
+                <p> Calidad Premium </p>
+                <span class = "price"> $ 4.500 </span>
+              </div>
+            </div>
+          </div>
+
+          <div class = "swiper-slide">
+            <div class = "product">
+
+              <div class = "product-img">
+                <h4> Nuevo </h4>
+                <img src="{% static 'images/food2.png' %}" alt="#"/>
+              </div>
+              <div class = "product-txt">
+                <h4> Producto <h4>
+                <p> Calidad Premium </p>
+                <span class = "price"> $ 4.500 </span>
+              </div>
+            </div>
+          </div>
+
+          <div class = "swiper-slide">
+            <div class = "product">
+
+              <div class = "product-img">
+                <h4> Nuevo </h4>
+                <img src="{% static 'images/food3.png' %}" alt="#"/>
+              </div>
+              <div class = "product-txt">
+                <h4> Producto <h4>
+                <p> Calidad Premium </p>
+                <span class = "price"> $ 4.500 </span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class = "swiper-button-next"></div>
+        <div class = "swiper-button-prev"></div>
+
+      </div>
+    </div>
+
+    <input type = "radio" name = "tabs" id = "tab2" checked = "checked" class = "tabInput" value ="2">
+    <label for = "tab2"> Burritos</label>
+
+    <div class = "tab">
+      <div class = "swiper mySwiper-2" id = "swiper2">
+        <div class = "swiper-wrapper">
+
+          <div class = "swiper-slide">
+            <div class = "product">
+
+              <div class = "product-img">
+                <h4> Nuevo </h4>
+                <img src="{% static 'images/food4.png' %}" alt="#"/>
+              </div>
+              <div class = "product-txt">
+                <h4> Producto <h4>
+                <p> Calidad Premium </p>
+                <span class = "price"> $ 4.500 </span>
+              </div>
+            </div>
+          </div>
+
+          <div class = "swiper-slide">
+            <div class = "product">
+
+              <div class = "product-img">
+                <h4> Nuevo </h4>
+                <img src="{% static 'images/food5.png' %}" alt="#"/>
+              </div>
+              <div class = "product-txt">
+                <h4> Producto <h4>
+                <p> Calidad Premium </p>
+                <span class = "price"> $ 4.500 </span>
+              </div>
+            </div>
+          </div>
+
+          <div class = "swiper-slide">
+            <div class = "product">
+
+              <div class = "product-img">
+                <h4> Nuevo </h4>
+                <img src="{% static 'images/food6.png' %}" alt="#"/>
+              </div>
+              <div class = "product-txt">
+                <h4> Producto <h4>
+                <p> Calidad Premium </p>
+                <span class = "price"> $ 4.500 </span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class = "swiper-button-next"></div>
+        <div class = "swiper-button-prev"></div>
+
+      </div>
+    </div>
+
+    <input type = "radio" name = "tabs" id = "tab3" checked = "checked" class = "tabInput" value ="3">
+    <label for = "tab3"> Variados</label>
+
+    <div class = "tab">
+      <div class = "swiper mySwiper-2" id = "swiper3">
+        <div class = "swiper-wrapper">
+
+          <div class = "swiper-slide">
+            <div class = "product">
+
+              <div class = "product-img">
+                <h4> Nuevo </h4>
+                <img src="{% static 'images/food7.png' %}" alt="#"/>
+              </div>
+              <div class = "product-txt">
+                <h4> Producto <h4>
+                <p> Calidad Premium </p>
+                <span class = "price"> $ 4.500 </span>
+              </div>
+            </div>
+          </div>
+
+          <div class = "swiper-slide">
+            <div class = "product">
+
+              <div class = "product-img">
+                <h4> Nuevo </h4>
+                <img src="{% static 'images/food8.png' %}" alt="#"/>
+              </div>
+              <div class = "product-txt">
+                <h4> Producto <h4>
+                <p> Calidad Premium </p>
+                <span class = "price"> $ 4.500 </span>
+              </div>
+            </div>
+          </div>
+
+          <div class = "swiper-slide">
+            <div class = "product">
+
+              <div class = "product-img">
+                <h4> Nuevo </h4>
+                <img src="{% static 'images/food9.png' %}" alt="#"/>
+              </div>
+              <div class = "product-txt">
+                <h4> Producto <h4>
+                <p> Calidad Premium </p>
+                <span class = "price"> $ 4.500 </span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class = "swiper-button-next"></div>
+        <div class = "swiper-button-prev"></div>
+
+      </div>
+    </div>
+
+
+  </div>
+
+
+</main>
   
 
 <div class="title">
@@ -86,6 +318,9 @@
 
 <br>
 <br>
+
+
+
 
 <script>
   $(document).ready(function() {

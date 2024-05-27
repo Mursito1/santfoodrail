@@ -1,5 +1,5 @@
 
-{% extends "base.html"%}
+{% extends "base.html" %}
 {% load static %}
 {% block contenido %}
 {% if user.username == 'admin' %}
@@ -10,12 +10,14 @@
         <div class="card" style="width: 18rem;">
           <div class="card-body">
             <h5 class="card-title">{{ contacto.nombre }}</h5>
+            <h5 class="card-title">{{ contacto.tipo_contacto }}</h5>
+            <h5 class="card-title">Estado: {{ contacto.estado_contacto }}</h5>
             <p class="card-text">{{ contacto.mensaje_contacto }}</p>
-            <button class="btn btn-primary btn-edit">Editar</button>
+            <a href="{% url 'editar_contacto' contacto.id %}" class="btn btn-primary">Editar</a>
           </div>
         </div>
       </div>
-{% endfor %}
+      {% endfor %}
     </div>
   </div>
 {% else %}
@@ -24,5 +26,4 @@
       <a href="{% url 'index' %}">Volver al inicio</a>
   </div>
 {% endif %}
-
-{%endblock%}
+{% endblock %}

@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from contactos.forms import ContactoForm
+from contactos.forms import ContactoAdminForm, ContactoForm
 from contactos.models import Contacto
 from menus.carrito import Carrito
 from .forms import CustomUserCreationForm, MenuForm
@@ -107,3 +107,19 @@ def modificar_producto(request, id):
 def menus(request):
     menus = Menu.objects.all()
     return render(request, 'menus.html', {'menus': menus})
+
+def editar_contacto(request, id):
+    contacto = get_object_or_404(Contacto, id=id)
+    if request.method == "POST":
+        form = ContactoAdminForm(request.POST, instance=contacto)
+        if form.is_valid():
+            form.save()
+            return redirect('crud')
+    else:
+        form = ContactoAdminForm(instance=contacto)
+    return render(request, 'administracion/modificar_contacto.html', {'form': form, 'contacto': contacto})
+
+def pago(request):
+        carrito = Carrito(request)
+        contenido_carrito = carrito.carrito.values()
+        return render(request, 'pago.html', {'contenido_carrito': contenido_carrito})

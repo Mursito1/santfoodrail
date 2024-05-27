@@ -1,2 +1,21 @@
-<h1>No tienes los permisos para ingresar a esta página</h1>
-<a href="{% url 'index.html' %}">Volver al inicio</a>
+{% extends "base.html"%}
+{% load static %}
+{% block contenido %}
+    <div class="container-fluid">
+        <div id="contacto" class="row">
+        {% for item in contenido_carrito %}
+        <div class="col">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <p>Nombre: {{ item.nombre }}</p>
+                    <p>Precio: {{ item.acumulado }}</p>
+                    <p>Cantidad: {{ item.cantidad }}</p>
+                    <img src="{{ item.imagen }}">
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        </div>
+    </div>
+
+{%endblock%}

@@ -61,11 +61,18 @@ body {
      
 }
 
+<<<<<<< HEAD
 .header{
      display: flex;
      position: relative;
      background-color: #252326;
      
+=======
+.back{
+     position: sticky;
+     padding: 52px 0;
+     background-color: #252525;
+>>>>>>> 813de97b855d6ba6030fdbc5d9ddc01c3175c00e
 }
 
 .menu{
@@ -81,11 +88,21 @@ body {
      
 }
 
+<<<<<<< HEAD
 .menu .navbar ul li{
      position: relative;
+=======
+.logo{
+     width: 180px;
+}
+
+.menu .navbar ul li {
+     position: sticky;
+>>>>>>> 813de97b855d6ba6030fdbc5d9ddc01c3175c00e
      float: left;
 }
 
+<<<<<<< HEAD
 .menu .navbar ul li a{
      font-size: 20px;
      padding: 20px;
@@ -93,6 +110,16 @@ body {
      display: block;
      font-weight: 700;
      text-decoration: none;
+=======
+.menu .navbar li a{
+     position: sticky;
+     padding: 10px;
+     color: #ffffff;
+     display: flex;
+     transition: all 400ms ease;
+     font-weight: bold;
+
+>>>>>>> 813de97b855d6ba6030fdbc5d9ddc01c3175c00e
 }
 
 .menu .navbar ul li a:hover{
@@ -141,6 +168,7 @@ th {
      color: #DFDDE0
 }
 
+<<<<<<< HEAD
 td {
      color: #DFDDE0
 }
@@ -153,6 +181,24 @@ td {
      color: #DFDDE0;
      font-weight: 800;
 }
+=======
+     .menu .navbar {
+          position: sticky;
+          top: 100%;
+          left: 0;
+          right: 0;
+          background-color: #252525;
+          display: none;
+     }
+
+     .navbar {
+          position: sticky;
+     }
+
+     .menu .navbar ul li {
+          width: 100%;
+     }
+>>>>>>> 813de97b855d6ba6030fdbc5d9ddc01c3175c00e
 
 /* --------------------  SLIDER MENU PRINCIPAL ---------------------------- */
 

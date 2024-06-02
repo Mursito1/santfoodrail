@@ -313,23 +313,20 @@
 
 </div>
 
-<br>
-<br>
-
-
-
+{%endblock%}
 
 <script>
-  $(document).ready(function() {
-    var owl = $('.owl-carousel');
-    owl.owlCarousel({
-      margin: 10,
-      nav: true,
-      loop: true,
-     
-    })
-  })
+  var swiper1 = new Swiper(".mySwiper-1", {
+    slidesPerView: 1,
+    spaceBetween: 30,
+    loop: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev"
+    }
+  });
 </script>
-
-
-{%endblock%}

@@ -133,6 +133,7 @@
             </div>
           </div>
 
+
         </div>
         <div class = "swiper-button-next"></div>
         <div class = "swiper-button-prev"></div>
@@ -140,8 +141,9 @@
       </div>
     </div>
 
+    
     <input type = "radio" name = "tabs" id = "tab2" checked = "checked" class = "tabInput" value ="2">
-    <label for = "tab2"> Burritos</label>
+    <label for = "tab2"> Burritos </label>
 
     <div class = "tab">
       <div class = "swiper mySwiper-2" id = "swiper2">
@@ -192,6 +194,7 @@
             </div>
           </div>
 
+
         </div>
         <div class = "swiper-button-next"></div>
         <div class = "swiper-button-prev"></div>
@@ -200,7 +203,7 @@
     </div>
 
     <input type = "radio" name = "tabs" id = "tab3" checked = "checked" class = "tabInput" value ="3">
-    <label for = "tab3"> Variados</label>
+    <label for = "tab3"> Variados </label>
 
     <div class = "tab">
       <div class = "swiper mySwiper-2" id = "swiper3">
@@ -250,14 +253,13 @@
               </div>
             </div>
           </div>
-
+          
         </div>
         <div class = "swiper-button-next"></div>
         <div class = "swiper-button-prev"></div>
 
       </div>
     </div>
-
 
   </div>
 
@@ -314,6 +316,7 @@
 </div>
 
 <script>
+  {% comment %} FUNCION PARA PODER ACTIVAR SLIDER PRINCIPAL  {% endcomment %}
   var swiper1 = new Swiper(".mySwiper-1", {
     slidesPerView: 1,
     spaceBetween: 30,
@@ -327,6 +330,38 @@
       prevEl: ".swiper-button-prev"
     }
   });
+  var swiper2 = new Swiper(".mySwiper-2", {
+    slidesPerView: 3,
+    spaceBetween: 20,
+    loop: true,
+    loopFillGroupWithBlank: true,
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev"
+    },
+    breakpoints: {
+        0: {
+            slidesPerView: 1,
+        },
+        520: {
+            slidesPerView: 2,
+        },
+        950: {
+            slidesPerView: 3,
+        }
+    }
+  });
+
+  let tabInputs = document.querySelectorAll(".tabInput");
+
+  tabInputs.forEach(function(input) {
+    input.addEventListener('change', function() {
+        let id = input.getAttribute('aria-valuemax'); // corregido
+        let thisSwiper = document.getElementById('swiper' + id).swiper; // corregido
+        thisSwiper.update();
+    });
+  });
 </script>
+
 
 {%endblock%}

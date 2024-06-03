@@ -36,12 +36,12 @@ body {
 }
 
 .swiper-button-next{
-     color: #DB241B;
+     color: #ffd900;
 }
 
 
-.swiper-button-after{
-     color: #DB241B;
+.swiper-button-prev{
+     color: #ffd900;
 }
 
 .swiper-pagination-bullet{
@@ -105,7 +105,7 @@ body {
 }
 
 .menu-icono{
-     width: 25px;
+     width: 30px;
 }
 
 .menu label{
@@ -201,6 +201,7 @@ td {
 
 .btn-1:hover{
      background-color: #ffd900;
+     color: #252326;
 }
 
 .slider-img{
@@ -647,10 +648,43 @@ td {
 
 @media (max-width: 991px){
 
+     /* NAVBAR  */
+
+     .menu {
+          padding: 15px;
+     }
+
+     .menu label{
+          display: initial;
+     }
+
+     .menu .navbar {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          background-color: #303030;
+          display: none;
+     }
+
+     .logo-empresa{
+          display: none;
+     }
+
+
+     .menu .navbar ul li{
+          width: 100%;
+     }
+
+     
+     #menu:checked ~ .navbar {
+          display: initial;
+     }
+
+
      /* SLIDER DE PRESENTACION */
      .slider-content {
           padding: 30px;
-          margin-top: 100px;
      }
 
      .slider{

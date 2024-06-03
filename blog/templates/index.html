@@ -3,30 +3,86 @@
 {% block contenido %}
 
 <main class = "inicio">
-  <div class = "slider-content container">   
+  <div class = "slider-content container">
     <div class = "swiper mySwiper-1">
       <div class = "swiper-wrapper">
-        {% for menu in menus %}
+
+        {% comment %} SLIDER MENU PRINCIPAL - BUCLE  INICIO {% endcomment %}
         <div class = "swiper-slide">
           <div class = "slider">
             <div class = "slider-txt">
-              <h1> {{ menu.nombre_menu }} </h1>
-              <p>${{ menu.precio }}</p>
+              <h1> Hamburguesa Bre-Bacon </h1>
+              <p>
+                Exquisita hamburguesa con 200 gr de carne, queso cheedar, tocino ahumado a la plancha, pepinillo, 
+                lechuga, tomate y el aderezo que más te guste.. 
+                <br>
+                Puedes elegir entre salsa de la casa, tártara, de queso, barbacoa, mayonesa casera o de ajo. 
+                Todo esto es un fresco y suave pan brioche.
+              </p>
               <div class = "botones">
-                <a href = "{% url 'menus' %}" class = "btn-1"> Comprar </a>
-                <a href = "{% url 'menus' %}" class = "btn-1"> Menu </a>
+                <a href = "{% url 'menus' %}" class = "btn-1"> Pidela Ya </a>
               </div>
             </div>
             <div class = "slider-img">
-              <img src="{{ menu.imagen.url }}" alt = ""/>
+              <img src="{% static 'images/slider1.png'%}" alt = ""/>
             </div>
           </div>
-          <div class = "swiper-button-next"></div>
-          <div class = "swiper-button-prev"></div>
-          <div class = "swiper-button-pagination"></div>
         </div>
-      {% endfor %}
+
+        {% comment %} SLIDER MENU PRINCIPAL - BUCLE  FINAL {% endcomment %}
+        {% comment %} BUCLE  INICIO {% endcomment %}
+        <div class = "swiper-slide">
+          <div class = "slider">
+            <div class = "slider-txt">
+              <h1> Baguette Mixto </h1>
+              <p>
+                En este delicioso y sabroso sándwich puedes elegir jamón de pierna acaramelado o jamón de pavo ahumado,
+                también lo puedes pedir mixto, además lleva tomate aceitunas, pimentón verde, queso mozarela, 
+                lechuga, salsa de la casa y pepinillo, todo esto en un crujiente pan baguete.
+                <br>
+                Le puedes agregar la salsa que más te guste tártara, de queso, barbacoa, mayonesa casera o de ajo. 
+              </p>
+              <div class = "botones">
+                <a href = "{% url 'menus' %}" class = "btn-1"> Pidela Ya </a>
+              </div>
+            </div>
+            <div class = "slider-img">
+              <img src="{% static 'images/slider2.png'%}" alt = ""/>
+            </div>
+          </div>
+        </div>
+        {% comment %} BUCLE  FIN {% endcomment %}
+        {% comment %} BUCLE  INICIO {% endcomment %}
+        <div class = "swiper-slide">
+          <div class = "slider">
+            <div class = "slider-txt">
+              <h1> Hamburguesa La Toscana</h1>
+              <p>
+                Exquisita hamburguesa con 200 gr de carne a la parrilla queso cheedar, cebolla caramelizada, pepinillo dulce, aceitunas,
+                lechuga, tomate,salsa de la casa, todo en un fresco y crujiente pan toscano.
+                <br> 
+                Puedes también agregar el aderezo que más te guste para disfrutar del mejor sabor! 
+              </p>
+              <div class = "botones">
+                <a href = "{% url 'menus' %}" class = "btn-1"> Pidela Ya </a>
+              </div>
+            </div>
+            <div class = "slider-img">
+              <img src="{% static 'images/slider3.png'%}" alt = ""/>
+            </div>
+          </div>
+        </div>
+        {% comment %} BUCLE  FIN {% endcomment %}
       </div>
+
+      
+
+      {% comment %} BOTONES ANTERIOR - SIGUIENTE {% endcomment %}
+
+      <div class = "swiper-button-next"></div>
+      <div class = "swiper-button-prev"></div>
+      <div class = "swiper-button-pagination"></div>
+
     </div>
   </div>
 </main>
@@ -35,7 +91,7 @@
   <div class = "tabs container">
     
     <input type = "radio" name = "tabs" id = "tab1" checked = "checked" class = "tabInput" value ="1">
-    <label for = "tab1"> Catálogo de Productos</label>
+    <label for = "tab1"> Nuestros Productos</label>
     
     <div class = "tab">
       <div class = "swiper mySwiper-2" id = "swiper1">
@@ -57,6 +113,8 @@
           </div>
           {% endfor %}
       </div>
+      <div class = "swiper-button-next"></div>
+      <div class = "swiper-button-prev"></div>
     </div>
   </div>
 </main>
@@ -110,6 +168,7 @@
 
 </div>
 
+<br>
 
 
 <script>

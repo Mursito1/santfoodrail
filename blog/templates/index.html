@@ -2,7 +2,6 @@
 {% load static %}
 {% block contenido %}
 
-
 <main class = "inicio">
   <div class = "slider-content container">   
     <div class = "swiper mySwiper-1">
@@ -36,188 +35,30 @@
   <div class = "tabs container">
     
     <input type = "radio" name = "tabs" id = "tab1" checked = "checked" class = "tabInput" value ="1">
-    <label for = "tab1"> Hamburguesa</label>
-
+    <label for = "tab1"> Catálogo de Productos</label>
+    
     <div class = "tab">
       <div class = "swiper mySwiper-2" id = "swiper1">
         <div class = "swiper-wrapper">
-
+          {% for menu in menus %}
           <div class = "swiper-slide">
             <div class = "product">
 
               <div class = "product-img">
                 <h4> Nuevo </h4>
-                <img src="{% static 'images/food1.png' %}" alt="#"/>
+                <img src="{{ menu.imagen.url }}" alt="#"/>
               </div>
               <div class = "product-txt">
-                <h4> Producto <h4>
+                <h4> {{ menu.nombre_menu }} <h4>
                 <p> Calidad Premium </p>
-                <span class = "price"> $ 4.500 </span>
+                <span class = "price"> ${{ menu.precio }} </span>
               </div>
             </div>
           </div>
-
-          <div class = "swiper-slide">
-            <div class = "product">
-
-              <div class = "product-img">
-                <h4> Nuevo </h4>
-                <img src="{% static 'images/food2.png' %}" alt="#"/>
-              </div>
-              <div class = "product-txt">
-                <h4> Producto <h4>
-                <p> Calidad Premium </p>
-                <span class = "price"> $ 4.500 </span>
-              </div>
-            </div>
-          </div>
-
-          <div class = "swiper-slide">
-            <div class = "product">
-
-              <div class = "product-img">
-                <h4> Nuevo </h4>
-                <img src="{% static 'images/food3.png' %}" alt="#"/>
-              </div>
-              <div class = "product-txt">
-                <h4> Producto <h4>
-                <p> Calidad Premium </p>
-                <span class = "price"> $ 4.500 </span>
-              </div>
-            </div>
-          </div>
-
-
-        </div>
-        <div class = "swiper-button-next"></div>
-        <div class = "swiper-button-prev"></div>
-
+          {% endfor %}
       </div>
     </div>
-
-    
-    <input type = "radio" name = "tabs" id = "tab2" checked = "checked" class = "tabInput" value ="2">
-    <label for = "tab2"> Burritos </label>
-
-    <div class = "tab">
-      <div class = "swiper mySwiper-2" id = "swiper2">
-        <div class = "swiper-wrapper">
-
-          <div class = "swiper-slide">
-            <div class = "product">
-
-              <div class = "product-img">
-                <h4> Nuevo </h4>
-                <img src="{% static 'images/food4.png' %}" alt="#"/>
-              </div>
-              <div class = "product-txt">
-                <h4> Producto <h4>
-                <p> Calidad Premium </p>
-                <span class = "price"> $ 4.500 </span>
-              </div>
-            </div>
-          </div>
-
-          <div class = "swiper-slide">
-            <div class = "product">
-
-              <div class = "product-img">
-                <h4> Nuevo </h4>
-                <img src="{% static 'images/food5.png' %}" alt="#"/>
-              </div>
-              <div class = "product-txt">
-                <h4> Producto <h4>
-                <p> Calidad Premium </p>
-                <span class = "price"> $ 4.500 </span>
-              </div>
-            </div>
-          </div>
-
-          <div class = "swiper-slide">
-            <div class = "product">
-
-              <div class = "product-img">
-                <h4> Nuevo </h4>
-                <img src="{% static 'images/food6.png' %}" alt="#"/>
-              </div>
-              <div class = "product-txt">
-                <h4> Producto <h4>
-                <p> Calidad Premium </p>
-                <span class = "price"> $ 4.500 </span>
-              </div>
-            </div>
-          </div>
-
-
-        </div>
-        <div class = "swiper-button-next"></div>
-        <div class = "swiper-button-prev"></div>
-
-      </div>
-    </div>
-
-    <input type = "radio" name = "tabs" id = "tab3" checked = "checked" class = "tabInput" value ="3">
-    <label for = "tab3"> Variados </label>
-
-    <div class = "tab">
-      <div class = "swiper mySwiper-2" id = "swiper3">
-        <div class = "swiper-wrapper">
-
-          <div class = "swiper-slide">
-            <div class = "product">
-
-              <div class = "product-img">
-                <h4> Nuevo </h4>
-                <img src="{% static 'images/food7.png' %}" alt="#"/>
-              </div>
-              <div class = "product-txt">
-                <h4> Producto <h4>
-                <p> Calidad Premium </p>
-                <span class = "price"> $ 4.500 </span>
-              </div>
-            </div>
-          </div>
-
-          <div class = "swiper-slide">
-            <div class = "product">
-
-              <div class = "product-img">
-                <h4> Nuevo </h4>
-                <img src="{% static 'images/food8.png' %}" alt="#"/>
-              </div>
-              <div class = "product-txt">
-                <h4> Producto <h4>
-                <p> Calidad Premium </p>
-                <span class = "price"> $ 4.500 </span>
-              </div>
-            </div>
-          </div>
-
-          <div class = "swiper-slide">
-            <div class = "product">
-
-              <div class = "product-img">
-                <h4> Nuevo </h4>
-                <img src="{% static 'images/food9.png' %}" alt="#"/>
-              </div>
-              <div class = "product-txt">
-                <h4> Producto <h4>
-                <p> Calidad Premium </p>
-                <span class = "price"> $ 4.500 </span>
-              </div>
-            </div>
-          </div>
-          
-        </div>
-        <div class = "swiper-button-next"></div>
-        <div class = "swiper-button-prev"></div>
-
-      </div>
-    </div>
-
   </div>
-
-
 </main>
   
 
@@ -269,9 +110,9 @@
 
 </div>
 
-{% comment %} FUNCION PARA PODER ACTIVAR SLIDER PRINCIPAL  {% endcomment %}
-<script>
 
+
+<script>
   var swiper1 = new Swiper(".mySwiper-1", {
     slidesPerView: 1,
     spaceBetween: 30,
@@ -306,9 +147,9 @@
         }
     }
   });
-
+  
   let tabInputs = document.querySelectorAll(".tabInput");
-
+  
   tabInputs.forEach(function(input) {
     input.addEventListener('change', function() {
         let id = input.getAttribute('aria-valuemax'); // corregido
@@ -316,7 +157,6 @@
         thisSwiper.update();
     });
   });
-</script>
-
-
+  </script>
 {%endblock%}
+

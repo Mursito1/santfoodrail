@@ -643,3 +643,53 @@ td {
 }
 
 
+/* MODALIDAD RESPONSIVA PAGINA */
+
+@media (max-width: 991px){
+
+     .slider-content {
+          padding: 30px;
+          margin-top: 100px;
+     }
+
+     .slider{
+          flex-direction: column;
+     }
+
+     .slider-txt{
+          margin-left: 0;
+          width: 100%;
+          text-align: center;
+          margin-bottom: 50px;
+     }
+
+     .slider-txt h1{
+          font-size: 50px;
+     }
+
+     .slider-txt p{
+          font-size: 16px;
+     }
+
+     .btn-1{
+          padding: 10px 25px;
+          font-size: 14px;
+     }
+
+     .slider-img{
+          width: 100%;
+          text-align: center;
+     }
+
+     .slider-img img{
+          margin-right: 0px;
+          width: 300px;
+     }
+
+
+
+
+
+
+
+}

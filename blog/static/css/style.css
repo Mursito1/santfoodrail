@@ -128,7 +128,7 @@ body {
      backdrop-filter: blur (10px); /* trasparencia al recuadro */
      top: 100%;
      z-index: 1;
-     background-color: #4E4B5076;
+     background-color: #3d3838;
      padding: 20px;
      min-width: 400px;
      min-height: 400px;
@@ -154,6 +154,23 @@ td {
      color: #DFDDE0;
      font-weight: 800;
 }
+
+.btn-2{
+     display: inline-block;
+     padding: 8px 15px;
+     background-color: #e85123;
+     color: #DFDDE0;
+     text-decoration: none;
+     border-radius: 50px;
+     font-size: 15px;
+     margin-top: 25px;
+}
+
+.btn-2:hover{
+     background-color: #c2311c;
+}
+
+
 
 /* --------------------  SLIDER MENU PRINCIPAL ---------------------------- */
 
@@ -642,6 +659,10 @@ td {
      font-size: 16px;
      margin-bottom: 15px;
 }
+
+/* REGISTRO */
+
+
 
 
 /* MODALIDAD RESPONSIVA PAGINA */

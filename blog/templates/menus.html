@@ -5,7 +5,7 @@
 <div class="menu-compras">
   {% for menu in menus %}
     {% if user.username == 'admin' or menu.estado_menu %}
-      <div class="food-items">
+      <div class="food-items" id = "lista">
         <img src="{{ menu.imagen.url }}"/>
         <div class="detalles">
           <div class="detalles-categoria">
@@ -19,12 +19,115 @@
           {% if user.username == 'admin' %}
             <a href="{% url 'modificar_producto' menu.id %}" class="btn btn-success">Editar</a>
           {% else %}
-            <a href="{% url 'Add' menu.id %}" class="btn btn-success">Agregar al carrito</a>
+            <a href="{% url 'Add' menu.id %}" class="btn btn-success" data-id = "1">Agregar al carrito</a>
           {% endif %}
         </div>
       </div>
     {% endif %}
   {% endfor %}
 </div>
+
+<script>
+  const carrito = document.getElementById('carrito');
+  const elementos = document.getElementById('lista');
+  const lista = document.querySelector('#lista-carrito tbody');
+  const vaciarCarritoBtn = document.getElementById('vaciar-carrito');
+
+  cargarEventListeners();
+
+  function cargarEventListeners(){
+    elementos.addEventListener('click', comprarElemento);
+    carrito.addEventListener('click', eliminarElemento);
+    vaciarCarritoBtn.addEventListener('click', vaciarCarrito);
+    document.addEventListener('DOMContentLoaded', leerLocalStorage);
+  }
+
+  function comprarElemento(e){
+    e.preventDefault();
+    if (e.target.classList.contains('btn-success')) {
+      const elemento =  e.target.parentElement.parentElement;
+      leerDatosElemento(elemento);
+    }
+  }
+
+  function leerDatosElemento(elemento){
+    const infoElemento = {
+      imagen: elemento.querySelector('img').src,
+      titulo: elemento.querySelector('h5').textContent,
+      precio: elemento.querySelector('.precio').textContent,
+      id: elemento.querySelector('.btn-success').getAttribute('data-id')
+    }
+
+    insertarCarrito(infoElemento);
+  }
+
+  function insertarCarrito(elemento){
+    const row = document.createElement('tr');
+    row.innerHTML = `
+      <td>
+        <img src="${elemento.imagen}" width="100">
+      </td>
+      <td>
+        ${elemento.titulo}
+      </td>
+      <td>
+        ${elemento.precio}
+      </td>
+      <td>
+        <a href="#" class="borrar" data-id="${elemento.id}">X</a>
+      </td>
+    `;
+    lista.appendChild(row);
+    guardarElementoLocalStorage(elemento);
+  }
+
+  function eliminarElemento(e){
+    e.preventDefault();
+    if (e.target.classList.contains('borrar')){
+      e.target.parentElement.parentElement.remove();
+      const elementoId = e.target.getAttribute('data-id');
+      eliminarElementoLocalStorage(elementoId);
+    }
+  }
+
+  function vaciarCarrito(){
+    while (lista.firstChild){
+      lista.removeChild(lista.firstChild);
+    }
+    vaciarLocalStorage();
+    return false;
+  }
+
+  function guardarElementoLocalStorage(elemento){
+    let elementos = obtenerElementosLocalStorage();
+    elementos.push(elemento);
+    localStorage.setItem('elementos', JSON.stringify(elementos));
+  }
+
+  function obtenerElementosLocalStorage(){
+    let elementos;
+    if(localStorage.getItem('elementos') === null){
+      elementos = [];
+    } else {
+      elementos = JSON.parse(localStorage.getItem('elementos'));
+    }
+    return elementos;
+  }
+
+  function eliminarElementoLocalStorage(id){
+    let elementos = obtenerElementosLocalStorage();
+    elementos = elementos.filter(function(elemento){
+      return elemento.id !== id;
+    });
+    localStorage.setItem('elementos', JSON.stringify(elementos));
+  }
+
+  function leerLocalStorage(){
+    let elementos = obtenerElementosLocalStorage();
+    elementos.forEach(function(elemento){
+      insertarCarrito(elemento);
+    });
+  }
+</script>
 
 {% endblock %}

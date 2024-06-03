@@ -4,76 +4,30 @@
 
 
 <main class = "inicio">
-  <div class = "slider-content container">
+  <div class = "slider-content container">   
     <div class = "swiper mySwiper-1">
       <div class = "swiper-wrapper">
-
-        {% comment %} SLIDER MENU PRINCIPAL - BUCLE  INICIO {% endcomment %}
+        {% for menu in menus %}
         <div class = "swiper-slide">
           <div class = "slider">
             <div class = "slider-txt">
-              <h1> Hamburguesa </h1>
-              <p>
-                RELLENO PARA SLIDER
-              </p>
+              <h1> {{ menu.nombre_menu }} </h1>
+              <p>${{ menu.precio }}</p>
               <div class = "botones">
-                <a href = "#" class = "btn-1"> Comprar </a>
-                <a href = "#" class = "btn-1"> Menu </a>
+                <a href = "{% url 'menus' %}" class = "btn-1"> Comprar </a>
+                <a href = "{% url 'menus' %}" class = "btn-1"> Menu </a>
               </div>
             </div>
             <div class = "slider-img">
-              <img src="{% static 'images/slider1.png'%}" alt = ""/>
+              <img src="{{ menu.imagen.url }}" alt = ""/>
             </div>
           </div>
+          <div class = "swiper-button-next"></div>
+          <div class = "swiper-button-prev"></div>
+          <div class = "swiper-button-pagination"></div>
         </div>
-
-        {% comment %} SLIDER MENU PRINCIPAL - BUCLE  FINAL {% endcomment %}
-        {% comment %} BUCLE  INICIO {% endcomment %}
-        <div class = "swiper-slide">
-          <div class = "slider">
-            <div class = "slider-txt">
-              <h1> Burrito </h1>
-              <p>
-                RELLENO PARA SLIDER
-              </p>
-              <div class = "botones">
-                <a href = "#" class = "btn-1"> Comprar </a>
-                <a href = "#" class = "btn-1"> Menu </a>
-              </div>
-            </div>
-            <div class = "slider-img">
-              <img src="{% static 'images/slider2.png'%}" alt = ""/>
-            </div>
-          </div>
-        </div>
-        {% comment %} BUCLE  FIN {% endcomment %}
-        {% comment %} BUCLE  INICIO {% endcomment %}
-        <div class = "swiper-slide">
-          <div class = "slider">
-            <div class = "slider-txt">
-              <h1> Hambuguesa </h1>
-              <p>
-                RELLENO PARA SLIDER
-              </p>
-              <div class = "botones">
-                <a href = "#" class = "btn-1"> Comprar </a>
-                <a href = "#" class = "btn-1"> Menu </a>
-              </div>
-            </div>
-            <div class = "slider-img">
-              <img src="{% static 'images/slider3.png'%}" alt = ""/>
-            </div>
-          </div>
-        </div>
-        {% comment %} BUCLE  FIN {% endcomment %}
+      {% endfor %}
       </div>
-
-      {% comment %} BOTONES ANTERIOR - SIGUIENTE {% endcomment %}
-
-      <div class = "swiper-button-next"></div>
-      <div class = "swiper-button-prev"></div>
-      <div class = "swiper-button-pagination"></div>
-
     </div>
   </div>
 </main>
@@ -315,8 +269,9 @@
 
 </div>
 
+{% comment %} FUNCION PARA PODER ACTIVAR SLIDER PRINCIPAL  {% endcomment %}
 <script>
-  {% comment %} FUNCION PARA PODER ACTIVAR SLIDER PRINCIPAL  {% endcomment %}
+
   var swiper1 = new Swiper(".mySwiper-1", {
     slidesPerView: 1,
     spaceBetween: 30,

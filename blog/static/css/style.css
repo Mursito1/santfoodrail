@@ -647,6 +647,7 @@ td {
 
 @media (max-width: 991px){
 
+     /* SLIDER DE PRESENTACION */
      .slider-content {
           padding: 30px;
           margin-top: 100px;
@@ -684,6 +685,36 @@ td {
      .slider-img img{
           margin-right: 0px;
           width: 300px;
+     }
+
+     /* MENU DE PRODUCTOS */
+
+     .tabs{
+          padding: 50px 30px;
+     }
+
+     .tabs label {
+          width: 33%;
+     }
+
+     /* FOOTER */
+
+     .footer{
+          padding: 30px;
+          flex-direction: column;
+          text-align: center;
+     }
+
+     .links h4{
+          margin: 25px 0px 10px 0px;
+     }
+
+     .socials{
+          justify-content: center;
+     }
+
+     .social img{
+          margin: 8px 0 0 0;
      }
 
 

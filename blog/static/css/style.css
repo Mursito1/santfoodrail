@@ -84,6 +84,7 @@ body {
 .menu .navbar ul li{
      position: relative;
      float: left;
+     color: #020003;
 }
 
 .menu .navbar ul li a{
@@ -200,7 +201,7 @@ td {
 
 .slider-txt p{
      font-size: 18px;
-     color: #A7A7A7;
+     color: #ffe600;
 }
 
 .btn-1{

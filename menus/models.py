@@ -58,7 +58,7 @@ class Vegetal5(models.Model):
         return self.vegetal_base.nombre
     
 class Salsa(models.Model):
-    nombre_salsa = models.CharField(max_length=50)
+    nombre = models.CharField(max_length=50)
 
     def __str__(self):
         return self.nombre
@@ -70,13 +70,13 @@ class Menu(models.Model):
     estado_menu = models.BooleanField()
     descripcion_menu = models.CharField(max_length=300)
     imagen = models.ImageField(upload_to='images/')
-    proteina = models.ForeignKey(Proteina, on_delete=models.PROTECT)
-    vegetal1 = models.ForeignKey(Vegetal1, on_delete=models.PROTECT)
-    vegetal2 = models.ForeignKey(Vegetal2, on_delete=models.PROTECT)
-    vegetal3 = models.ForeignKey(Vegetal3, on_delete=models.PROTECT)
-    vegetal4 = models.ForeignKey(Vegetal4, on_delete=models.PROTECT)
-    vegetal5 = models.ForeignKey(Vegetal5, on_delete=models.PROTECT)
-    salsa = models.ForeignKey(Salsa, on_delete=models.PROTECT)
+    proteina = models.ForeignKey(Proteina, on_delete=models.PROTECT, null=True, blank=True)
+    vegetal1 = models.ForeignKey(Vegetal1, on_delete=models.PROTECT, null=True, blank=True)
+    vegetal2 = models.ForeignKey(Vegetal2, on_delete=models.PROTECT, null=True, blank=True)
+    vegetal3 = models.ForeignKey(Vegetal3, on_delete=models.PROTECT, null=True, blank=True)
+    vegetal4 = models.ForeignKey(Vegetal4, on_delete=models.PROTECT, null=True, blank=True)
+    vegetal5 = models.ForeignKey(Vegetal5, on_delete=models.PROTECT, null=True, blank=True)
+    salsa = models.ForeignKey(Salsa, on_delete=models.PROTECT, null=True, blank=True)
 
     def __str__(self):
         return self.nombre_menu

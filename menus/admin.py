@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Calificacion, Calificacion_Menu, Ingrediente, Ingrediente_menu, Menu, Vegetal, Vegetal1, Vegetal2, Vegetal3, Vegetal4, Vegetal5
+from .models import Calificacion, Calificacion_Menu, Ingrediente, Ingrediente_menu, Menu, Proteina, Salsa, Vegetal, Vegetal1, Vegetal2, Vegetal3, Vegetal4, Vegetal5
 
 # Register your models here.
 admin.site.register(Menu)
@@ -14,3 +14,5 @@ admin.site.register(Vegetal2)
 admin.site.register(Vegetal3)
 admin.site.register(Vegetal4)
 admin.site.register(Vegetal5)
+admin.site.register(Proteina)
+admin.site.register(Salsa)

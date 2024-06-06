@@ -757,7 +757,16 @@ td {
    .form {
      margin: 30px 0 0 0;
    }
+
    
+   .registro{
+     font-size: 16px;
+     font-weight: 600;
+     color:#ffffff;
+     
+   }
+
+
    .form input[type="submit"] {
      background-color: #9191bd;
      color: #000000;
@@ -880,6 +889,27 @@ td {
 
      .social img{
           margin: 8px 0 0 0;
+     }
+
+     .container-form {
+          height: auto;
+          flex-direction: column;
+     }
+      
+     .information {
+          width: 100%;
+          padding: 20px;
+          border-top-left-radius: 20px;
+          border-top-right-radius: 20px;
+          border-bottom-left-radius: 0px;
+          border-bottom-right-radius: 0;
+     }
+      
+     .form-information {
+          width: 100%;
+          padding: 20px;
+          border-bottom-left-radius: 20px;
+          border-top-right-radius: 0;
      }
 
 

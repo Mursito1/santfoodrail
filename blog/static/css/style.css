@@ -662,7 +662,117 @@ td {
 
 /* REGISTRO */
 
-
+.container-form {
+     display: flex;
+     border-radius: 20px;
+     box-shadow: 0 5px 7px rgba(0, 0, 0, .1);
+     height: 500px;
+     max-width: 900px;
+     transition: all 1s ease;
+     margin: 10px;
+     margin: 0 auto;
+   }
+   
+   .information {
+     width: 40%;
+     display: flex;
+     align-items: center;
+     text-align: center;
+     background-color: #fbff00;
+     border-top-left-radius: 20px;
+     border-bottom-left-radius: 20px;
+   }
+   
+   .info-childs {
+     width: 100%;
+     padding: 0 30px;
+   }
+   
+   .info-childs h2 {
+     font-size: 2.5rem;
+     color: #000000;
+     font-weight: 900;
+   }
+   
+   .info-childs p {
+     margin: 15px 0 ;
+     color: #000000;
+   }
+   
+   .info-childs a {
+     background-color: transparent;
+     outline: none;
+     border: solid 2px #000000;
+     border-radius: 20px;
+     padding: 10px 20px;
+     color: #000000;
+     cursor: pointer;
+     transition: background-color .3s ease;
+     text-decoration: none;
+     font-size: 15px;
+     
+   }
+   
+   .info-childs a:hover {
+     background-color: #000000;
+     border: none;
+     color: #fff;
+     box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
+   }
+   
+   .form-information {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     width: 60%;
+     text-align: center;
+     background-image: url(../images/hamburguesa-login.jpg);
+     background-size: cover;
+     background-position: center;
+     border-top-right-radius: 20px;
+     border-bottom-right-radius: 20px;
+   }
+   
+   .form-information-childs {
+     padding: 0 30px;
+   }
+   
+   .form-information-childs h2 {
+     color: #000000;
+     font-size: 2,5em;
+     font-weight: 900;
+     border-color: rgb(241, 0, 0);
+     background-color: #fff;
+     border-radius: 10px;
+   }
+   
+   .form-information-childs p {
+     color: #000000;
+     font-weight: 800;
+     background-color: #fff;
+     border-radius: 15px;
+     
+   }
+   
+   .form {
+     margin: 30px 0 0 0;
+   }
+   
+   .form input[type="submit"] {
+     background-color: #9191bd;
+     color: #000000;
+     border-radius: 20px;
+     border: none;
+     padding: 10px 15px;
+     cursor: pointer;
+     margin-top: 10px;
+     box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
+     font-weight: 600;
+   }
+   
+   .form input[type="submit"]:hover {
+     background-color: #7a7a9a;
+   }
 
 
 /* MODALIDAD RESPONSIVA PAGINA */

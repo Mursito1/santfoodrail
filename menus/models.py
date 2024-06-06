@@ -24,26 +24,38 @@ class Proteina(models.Model):
 class Vegetal(models.Model):
     nombre = models.CharField(max_length=50)
 
-    class Meta:
-        abstract = True
-
     def __str__(self):
         return self.nombre
 
-class Vegetal1(Vegetal):
-    pass
+class Vegetal1(models.Model):
+    vegetal_base = models.OneToOneField(Vegetal, on_delete=models.CASCADE, related_name='vegetal1')
 
-class Vegetal2(Vegetal):
-    pass
+    def __str__(self):
+        return self.vegetal_base.nombre
 
-class Vegetal3(Vegetal):
-    pass
+class Vegetal2(models.Model):
+    vegetal_base = models.OneToOneField(Vegetal, on_delete=models.CASCADE, related_name='vegetal2')
 
-class Vegetal4(Vegetal):
-    pass
+    def __str__(self):
+        return self.vegetal_base.nombre
 
-class Vegetal5(Vegetal):
-    pass
+class Vegetal3(models.Model):
+    vegetal_base = models.OneToOneField(Vegetal, on_delete=models.CASCADE, related_name='vegetal3')
+
+    def __str__(self):
+        return self.vegetal_base.nombre
+
+class Vegetal4(models.Model):
+    vegetal_base = models.OneToOneField(Vegetal, on_delete=models.CASCADE, related_name='vegetal4')
+
+    def __str__(self):
+        return self.vegetal_base.nombre
+
+class Vegetal5(models.Model):
+    vegetal_base = models.OneToOneField(Vegetal, on_delete=models.CASCADE, related_name='vegetal5')
+
+    def __str__(self):
+        return self.vegetal_base.nombre
     
 class Salsa(models.Model):
     nombre_salsa = models.CharField(max_length=50)

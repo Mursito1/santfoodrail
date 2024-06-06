@@ -15,6 +15,42 @@ class Calificacion(models.Model):
     def __str__(self):
         return self.calificacion
 
+class Proteina(models.Model):
+    nombre = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.nombre
+    
+class Vegetal(models.Model):
+    nombre = models.CharField(max_length=50)
+
+    class Meta:
+        abstract = True
+
+    def __str__(self):
+        return self.nombre
+
+class Vegetal1(Vegetal):
+    pass
+
+class Vegetal2(Vegetal):
+    pass
+
+class Vegetal3(Vegetal):
+    pass
+
+class Vegetal4(Vegetal):
+    pass
+
+class Vegetal5(Vegetal):
+    pass
+    
+class Salsa(models.Model):
+    nombre_salsa = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.nombre
+
 class Menu(models.Model):
     nombre_menu = models.CharField(max_length=50)
     precio = models.PositiveIntegerField()
@@ -22,6 +58,13 @@ class Menu(models.Model):
     estado_menu = models.BooleanField()
     descripcion_menu = models.CharField(max_length=300)
     imagen = models.ImageField(upload_to='images/')
+    proteina = models.ForeignKey(Proteina, on_delete=models.PROTECT)
+    vegetal1 = models.ForeignKey(Vegetal1, on_delete=models.PROTECT)
+    vegetal2 = models.ForeignKey(Vegetal2, on_delete=models.PROTECT)
+    vegetal3 = models.ForeignKey(Vegetal3, on_delete=models.PROTECT)
+    vegetal4 = models.ForeignKey(Vegetal4, on_delete=models.PROTECT)
+    vegetal5 = models.ForeignKey(Vegetal5, on_delete=models.PROTECT)
+    salsa = models.ForeignKey(Salsa, on_delete=models.PROTECT)
 
     def __str__(self):
         return self.nombre_menu

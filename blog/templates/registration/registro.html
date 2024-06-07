@@ -5,7 +5,33 @@
 {%block contenido%}
 {% load crispy_forms_tags %}
 
-  <br><br><br><br><br>
+
+<br><br>
+<div class="container-form-registro">
+    <div class="information-registro">
+        <div class="info-childs-registro">
+            <h2>Bienvenido Nuevamente</h2>
+            <p>Para disfrutar de todos los beneficios que tenemos para ti inicia sesión con tus datos o</p>
+            <a href="{% url 'login' %}">Volver</a>
+            <a href="{% url 'index' %}">Inicio</a>
+        </div>
+    </div>
+    <div class="form-information-registro">
+        <div class="form-information-childs-registro">
+            <h2>Registro de Usuario</h2>
+            <form action = "" method = "post" class = "form-registro">
+              <div class = "registro-2">
+                {{ form | crispy }}
+                {% csrf_token %}
+              </div>
+              <br>
+              <input type="submit" value = "Registrarse">
+            </form>
+        </div>
+    </div>
+</div>
+<br><br>
+  {% comment %} <br><br><br><br><br>
   <div class="container">
     <div class="row">
       <div class="col-12 col-md-6 offset-md-3">
@@ -28,6 +54,6 @@
       </div>
     </div>
   </div>
-  <br><br><br><br><br>
+  <br><br><br><br><br> {% endcomment %}
 
 {%endblock%}

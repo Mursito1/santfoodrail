@@ -661,7 +661,7 @@ td {
      margin-bottom: 15px;
 }
 
-/* REGISTRO */
+/* INICIO DE SESION */
 
 .container-form {
      display: flex;
@@ -782,6 +782,125 @@ td {
    }
    
    .form input[type="submit"]:hover {
+     background-color: #7a7a9a;
+   }
+
+
+/* REGISTRO */
+
+.container-form-registro {
+     display: flex;
+     border-radius: 20px;
+     box-shadow: 0 5px 7px rgba(0, 0, 0, .1);
+     height: 640px;
+     max-width: 900px;
+     transition: all 1s ease;
+     margin: 10px;
+     margin: 0 auto;
+   }
+   
+   .information-registro {
+     width: 40%;
+     display: flex;
+     align-items: center;
+     text-align: center;
+     background-image: url(../images/pizza.jpg);
+     background-size: cover;
+     background-position: center;
+     background-repeat: no-repeat;
+     border-top-left-radius: 20px;
+     border-bottom-left-radius: 20px;
+   }
+   
+   .info-childs-registro {
+     width: 100%;
+     padding: 0 30px;
+   }
+   
+   .info-childs-registro h2 {
+     font-size: 2.5rem;
+     color: #000000;
+     font-weight: 900;
+   }
+   
+   .info-childs-registro p {
+     margin: 15px 0 ;
+     color: #000000;
+     font-weight: 750;
+     font-size: 16px;c
+     
+   }
+   
+   .info-childs-registro a {
+     background-color: #9191bd;
+     outline: none;
+     border-radius: 20px;
+     padding: 10px 20px;
+     color: #000000;
+     cursor: pointer;
+     transition: background-color .3s ease;
+     text-decoration: none;
+     font-size: 15px;
+     font-weight: 700;
+     
+     
+   }
+   
+   .info-childs-registro a:hover {
+     background-color: #7a7a9a;
+
+   }
+   
+   .form-information-registro {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     width: 60%;
+     text-align: center;
+     background-color: #DFDDE0;
+     border-top-right-radius: 20px;
+     border-bottom-right-radius: 20px;
+     
+   }
+   
+   .form-information-childs-registro {
+     padding: 0 30px;
+   }
+   
+   .form-information-childs-registro h2 {
+     color: #000000;
+     font-size: 2,5em;
+     font-weight: 900;
+     border-radius: 10px;
+
+   }
+   
+   
+   .form-registro {
+     margin: 10px 0 0 0;
+   }
+
+   
+   .registro-2{
+     font-size: 15px;
+     font-weight: 700;
+     color: #0d0d0d
+     
+   }
+
+
+   .form-registro input[type="submit"] {
+     background-color: #9191bd;
+     color: #000000;
+     border-radius: 20px;
+     border: none;
+     padding: 10px 15px;
+     cursor: pointer;
+     box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
+     font-weight: 700;
+   }
+   
+   .form-registro input[type="submit"]:hover {
      background-color: #7a7a9a;
    }
 

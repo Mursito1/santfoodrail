@@ -2,11 +2,13 @@ from django.shortcuts import render, redirect, get_object_or_404
 from contactos.forms import ContactoAdminForm, ContactoForm
 from contactos.models import Contacto
 from menus.carrito import Carrito
+from pedidos.models import Pedido, PedidoItem
 from .forms import CustomUserCreationForm, MenuForm
 from menus.models import Menu
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.core.paginator import Paginator
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
@@ -104,6 +106,7 @@ def modificar_producto(request, id):
         data["form"] = formulario
     return render(request, 'administracion/modificar_menu.html', data)
 
+@login_required
 def menus(request):
     menus = Menu.objects.all()
     return render(request, 'menus.html', {'menus': menus})
@@ -123,3 +126,26 @@ def pago(request):
         carrito = Carrito(request)
         contenido_carrito = carrito.carrito.values()
         return render(request, 'pago.html', {'contenido_carrito': contenido_carrito})
+
+def guardar_pedido(request):
+    if request.method == "POST":
+        carrito = request.session.get("carrito", {})
+        if carrito:
+            pedido = Pedido.objects.create(user=request.user)  # Asumiendo que hay un usuario logueado
+            for item in carrito.values():
+                PedidoItem.objects.create(
+                    pedido=pedido,
+                    menu_id=item["menu_id"],
+                    nombre=item["nombre"],
+                    precio=item["acumulado"],
+                    cantidad=item["cantidad"],
+                )
+            # Limpiar el carrito después de guardar el pedido
+            request.session["carrito"] = {}
+            request.session.modified = True
+        
+        return redirect('menus')
+    
+def revisar_pedidos(request):
+    pedidos = Pedido.objects.filter(user=request.user).prefetch_related('items')
+    return render(request, 'pedidos.html', {'pedidos': pedidos})

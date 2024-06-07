@@ -1,8 +1,7 @@
 from django.contrib import admin
 
-from pedidos.models import Pedido, Pedido_Menu
+from pedidos.models import Pedido
 
 # Register your models here.
 
 admin.site.register(Pedido)
-admin.site.register(Pedido_Menu)

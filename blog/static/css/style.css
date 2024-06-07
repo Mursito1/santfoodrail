@@ -201,7 +201,7 @@ td {
 
 .slider-txt p{
      font-size: 18px;
-     color: #ffe600;
+     color: #ffffff;
 }
 
 .btn-1{
@@ -679,7 +679,7 @@ td {
      display: flex;
      align-items: center;
      text-align: center;
-     background-color: #fbff00;
+     background-color: #ffd900;
      border-top-left-radius: 20px;
      border-bottom-left-radius: 20px;
    }
@@ -698,12 +698,13 @@ td {
    .info-childs p {
      margin: 15px 0 ;
      color: #000000;
+     font-weight: 750;
+     
    }
    
    .info-childs a {
-     background-color: transparent;
+     background-color: #9191bd;
      outline: none;
-     border: solid 2px #000000;
      border-radius: 20px;
      padding: 10px 20px;
      color: #000000;
@@ -711,14 +712,13 @@ td {
      transition: background-color .3s ease;
      text-decoration: none;
      font-size: 15px;
+     font-weight: 700;
+     
      
    }
    
    .info-childs a:hover {
-     background-color: #000000;
-     border: none;
-     color: #fff;
-     box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
+     background-color: #7a7a9a;
    }
    
    .form-information {
@@ -730,8 +730,10 @@ td {
      background-image: url(../images/hamburguesa-login.jpg);
      background-size: cover;
      background-position: center;
+     background-repeat: no-repeat;
      border-top-right-radius: 20px;
      border-bottom-right-radius: 20px;
+     
    }
    
    .form-information-childs {
@@ -742,9 +744,8 @@ td {
      color: #000000;
      font-size: 2,5em;
      font-weight: 900;
-     border-color: rgb(241, 0, 0);
-     background-color: #fff;
      border-radius: 10px;
+     background-color: #fffffe;
    }
    
    .form-information-childs p {
@@ -756,14 +757,15 @@ td {
    }
    
    .form {
-     margin: 30px 0 0 0;
+     margin: 10px 0 0 0;
    }
 
    
    .registro{
-     font-size: 16px;
-     font-weight: 600;
-     color:#ffffff;
+     font-size: 20px;
+     font-weight: 900;
+     color: #ffffff;
+     -webkit-text-stroke: 1px black;
      
    }
 
@@ -775,9 +777,8 @@ td {
      border: none;
      padding: 10px 15px;
      cursor: pointer;
-     margin-top: 10px;
      box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
-     font-weight: 600;
+     font-weight: 700;
    }
    
    .form input[type="submit"]:hover {

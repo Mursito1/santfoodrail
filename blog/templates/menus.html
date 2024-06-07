@@ -5,7 +5,7 @@
 <div class="menu-compras">
   {% for menu in menus %}
     {% if user.username == 'admin' or menu.estado_menu %}
-      <div class="food-items" id = "lista">
+      <div class="food-items" id="lista">
         <img src="{{ menu.imagen.url }}"/>
         <div class="detalles">
           <div class="detalles-categoria">
@@ -16,10 +16,22 @@
             {% endif %}
           </div>
           <p>{{ menu.descripcion_menu }}</p>
+          <h6>Ingredientes:</h6>
+          <ul>
+            {% for proteina in menu.proteina.all %}
+              <li>{{ proteina.nombre }}</li>
+            {% endfor %}
+            {% for vegetal in menu.vegetal.all %}
+              <li>{{ vegetal.nombre }}</li>
+            {% endfor %}
+            {% for salsa in menu.salsa.all %}
+              <li>{{ salsa.nombre }}</li>
+            {% endfor %}
+          </ul>
           {% if user.username == 'admin' %}
             <a href="{% url 'modificar_producto' menu.id %}" class="btn btn-success">Editar</a>
           {% else %}
-            <a href="{% url 'Add' menu.id %}" class="btn btn-success">Agregar al carrito</a>
+            <a href="{% url 'detalle_menu' menu.id %}" class="btn btn-success">Ver detalles</a>
           {% endif %}
         </div>
       </div>

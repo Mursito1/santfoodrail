@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework import viewsets
-from .models import Calificacion, Calificacion_Menu, Ingrediente, Menu, Ingrediente_menu
-from .serializer import Calificacion_MenuSerializer, CalificacionSerializer, Ingrediente_menuSerializer, IngredienteSerializer, MenuSerializer
+from .models import Calificacion, Calificacion_Menu, Ingrediente, Menu
+from .serializer import Calificacion_MenuSerializer, CalificacionSerializer, IngredienteSerializer, MenuSerializer
 
 # Create your views here.
 class IngredienteViewSet(viewsets.ModelViewSet):
@@ -11,10 +11,6 @@ class IngredienteViewSet(viewsets.ModelViewSet):
 class MenuViewSet(viewsets.ModelViewSet):
     queryset = Menu.objects.all()
     serializer_class = MenuSerializer
-
-class Ingrediente_menuViewSet(viewsets.ModelViewSet):
-    queryset = Ingrediente_menu.objects.all()
-    serializer_class = Ingrediente_menuSerializer
 
 class CalificacionViewSet(viewsets.ModelViewSet):
     queryset = Calificacion.objects.all()

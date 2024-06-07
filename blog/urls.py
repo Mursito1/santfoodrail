@@ -21,4 +21,5 @@ urlpatterns = [
     path('editar_contacto/<int:id>/', views.editar_contacto, name='editar_contacto'),
     path('guardar_pedido/', views.guardar_pedido, name='guardar_pedido'),
     path('revisar_pedidos/', views.revisar_pedidos, name='revisar_pedidos'),
+    path('menu/<int:menu_id>/', views.detalle_menu, name='detalle_menu'),
 ]

@@ -149,3 +149,7 @@ def guardar_pedido(request):
 def revisar_pedidos(request):
     pedidos = Pedido.objects.filter(user=request.user).prefetch_related('items')
     return render(request, 'pedidos.html', {'pedidos': pedidos})
+
+def detalle_menu(request, menu_id):
+    menu = get_object_or_404(Menu, pk=menu_id)
+    return render(request, 'detalle.html', {'menu': menu})

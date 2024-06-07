@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block contenido %}
+
+<div class="menu-detalle">
+  <div class="food-item">
+    <img src="{{ menu.imagen.url }}" alt="{{ menu.nombre_menu }}">
+    <div class="detalles">
+      <h2>{{ menu.nombre_menu }}</h2>
+      <p class="precio">${{ menu.precio }}</p>
+      <p>{{ menu.descripcion_menu }}</p>
+      <h3>Ingredientes:</h3>
+      <ul>
+        {% for proteina in menu.proteina.all %}
+          <li>{{ proteina.nombre }}</li>
+        {% endfor %}
+        {% for vegetal in menu.vegetal.all %}
+          <li>{{ vegetal.nombre }}</li>
+        {% endfor %}
+        {% for salsa in menu.salsa.all %}
+          <li>{{ salsa.nombre }}</li>
+        {% endfor %}
+      </ul>
+      {% if user.username != 'admin' %}
+        <a href="{% url 'Add' menu.id %}" class="btn btn-success">Agregar al carrito</a>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% endblock %}

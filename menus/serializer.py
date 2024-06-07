@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Calificacion, Calificacion_Menu, Ingrediente, Menu, Ingrediente_menu
+from .models import Calificacion, Calificacion_Menu, Ingrediente, Menu
 
 class IngredienteSerializer(serializers.ModelSerializer):
     class Meta:
@@ -9,11 +9,6 @@ class IngredienteSerializer(serializers.ModelSerializer):
 class MenuSerializer(serializers.ModelSerializer):
     class Meta:
         model = Menu
-        fields = '__all__'
-
-class Ingrediente_menuSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Ingrediente_menu
         fields = '__all__'
 
 class CalificacionSerializer(serializers.ModelSerializer):

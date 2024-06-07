@@ -9,6 +9,7 @@
                         <th>Nombre</th>
                         <th>Precio</th>
                         <th>Cantidad</th>
+                        <th>Acciones</th> 
                     </tr>
                 </thead>
                 <tbody>
@@ -17,10 +18,28 @@
                         <td>{{ item.nombre }}</td>
                         <td>{{ item.acumulado }}</td>
                         <td>{{ item.cantidad }}</td>
+                        <td>
+                            <form method="post" action="{% url 'Add' item.menu_id %}">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-success">Agregar</button>
+                            </form>
+                            <form method="post" action="{% url 'Sub' item.menu_id %}">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-warning">Quitar</button>
+                            </form>
+                        </td>
                     </tr>
                     {% endfor %}
                 </tbody>
             </table>
+        </div>
+        <div class="row">
+            <div class="col">
+                <form method="post" action="{% url 'CLS' %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">Vaciar Carrito</button>
+                </form>
+            </div>
         </div>
         <div class="row">
             <div class="col">
@@ -32,6 +51,5 @@
         </div>
     </div>
 {% endblock %}
-
 
 

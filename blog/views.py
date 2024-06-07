@@ -131,7 +131,7 @@ def guardar_pedido(request):
     if request.method == "POST":
         carrito = request.session.get("carrito", {})
         if carrito:
-            pedido = Pedido.objects.create(user=request.user)  # Asumiendo que hay un usuario logueado
+            pedido = Pedido.objects.create(user=request.user)
             for item in carrito.values():
                 PedidoItem.objects.create(
                     pedido=pedido,
@@ -140,7 +140,7 @@ def guardar_pedido(request):
                     precio=item["acumulado"],
                     cantidad=item["cantidad"],
                 )
-            # Limpiar el carrito después de guardar el pedido
+
             request.session["carrito"] = {}
             request.session.modified = True
         

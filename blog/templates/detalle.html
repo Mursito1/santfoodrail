@@ -3,15 +3,16 @@
 
 {% block contenido %}
 
+<br>
 <div class="menu-detalle">
   <div class="food-item">
     <img src="{{ menu.imagen.url }}" alt="{{ menu.nombre_menu }}">
     <div class="detalles">
       <h2>{{ menu.nombre_menu }}</h2>
-      <p class="precio">${{ menu.precio }}</p>
       <p>{{ menu.descripcion_menu }}</p>
+      <p class="precio">Precio ${{ menu.precio }}</p>
       {% if user.username != 'admin' %}
-    <form method="POST" action="{% url 'Add' menu.id %}">
+    <form method="POST" action="{% url 'Add' menu.id %}" class = "detalle-menu">
         {% csrf_token %}
         <h3>Selecciona tus ingredientes:</h3>
         <label for="proteina">Proteína:</label>
@@ -19,8 +20,8 @@
         {% for proteina in menu.proteina.all %}
             <option value="{{ proteina.id }}">{{ proteina.nombre }}</option>
         {% endfor %}
-        </select><br>
-
+        </select>
+        
         <h3>Vegetales:</h3>
         {% for vegetal in menu.vegetal.all %}
         <input type="checkbox" name="vegetales" id="vegetal{{ vegetal.id }}" value="{{ vegetal.id }}">
@@ -33,7 +34,8 @@
         <label for="salsa{{ salsa.id }}">{{ salsa.nombre }}</label><br>
         {% endfor %}
         
-        <button type="submit" class="btn btn-success">Agregar al carrito</button>
+        <br>
+        <input type="submit" value = "Agregar Al Carrito">
     </form>
     {% endif %}
       
@@ -41,4 +43,5 @@
   </div>
 </div>
 
+<br>
 {% endblock %}

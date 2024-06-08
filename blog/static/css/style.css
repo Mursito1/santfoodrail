@@ -593,8 +593,8 @@ td {
      color: #000000;
      font-size: 16px;
      line-height: 28px;
-     align-self: center;
-     font-weight: 700;
+     text-align: center;
+     font-weight: 800;
      
 }
 
@@ -617,7 +617,70 @@ td {
      background-color: #7a7a9a;
    }
 
-/*--------------------------------------------------------------------- footer ---------------------------------------------------------------------*/
+/* DETALLE COMIDA */
+
+.menu-detalle{
+     background-color: #DFDDE0;
+     position: relative;
+     width: 600px;
+     padding: 30px 30px 30px 30px;
+     margin: 0 auto;
+     border-top-left-radius: 20px;
+     border-top-right-radius: 20px;
+     border-bottom-left-radius: 20px;
+     border-bottom-right-radius: 20px;
+}
+
+.food-item img{
+     width: 95%;
+     position: center;
+     height: 280px;
+     border-radius: 15px 15px 0 0;
+}
+
+.detalles h2 {
+     font-size: 2.5rem;
+     font-weight: 900;
+     color: #fff;
+     text-shadow:
+          3px 3px 2px #000,
+          -3px 3px 2px #000,
+          -3px -3px 0 #000,
+          3px -3px 0 #000;
+     text-align: center;
+}
+
+.detalle-menu h3{
+     color: #000000;
+     font-weight: 900;
+     font-size: 20px;
+
+}
+
+.detalle-menu label{
+     font-size: 16px;
+     font-weight: 600;
+}
+
+.detalle-menu input[type="submit"] {
+     background-color: #9191bd;
+     color: #000000;
+     border-radius: 20px;
+     border: none;
+     padding: 10px 15px;
+     cursor: pointer;
+     box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
+     font-weight: 700;
+}
+   
+.detalle-menu input[type="submit"]:hover {
+     background-color: #7a7a9a;
+}
+
+
+
+
+/*------------------------------------- FOOTER --------------------------------------------*/
 html{
      height: 100%;
 }
@@ -897,7 +960,6 @@ html{
      font-size: 2,5em;
      font-weight: 900;
      border-radius: 10px;
-     
 
 }
    
@@ -1396,7 +1458,12 @@ html{
           padding: 10px 10px;
      }
 
+     /* DETALLE COMIDAS */
 
+     .menu-detalle {
+          width: 400px;
+          padding: 10px 10px 10px 10px;
+     }
 
 
 

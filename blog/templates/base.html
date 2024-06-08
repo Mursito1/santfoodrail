@@ -67,7 +67,7 @@
             </li>
             <li>
               <div class="dropdown">
-                <a class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="dropdown-toggle" type="button" data-bs-toggle="dropdown">
                   @{{ user.username }}
                 </a>
                 <ul class="dropdown-menu">
@@ -88,20 +88,8 @@
               <a href="{% url 'contacto' %}">Contáctanos</a>
             </li>
             <li>
-              <a class = "usuario"> @{{ user.username }} <i class = "fas fa-caret-down"></i>
-              <div class = "dropdown-menu">
-                <ul>
-                  <li>
-                    <a href = "{% url 'revisar_pedidos' %}">Mis Pedidos </a>
-                  </li>
-                  <li>
-                    <a href = "{% url 'logout' %}">Cerrar Sesion </a>
-                  </li>
-                </ul>
-
-              </div>
-              {% comment %} <div class="dropdown">
-                <a class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <div class="dropdown">
+                <a class="dropdown-toggle" type="button" data-bs-toggle="dropdown">
                   @{{ user.username }}
                 </a>
                 <ul class="dropdown-menu">
@@ -109,7 +97,7 @@
                   <li><a class="dropdown-item" href="{% url 'logout' %}">Cerrar Sesión</a></li>
                 </ul>
               </div>
-            </li> {% endcomment %}
+            </li>
             {% endif %}
           {% else %}
           <li>
@@ -130,9 +118,13 @@
       </nav>
       <div>
         <ul>
-          <li class = "submenu">
-            <img src="{% static 'images/car.svg'%}" id = "img-carrito" data-bs-toggle="offcanvas" data-bs-target="#carritoOffcanvas" aria-controls="offcanvasRight"/>
+          {% if user.username == 'admin' %}
+          <li>
           </li>
+          {% else %}
+          <li class = "submenu">
+            <img src="{% static 'images/car.svg'%}" id = "img-carrito" data-bs-toggle="offcanvas" data-bs-target="#carritoOffcanvas" aria-controls="offcanvasRight"/>           </li>
+          {% endif %}
         </ul>
       </div>
     </div>

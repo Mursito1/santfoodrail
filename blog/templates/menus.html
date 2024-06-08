@@ -15,19 +15,7 @@
               <p>Estado: {{ menu.estado_menu|yesno:"Activo,Inactivo" }}</p>
             {% endif %}
           </div>
-          <p>{{ menu.descripcion_menu }}</p>
-          <h6>Ingredientes:</h6>
-          <ul>
-            {% for proteina in menu.proteina.all %}
-              <li>{{ proteina.nombre }}</li>
-            {% endfor %}
-            {% for vegetal in menu.vegetal.all %}
-              <li>{{ vegetal.nombre }}</li>
-            {% endfor %}
-            {% for salsa in menu.salsa.all %}
-              <li>{{ salsa.nombre }}</li>
-            {% endfor %}
-          </ul>
+          <p>{{ menu.descripcion_menu }}</p>       
           {% if user.username == 'admin' %}
             <a href="{% url 'modificar_producto' menu.id %}" class="btn btn-success">Editar</a>
           {% else %}

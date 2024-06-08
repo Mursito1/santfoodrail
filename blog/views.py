@@ -55,10 +55,21 @@ def contacto(request):
     return render(request, 'contacto.html', data)
 
 def agregar_menu(request, menu_id):
-    carrito = Carrito(request)
-    menu = Menu.objects.get(id=menu_id)
-    carrito.agregar(menu)
-    return redirect("menus")
+    if request.method == 'POST':
+        carrito = Carrito(request)
+        menu = Menu.objects.get(id=menu_id)
+        proteina_id = request.POST.get('proteina')
+        vegetales_ids = request.POST.getlist('vegetales')
+        salsas_ids = request.POST.getlist('salsas')
+        ingredientes = {
+            'proteina': proteina_id,
+            'vegetales': vegetales_ids,
+            'salsas': salsas_ids
+        }
+        carrito.agregar(menu, ingredientes)
+        return redirect("menus")
+    else:
+        return redirect("menus")
 
 def eliminar_menu(request, menu_id):
     carrito = Carrito(request)

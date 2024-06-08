@@ -677,7 +677,35 @@ td {
      background-color: #7a7a9a;
 }
 
+/* -------------- DETALLE PEDIDO -------------------------------  */
 
+.container-pedido{
+     background-color: #DFDDE0;
+     border-top-left-radius: 20px;
+     border-top-right-radius: 20px;
+     border-bottom-left-radius: 20px;
+     border-bottom-right-radius: 20px;
+     padding: 10px 10px 10px 10px;
+}
+
+.container-pedido h2 {
+     font-size: 2.5rem;
+     font-weight: 900;
+     color: #fff;
+     text-shadow:
+          3px 3px 2px #000,
+          -3px 3px 2px #000,
+          -3px -3px 0 #000,
+          3px -3px 0 #000;
+     text-align: center;
+}
+
+.container-pedido h3 {
+     color: #000000;
+     font-size: 2,5em;
+     font-weight: 800;
+
+}
 
 
 /*------------------------------------- FOOTER --------------------------------------------*/

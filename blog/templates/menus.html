@@ -10,16 +10,19 @@
         <div class="detalles">
           <div class="detalles-categoria">
             <h5>{{ menu.nombre_menu }}</h5>
-            <p class="precio">${{ menu.precio }}</p>
+            <br>
+            <p>{{ menu.descripcion_menu }}</p>
+            <br>
+            <p class="precio">Precio: ${{ menu.precio }}</p>
             {% if user.username == 'admin' %}
               <p>Estado: {{ menu.estado_menu|yesno:"Activo,Inactivo" }}</p>
             {% endif %}
           </div>
-          <p>{{ menu.descripcion_menu }}</p>       
+          <br>      
           {% if user.username == 'admin' %}
-            <a href="{% url 'modificar_producto' menu.id %}" class="btn btn-success">Editar</a>
+            <a href="{% url 'modificar_producto' menu.id %}" class = "button-menu">Editar</a>
           {% else %}
-            <a href="{% url 'detalle_menu' menu.id %}" class="btn btn-success">Ver detalles</a>
+            <a href="{% url 'detalle_menu' menu.id %}" class = "button-menu">Ver detalles</a>
           {% endif %}
         </div>
       </div>

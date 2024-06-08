@@ -1,15 +1,17 @@
 {% extends "base.html" %}
 {% load static %}
 {% block contenido %}
-    <div class="container-fluid">
+
+<br>
+    <div class="container-pago">
+        <br>
         <div id="contacto" class="row">
             <table class="table">
                 <thead>
                     <tr>
                         <th>Nombre</th>
                         <th>Precio</th>
-                        <th>Cantidad</th>
-                        <th>Acciones</th> 
+                        <th>Cantidad</th> 
                     </tr>
                 </thead>
                 <tbody>
@@ -18,38 +20,33 @@
                         <td>{{ item.nombre }}</td>
                         <td>{{ item.acumulado }}</td>
                         <td>{{ item.cantidad }}</td>
-                        <td>
-                            <form method="post" action="{% url 'Add' item.menu_id %}">
-                                {% csrf_token %}
-                                <button type="submit" class="btn btn-success">Agregar</button>
-                            </form>
-                            <form method="post" action="{% url 'Sub' item.menu_id %}">
-                                {% csrf_token %}
-                                <button type="submit" class="btn btn-warning">Quitar</button>
-                            </form>
-                        </td>
                     </tr>
                     {% endfor %}
                 </tbody>
             </table>
         </div>
-        <div class="row">
-            <div class="col">
-                <form method="post" action="{% url 'CLS' %}">
-                    {% csrf_token %}
-                    <button type="submit" class="btn btn-danger">Vaciar Carrito</button>
-                </form>
+        <div class = "pagar">
+            <div class="row">
+                <div class="col">
+                    <form method="post" action="{% url 'CLS' %}">
+                        {% csrf_token %}
+                        <button type="submit" class="button-vaciar">Vaciar</button>
+                    </form>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <form method="post" action="{% url 'guardar_pedido' %}">
-                    {% csrf_token %}
-                    <button type="submit" class="btn btn-primary">Pagar</button>
-                </form>
+            <div class="row">
+                <div class="col">
+                    <form method="post" action="{% url 'guardar_pedido' %}">
+                        {% csrf_token %}
+                        <button type="submit" class="button-pagar">Pagar</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
+
+<br>
+
 {% endblock %}
 
 

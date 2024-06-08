@@ -141,15 +141,21 @@ body {
 }
 
 table{
-     width: 100%;
+     width: 90%;
+     
+
+     
 }
 
 th {
-     color: #DFDDE0
+     color: #DFDDE0;
+     justify-content: space-between     ;
+     
 }
 
 td {
-     color: #DFDDE0
+     color: #DFDDE0;
+     
 }
 
 .borrar{
@@ -706,6 +712,61 @@ td {
      font-weight: 800;
 
 }
+
+
+/* -------------------  PAGO MENUS ---------------------------- */
+
+.container-pago {
+     width: 100%;
+     background-color: #DFDDE0;
+     padding: 10px 10px 10px 10px;
+     position: relative;
+     margin: 0 auto;
+
+
+}
+
+.row {
+     display: flex;
+     text-align: center;
+     justify-content: center;
+     font-size: 16px;
+     font-weight: 700;
+}
+
+
+.pagar{
+     display: flex;
+     justify-content: center;
+}
+
+.button-vaciar[type ="submit"]{
+     background-color: #e2400f;
+     color: #000000;
+     border-radius: 20px;
+     border: none;
+     padding: 10px 15px;
+     cursor: pointer;
+     box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
+     font-weight: 600;
+     margin-right: 10px;
+
+}
+
+
+
+.button-pagar[type ="submit"]{
+     background-color: #1438db;
+     color: #000000;
+     border-radius: 20px;
+     border: none;
+     padding: 10px 15px;
+     cursor: pointer;
+     box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
+     font-weight: 600;
+
+}
+
 
 
 /*------------------------------------- FOOTER --------------------------------------------*/
@@ -1493,7 +1554,9 @@ html{
           padding: 10px 10px 10px 10px;
      }
 
+     /* DETALLE DE PEDIDOS */
 
+     
 
 
 

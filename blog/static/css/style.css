@@ -1087,7 +1087,7 @@ td {
 .agregar{
      font-size: 15px;
      font-weight: 700;
-     color: #0d0d0d
+     color: #0d0d0d;
 }
 
 .formulario_agregar input[type="submit"] {
@@ -1120,6 +1120,75 @@ td {
 .formulario_agregar input[type="reset"]:hover {
      background-color: #7a7a9a;
 }
+
+/* EDITAR MENU ADMINISTRADOR */
+
+.container-editar{
+     background-color: #DFDDE0;
+     position: relative;
+     width: 600px;
+     padding: 30px 30px 30px 30px;
+     margin: 0 auto;
+     border-radius: 20px;
+}
+
+.formulario-editar h2 {
+     font-size: 2.5rem;
+     font-weight: 900;
+     color: #fff;
+     text-shadow:
+          3px 3px 2px #000,
+          -3px 3px 2px #000,
+          -3px -3px 0 #000,
+          3px -3px 0 #000;
+     text-align: center;
+}
+
+
+.editar{
+     font-size: 15px;
+     font-weight: 700;
+     color: #0d0d0d;
+     text-align: center;
+     justify-content: center;
+     
+
+
+}
+
+.formulario-editar input[type="submit"] {
+     background-color: #9191bd;
+     color: #000000;
+     border-radius: 20px;
+     border: none;
+     padding: 10px 15px;
+     cursor: pointer;
+     box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
+     font-weight: 700;
+
+}
+   
+.formulario-editar input[type="submit"]:hover {
+     background-color: #7a7a9a;
+}
+
+.formulario-editar input[type="reset"] {
+     background-color: #9191bd;
+     color: #000000;
+     border-radius: 20px;
+     border: none;
+     padding: 10px 15px;
+     cursor: pointer;
+     box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
+     font-weight: 700;
+
+}
+   
+.formulario-editar input[type="reset"]:hover {
+     background-color: #7a7a9a;
+}
+
+
 
 /* MODALIDAD RESPONSIVA PAGINA */
 
@@ -1295,6 +1364,21 @@ td {
           padding: 20px;
           border-bottom-left-radius: 20px;
           border-top-right-radius: 0;
+     }
+
+     /* AGREGAR MENU */
+
+     .container-agregar{
+          width: 400px;
+          padding: 10px 10px;
+     }
+
+
+     /* EDITAR MENU */
+
+     .container-editar{
+          width: 400px;
+          padding: 10px 10px;
      }
 
 

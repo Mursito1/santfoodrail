@@ -20,6 +20,8 @@ body {
      background-size: cover;
      background-attachment: fixed;
      font-family: 'Poppins', sans-serif;
+
+
     
 
      
@@ -606,15 +608,18 @@ td {
 
 /*--------------------------------------------------------------------- footer ---------------------------------------------------------------------*/
 
+
 .footer-1{
      background-color: #0d0d0d;
+
+
 }
 
 .footer{
      padding: 50px 0px;
      display: flex;
      justify-content: space-between;
-     
+
 }
 
 .links h4{
@@ -669,7 +674,6 @@ td {
      box-shadow: 0 5px 7px rgba(0, 0, 0, .1);
      height: 500px;
      max-width: 900px;
-     transition: all 1s ease;
      margin: 10px;
      margin: 0 auto;
    }
@@ -786,7 +790,7 @@ td {
    }
 
 
-/* REGISTRO */
+/* ------------- REGISTRO -----------------------------*/
 
 .container-form-registro {
      display: flex;
@@ -794,12 +798,11 @@ td {
      box-shadow: 0 5px 7px rgba(0, 0, 0, .1);
      height: 640px;
      max-width: 900px;
-     transition: all 1s ease;
      margin: 10px;
      margin: 0 auto;
-   }
+}
    
-   .information-registro {
+.information-registro {
      width: 40%;
      display: flex;
      align-items: center;
@@ -810,28 +813,35 @@ td {
      background-repeat: no-repeat;
      border-top-left-radius: 20px;
      border-bottom-left-radius: 20px;
-   }
+}
    
-   .info-childs-registro {
+.info-childs-registro {
      width: 100%;
      padding: 0 30px;
-   }
+}
    
-   .info-childs-registro h2 {
+.info-childs-registro h2 {
      font-size: 2.5rem;
-     color: #000000;
      font-weight: 900;
-   }
+     color: #fff;
+     text-shadow:
+          3px 3px 2px #000,
+          -3px 3px 2px #000,
+          -3px -3px 0 #000,
+          3px -3px 0 #000;
+}
    
-   .info-childs-registro p {
+.info-childs-registro p {
      margin: 15px 0 ;
-     color: #000000;
-     font-weight: 750;
-     font-size: 16px;c
+     font-weight: 800;
+     font-size: 20px;
+       color: #ffffff;
+     -webkit-text-stroke: 1.5px black;
+
      
-   }
+}
    
-   .info-childs-registro a {
+.info-childs-registro a {
      background-color: #9191bd;
      outline: none;
      border-radius: 20px;
@@ -844,14 +854,14 @@ td {
      font-weight: 700;
      
      
-   }
+}
    
-   .info-childs-registro a:hover {
+.info-childs-registro a:hover {
      background-color: #7a7a9a;
 
-   }
+}
    
-   .form-information-registro {
+.form-information-registro {
      display: flex;
      align-items: center;
      justify-content: center;
@@ -861,35 +871,36 @@ td {
      border-top-right-radius: 20px;
      border-bottom-right-radius: 20px;
      
-   }
+}
    
-   .form-information-childs-registro {
+.form-information-childs-registro {
      padding: 0 30px;
-   }
+}
    
-   .form-information-childs-registro h2 {
+.form-information-childs-registro h2 {
      color: #000000;
      font-size: 2,5em;
      font-weight: 900;
      border-radius: 10px;
+     
 
-   }
+}
    
    
-   .form-registro {
+.form-registro {
      margin: 10px 0 0 0;
-   }
+}
 
    
-   .registro-2{
+.registro-2{
      font-size: 15px;
      font-weight: 700;
      color: #0d0d0d
      
-   }
+}
 
 
-   .form-registro input[type="submit"] {
+.form-registro input[type="submit"] {
      background-color: #9191bd;
      color: #000000;
      border-radius: 20px;
@@ -898,12 +909,217 @@ td {
      cursor: pointer;
      box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
      font-weight: 700;
-   }
+}
    
-   .form-registro input[type="submit"]:hover {
+.form-registro input[type="submit"]:hover {
      background-color: #7a7a9a;
-   }
+}
 
+/*----------------------- CONTACTANOS ---------------------------------*/
+
+.container-form-contacto {
+     display: flex;
+     border-radius: 20px;
+     box-shadow: 0 5px 7px rgba(0, 0, 0, .1);
+     height: 640px;
+     max-width: 900px;
+     margin: 10px;
+     margin: 0 auto;
+}
+   
+.information-contacto {
+     width: 40%;
+     display: flex;
+     align-items: center;
+     text-align: center;
+     background-image: url(../images/hamburguesa-papasfritas.jpg);
+     background-size: cover;
+     background-position: center;
+     background-repeat: no-repeat;
+     border-top-left-radius: 20px;
+     border-bottom-left-radius: 20px;
+}
+   
+.info-childs-contacto {
+     width: 100%;
+     padding: 0 30px;
+}
+   
+.info-childs-contacto h2 {
+     font-size: 2.5rem;
+     font-weight: 900;
+     color: #fff;
+     text-shadow:
+          3px 3px 2px #000,
+          -3px 3px 2px #000,
+          -3px -3px 0 #000,
+          3px -3px 0 #000;
+}
+   
+.info-childs-contacto p {
+     margin: 15px 0 ;
+     font-weight: 800;
+     font-size: 20px;
+       color: #ffffff;
+     -webkit-text-stroke: 1.5px black;
+
+     
+}
+   
+.info-childs-contacto a {
+     background-color: #9191bd;
+     outline: none;
+     border-radius: 20px;
+     padding: 10px 20px;
+     color: #000000;
+     cursor: pointer;
+     transition: background-color .3s ease;
+     text-decoration: none;
+     font-size: 15px;
+     font-weight: 700;
+     
+     
+}
+   
+.info-childs-contacto a:hover {
+     background-color: #7a7a9a;
+
+}
+   
+.form-information-contacto {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     width: 60%;
+     text-align: center;
+     background-color: #DFDDE0;
+     border-top-right-radius: 20px;
+     border-bottom-right-radius: 20px;
+     
+}
+   
+.form-information-childs-contacto {
+     padding: 0 30px;
+}
+   
+.form-information-childs-contacto h2 {
+     color: #000000;
+     font-size: 2,5em;
+     font-weight: 900;
+     border-radius: 10px;
+     
+
+}
+   
+   
+.formulario_contacto {
+     margin: 10px 0 0 0;
+}
+
+   
+.contacto{
+     font-size: 15px;
+     font-weight: 700;
+     color: #0d0d0d
+     
+}
+
+
+.formulario_contacto input[type="submit"] {
+     background-color: #9191bd;
+     color: #000000;
+     border-radius: 20px;
+     border: none;
+     padding: 10px 15px;
+     cursor: pointer;
+     box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
+     font-weight: 700;
+}
+   
+.formulario_contacto input[type="submit"]:hover {
+     background-color: #7a7a9a;
+}
+
+.formulario_contacto input[type="reset"] {
+     background-color: #9191bd;
+     color: #000000;
+     border-radius: 20px;
+     border: none;
+     padding: 10px 15px;
+     cursor: pointer;
+     box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
+     font-weight: 700;
+}
+   
+.formulario_contacto input[type="reset"]:hover {
+     background-color: #7a7a9a;
+}
+
+/*   AGREGAR NUEVOS PRODUCTOS ADMIN */
+
+.container-agregar{
+     background-color: #DFDDE0;
+     position: relative;
+     width: 600px;
+     padding: 30px 30px 30px 30px;
+     margin: 0 auto;
+     border-radius: 20px;
+}
+
+.formulario_agregar h2 {
+     font-size: 2.5rem;
+     font-weight: 900;
+     color: #fff;
+     text-shadow:
+          3px 3px 2px #000,
+          -3px 3px 2px #000,
+          -3px -3px 0 #000,
+          3px -3px 0 #000;
+}
+
+.formulario_agregar{
+     justify-content: center;
+     align-items: center;
+     text-align: center;
+     flex-direction: column;        
+}
+
+.agregar{
+     font-size: 15px;
+     font-weight: 700;
+     color: #0d0d0d
+}
+
+.formulario_agregar input[type="submit"] {
+     background-color: #9191bd;
+     color: #000000;
+     border-radius: 20px;
+     border: none;
+     padding: 10px 15px;
+     cursor: pointer;
+     box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
+     font-weight: 700;
+
+}
+   
+.formulario_agregar input[type="submit"]:hover {
+     background-color: #7a7a9a;
+}
+
+.formulario_agregar input[type="reset"] {
+     background-color: #9191bd;
+     color: #000000;
+     border-radius: 20px;
+     border: none;
+     padding: 10px 15px;
+     cursor: pointer;
+     box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
+     font-weight: 700;
+}
+   
+.formulario_agregar input[type="reset"]:hover {
+     background-color: #7a7a9a;
+}
 
 /* MODALIDAD RESPONSIVA PAGINA */
 
@@ -1012,6 +1228,8 @@ td {
           margin: 8px 0 0 0;
      }
 
+     /* INICIO DE SESION */
+
      .container-form {
           height: auto;
           flex-direction: column;
@@ -1027,6 +1245,52 @@ td {
      }
       
      .form-information {
+          width: 100%;
+          padding: 20px;
+          border-bottom-left-radius: 20px;
+          border-top-right-radius: 0;
+     }
+     
+     /* REGISTRO */
+
+     .container-form-registro {
+          height: auto;
+          flex-direction: column;
+     }
+      
+     .information-registro {
+          width: 100%;
+          padding: 20px;
+          border-top-left-radius: 20px;
+          border-top-right-radius: 20px;
+          border-bottom-left-radius: 0px;
+          border-bottom-right-radius: 0;
+     }
+      
+     .form-information-registro {
+          width: 100%;
+          padding: 20px;
+          border-bottom-left-radius: 20px;
+          border-top-right-radius: 0;
+     }
+
+     /* CONTACTO */
+
+     .container-form-contacto {
+          height: auto;
+          flex-direction: column;
+     }
+      
+     .information-contacto {
+          width: 100%;
+          padding: 20px;
+          border-top-left-radius: 20px;
+          border-top-right-radius: 20px;
+          border-bottom-left-radius: 0px;
+          border-bottom-right-radius: 0;
+     }
+      
+     .form-information-contacto {
           width: 100%;
           padding: 20px;
           border-bottom-left-radius: 20px;

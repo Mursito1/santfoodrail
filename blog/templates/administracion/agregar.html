@@ -3,7 +3,51 @@
 {% block contenido %}
 {% load crispy_forms_tags %}
 {% if user.username == 'admin' %}
-<div class="bg_bg">
+
+<br><br>
+<div class = "container-agregar">
+  <form action="" class="formulario_agregar" method="post" enctype="multipart/form-data">
+
+    <h2>Nuevo Producto</h2>
+
+    <div class = "agregar">
+
+      {% csrf_token %}
+      {{ form.nombre_menu|as_crispy_field }}
+      {{ form.precio|as_crispy_field }}
+      {{ form.ganancia|as_crispy_field }}
+      <br>
+      {{ form.estado_menu|as_crispy_field }}
+      <br>
+      {{ form.descripcion_menu|as_crispy_field }}
+      {{ form.imagen|as_crispy_field }}
+      <br>
+      {{ form.proteina|as_crispy_field }}
+      <br>
+      {{ form.vegetal|as_crispy_field }}
+      <br>
+      {{form.salsa|as_crispy_field }}
+      <br>
+
+    </div>
+    <input type="submit" value = "Guardar">
+    <input type="reset" value = "Cancelar">
+
+  <form>
+</div>
+{% else %}
+<div class="card">
+    <h1>No tienes los permisos para ingresar a esta página</h1>
+    <a href="{% url 'index' %}">Volver al inicio</a>
+</div>
+{% endif %}
+
+
+<br><br>
+{% endblock %}
+
+
+{% comment %} <div class="bg_bg">
     <div class="row">
       <div class="col-12 col-md-6 offset-md-3">
         <div class="card">
@@ -30,11 +74,4 @@
           </div>
         </div>
       </div>
-    </div>
-{% else %}
-<div class="card">
-    <h1>No tienes los permisos para ingresar a esta página</h1>
-    <a href="{% url 'index' %}">Volver al inicio</a>
-</div>
-{% endif %}
-{% endblock %}
+    </div> {% endcomment %}

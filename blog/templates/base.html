@@ -119,11 +119,13 @@
       <div>
         <ul>
           {% if user.username == 'admin' %}
-          <li>
-          </li>
+            <li>
+            </li>
           {% else %}
           <li class = "submenu">
-            <img src="{% static 'images/car.svg'%}" id = "img-carrito" data-bs-toggle="offcanvas" data-bs-target="#carritoOffcanvas" aria-controls="offcanvasRight"/>           </li>
+            <img src="{% static 'images/car.svg'%}" id = "img-carrito" data-bs-toggle="offcanvas" 
+            data-bs-target="#carritoOffcanvas" aria-controls="offcanvasRight"/>
+          </li>
           {% endif %}
         </ul>
       </div>

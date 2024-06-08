@@ -5,35 +5,32 @@
 {%block contenido%}
 {% load crispy_forms_tags %}
 
-<br><br><br><br><br><br>
-<div class="bg_bg">
-  <div class="row">
-    <div class="col-12 col-md-6 offset-md-3">
-      <div class="card">
-        <div class="card-body">
-        
-          <h1>Contáctanos</h1>
-
-
-          <form action="" class="formulario_contacto" method="post">
-          
-            {% csrf_token %}
-
-            {{ form | crispy }}
+<br><br>
+<div class="container-form-contacto">
+    <div class="information-contacto">
+        <div class="info-childs-contacto">
+            <h2>Dejanos Tu Comentario</h2>
+            <p>Puedes realizar una sugerencia, reclamo o felicitaciones hacia nuestros <colaboradores></colaboradores></p>
             <br>
-            <button id="btn-enviar" class="btn btn-success" type="submit">Enviar</button>
-            <button id="btn-limpiar" class="btn btn-secondary" type="reset">Limpiar</button>
-
-          </form>
         </div>
-      </div>
     </div>
-  </div>
+    <div class="form-information-contacto">
+        <div class="form-information-childs-contacto">
+            <h2>CONTACTANOS</h2>
+            <form action = "" method = "post" class = "formulario_contacto">
+              <div class = "contacto">
 
-
-
-{{mensaje}}
-
-<br><br><br><br><br><br>
+                {% csrf_token %}
+                {{ form | crispy }}
+                
+              </div>
+              <br>
+              <input type="submit" value = "Enviar">
+              <input type="reset" value = "Limpiar">
+            </form>
+        </div>
+    </div>
+</div>
+<br><br>
 
 {%endblock%}

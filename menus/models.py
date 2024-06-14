@@ -38,18 +38,28 @@ class Salsa(models.Model):
 class Menu(models.Model):
     nombre_menu = models.CharField(
         max_length=50,
-        validators=[RegexValidator(
-            regex='^[a-zA-Z]+$',
-            message='El nombre del menú solo puede contener letras.',
-            code='invalid_nombre_menu'
-        )]
+        validators=[
+            MinLengthValidator(8),
+            RegexValidator(
+                regex='^[a-zA-Z]+$',
+                message='El nombre del menú solo puede contener letras.',
+                code='invalid_nombre_menu'
+            )
+        ]
     )
     precio = models.PositiveIntegerField(validators=[MinValueValidator(1)])
     ganancia = models.PositiveIntegerField(validators=[MinValueValidator(1)])
     estado_menu = models.BooleanField()
     descripcion_menu = models.CharField(
         max_length=300,
-        validators=[MinLengthValidator(10)]
+        validators=[
+            MinLengthValidator(10),
+            RegexValidator(
+                regex='^[a-zA-Z. ]+$',
+                message='La descripción solo puede contener letras y puntos.',
+                code='invalid_descripcion_menu'
+            )
+        ]
     )
     imagen = models.ImageField(upload_to='images/')
     proteina = models.ManyToManyField(Proteina)

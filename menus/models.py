@@ -49,8 +49,8 @@ class Menu(models.Model):
         validators=[
             MinLengthValidator(10),
             RegexValidator(
-                regex='^[a-zA-Z. ]+$',
-                message='La descripción solo puede contener letras y puntos.',
+                regex='^(?!.*[^a-zA-Z. ])[a-zA-Z]+(?:[a-zA-Z. ]*[a-zA-Z]+)*$',
+                message='La descripción solo puede contener letras, puntos. Además, no pueden ser solo puntos.',
                 code='invalid_descripcion_menu'
             )
         ]

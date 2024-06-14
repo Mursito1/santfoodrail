@@ -1,10 +1,5 @@
 from rest_framework import serializers
-from .models import Calificacion, Calificacion_Menu, Ingrediente, Menu
-
-class IngredienteSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Ingrediente
-        fields = '__all__'
+from .models import Calificacion, Calificacion_Menu, Menu
 
 class MenuSerializer(serializers.ModelSerializer):
     class Meta:

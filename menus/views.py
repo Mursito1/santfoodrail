@@ -1,12 +1,9 @@
 from django.shortcuts import render
 from rest_framework import viewsets
-from .models import Calificacion, Calificacion_Menu, Ingrediente, Menu
-from .serializer import Calificacion_MenuSerializer, CalificacionSerializer, IngredienteSerializer, MenuSerializer
+from .models import Calificacion, Calificacion_Menu, Menu
+from .serializer import Calificacion_MenuSerializer, CalificacionSerializer, MenuSerializer
 
 # Create your views here.
-class IngredienteViewSet(viewsets.ModelViewSet):
-    queryset = Ingrediente.objects.all()
-    serializer_class = IngredienteSerializer
 
 class MenuViewSet(viewsets.ModelViewSet):
     queryset = Menu.objects.all()

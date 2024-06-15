@@ -12,19 +12,46 @@ class Calificacion(models.Model):
         return self.calificacion
 
 class Proteina(models.Model):
-    nombre = models.CharField(max_length=50)
+    nombre = models.CharField(
+        max_length=20,
+        validators=[
+            MinLengthValidator(3),
+            RegexValidator(
+                regex='^[a-zA-Z]+$',
+                message='El nombre de la proteina solo puede contener letras y debe ser mayor a 3 letras'
+            ),
+        ]
+    )
 
     def __str__(self):
         return self.nombre
     
 class Vegetal(models.Model):
-    nombre = models.CharField(max_length=50)
+    nombre = models.CharField(
+        max_length=50,
+        validators=[
+            MinLengthValidator(3),
+            RegexValidator(
+                regex='^[a-zA-Z]+$',
+                message='El nombre del vegetal solo puede contener letras y debe ser mayor a 3 letras'
+            ),
+        ]
+    )
 
     def __str__(self):
         return self.nombre
     
 class Salsa(models.Model):
-    nombre = models.CharField(max_length=50)
+    nombre = models.CharField(
+        max_length=50,
+        validators=[
+            MinLengthValidator(3),
+            RegexValidator(
+                regex='^[a-zA-Z]+$',
+                message='El nombre de la salsa solo puede contener letras y debe ser mayor a 3 letras'
+            ),
+        ]
+    )
 
     def __str__(self):
         return self.nombre

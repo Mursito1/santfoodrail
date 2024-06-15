@@ -2,6 +2,8 @@
 {% load static %}
 {% block contenido %}
 {% if user.username == 'admin' %}
+
+
 <div class="container-fluid">
   <form method="get" action="">
     <label for="id_estado_contacto">Filtrar por estado de contacto:</label>
@@ -23,7 +25,32 @@
     <button type="submit">Filtrar</button>
   </form>
 
-    <div id="contacto" class="row">
+
+  <div id="contacto" class="row">
+    {% for contacto in contactos %}
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ contacto.nombre }}</h5>
+                <p class="card-text">Tipo de contacto: {{ contacto.tipo_contacto }}</p>
+                <p class="card-text">Estado: {{ contacto.estado_contacto.estado_contacto }}</p>
+                <p class="card-text">{{ contacto.mensaje_contacto }}</p>
+                <a href="{% url 'editar_contacto' contacto.id %}" class="btn-3">Editar</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+
+
+
+
+
+
+
+    {% comment %} <div id="contacto" class="row">
         {% for contacto in contactos %}
         <div class="col">
             <div class="card" style="width: 18rem;">
@@ -38,7 +65,7 @@
         </div>
         {% endfor %}
     </div>
-</div>
+</div> {% endcomment %}
 {% else %}
 <div class="card">
     <h1>No tienes los permisos para ingresar a esta página</h1>

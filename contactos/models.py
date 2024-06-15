@@ -56,6 +56,7 @@ class Contacto(models.Model):
         ]
     )
     estado_contacto = models.ForeignKey(Estado_contacto, on_delete=models.SET_DEFAULT, default=1, blank=True, null=True)
+    respuesta = models.TextField(blank=True, null=True)
     
     def __str__(self):
         return self.nombre

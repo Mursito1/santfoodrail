@@ -1,29 +1,49 @@
-
 {% extends "base.html" %}
 {% load static %}
 {% block contenido %}
 {% if user.username == 'admin' %}
-  <div class="container-fluid">
+<div class="container-fluid">
+  <form method="get" action="">
+    <label for="id_estado_contacto">Filtrar por estado de contacto:</label>
+    <select name="estado_contacto" id="id_estado_contacto">
+        <option value="">Todos</option>
+        {% for estado in estados_contacto %}
+            <option value="{{ estado.id }}">{{ estado.estado_contacto }}</option>
+        {% endfor %}
+    </select>
+
+    <label for="id_tipo_contacto">Filtrar por tipo de contacto:</label>
+    <select name="tipo_contacto" id="id_tipo_contacto">
+        <option value="">Todos</option>
+        {% for tipo in tipos_contacto %}
+            <option value="{{ tipo.id }}">{{ tipo.tipo_contacto }}</option>
+        {% endfor %}
+    </select>
+
+    <button type="submit">Filtrar</button>
+  </form>
+
     <div id="contacto" class="row">
-      {% for contacto in contactos %}
-      <div class="col">
-        <div class="card" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title">{{ contacto.nombre }}</h5>
-            <h5 class="card-title">{{ contacto.tipo_contacto }}</h5>
-            <h5 class="card-title">Estado: {{ contacto.estado_contacto }}</h5>
-            <p class="card-text">{{ contacto.mensaje_contacto }}</p>
-            <a href="{% url 'editar_contacto' contacto.id %}" class="btn btn-primary">Editar</a>
-          </div>
+        {% for contacto in contactos %}
+        <div class="col">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{ contacto.nombre }}</h5>
+                    <h5 class="card-title">{{ contacto.tipo_contacto }}</h5>
+                    <h5 class="card-title">Estado: {{ contacto.estado_contacto.estado_contacto }}</h5>
+                    <p class="card-text">{{ contacto.mensaje_contacto }}</p>
+                    <a href="{% url 'editar_contacto' contacto.id %}" class="btn btn-primary">Editar</a>
+                </div>
+            </div>
         </div>
-      </div>
-      {% endfor %}
+        {% endfor %}
     </div>
-  </div>
+</div>
 {% else %}
-  <div class="card">
-      <h1>No tienes los permisos para ingresar a esta página</h1>
-      <a href="{% url 'index' %}">Volver al inicio</a>
-  </div>
+<div class="card">
+    <h1>No tienes los permisos para ingresar a esta página</h1>
+    <a href="{% url 'index' %}">Volver al inicio</a>
+</div>
 {% endif %}
 {% endblock %}
+

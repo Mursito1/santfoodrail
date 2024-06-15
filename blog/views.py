@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from contactos.forms import ContactoAdminForm, ContactoForm
-from contactos.models import Contacto
+from contactos.models import Contacto, Estado_contacto, Tipo_contacto
 from menus.carrito import Carrito
 from pedidos.models import Pedido, PedidoItem
 from .forms import CustomUserCreationForm, MenuForm
@@ -21,7 +21,37 @@ def nosotros(request):
 
 def crud(request):
     contactos = Contacto.objects.all()
-    return render(request, 'crud.html', {'contactos': contactos})
+    estados_contacto = Estado_contacto.objects.all()
+    tipos_contacto = Tipo_contacto.objects.all()
+
+    estado_filter = request.GET.get('estado_contacto')
+    if estado_filter:
+        contactos = contactos.filter(estado_contacto__id=estado_filter)
+
+    tipo_filter = request.GET.get('tipo_contacto')
+    if tipo_filter:
+        contactos = contactos.filter(tipo_contacto__id=tipo_filter)
+
+    if request.method == 'POST':
+        form = ContactoAdminForm(request.POST)
+        if form.is_valid():
+            contacto = form.save(commit=False)
+            if contacto.respuesta:
+                contacto.estado_contacto_id = 3
+            else:
+                contacto.estado_contacto_id = 2
+            contacto.save() 
+            return redirect('crud') 
+    else:
+        form = ContactoAdminForm()
+
+    return render(request, 'crud.html', {
+        'contactos': contactos,
+        'estados_contacto': estados_contacto,
+        'tipos_contacto': tipos_contacto,
+        'form': form 
+    })
+
 
 def registro(request):
     data = {

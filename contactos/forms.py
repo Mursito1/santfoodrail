@@ -9,13 +9,14 @@ class ContactoForm(forms.ModelForm):
 
 
 class ContactoAdminForm(forms.ModelForm):
+    respuesta = forms.CharField(widget=forms.Textarea, required=False)
+
     class Meta:
         model = Contacto
-        fields = ["estado_contacto"]
+        fields = ["estado_contacto", "respuesta"] 
 
     def __init__(self, *args, **kwargs):
         super(ContactoAdminForm, self).__init__(*args, **kwargs)
-        # Hacer que los demás campos solo sean de lectura
         for field in self.fields:
             if field != 'estado_contacto':
                 self.fields[field].widget.attrs['readonly'] = True

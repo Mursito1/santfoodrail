@@ -147,7 +147,6 @@
     <div class="offcanvas-body">
       {% if request.session.carrito.items %}
     <ul class="list-group mb-3">
-      <!-- Mostrar los productos del carrito -->
       {% for key, value in request.session.carrito.items %}
         <div>
           <div class="d-flex">

@@ -67,15 +67,15 @@
             </li>
             <li>
               <div class="dropdown">
-                <a class="dropdown-toggle" type="button" data-bs-toggle="dropdown">
-                  @{{ user.username }}
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="{% url 'agregar_producto' %}">Agregar Menús</a></li>
-                  <li><a class="dropdown-item" href="{% url 'crud' %}">Revisar contactos</a></li>
-                  <li><a class="dropdown-item" href="{% url 'logout' %}">Cerrar Sesión</a></li>
-                </ul>
-              </div>
+                <a class="dropbtn">@{{ user.username }}</a>
+                <div class="dropdown-content">
+                    <ul>
+                        <li><a class="dropdown-item" href="{% url 'agregar_producto' %}"> Agregar Menus </a></li>
+                        <li><a class="dropdown-item" href="{% url 'crud' %}"> Revisar Contactos </a></li>
+                        <li><a class="dropdown-item" href="{% url 'logout' %}"> Cerrar Sesion </a></li>
+                    </ul>
+                </div>
+            </div>
             </li>
               {% else %}
             <li>
@@ -89,14 +89,13 @@
             </li>
             <li>
               <div class="dropdown">
-                <a class="dropdown-toggle" type="button" data-bs-toggle="dropdown">
-                  @{{ user.username }}
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="{% url 'revisar_pedidos' %}">Mis Pedidos</a></li>
-                  <li><a class="dropdown-item" href="{% url 'logout' %}">Cerrar Sesión</a></li>
-                </ul>
-              </div>
+                <a class="dropbtn">@{{ user.username }}</a>
+                <div class="dropdown-content">
+                    <ul>
+                      <li><a class="dropdown-item" href="{% url 'revisar_pedidos' %}">Mis Pedidos</a></li>
+                      <li><a class="dropdown-item" href="{% url 'logout' %}">Cerrar Sesión</a></li>
+                    </ul>
+                </div>
             </li>
             {% endif %}
           {% else %}

@@ -182,7 +182,64 @@ td {
      background-color: #c2311c;
 }
 
+/* --------------------- DROPDOWN -------------------------------- */
 
+ 
+ .dropdown {
+     position: relative;
+     display: inline-block;
+ }
+ 
+ .dropbtn {
+     padding: 10px 20px;
+     background-color: #252326;
+     color: white;
+     cursor: pointer;
+     text-decoration: none; 
+ }
+ 
+ .dropbtn::after {
+     content: '\25BC'; /* Icono Flecha Hacia Abajo */
+     margin-left: 5px;
+ }
+ 
+ .dropdown-content {
+     display: none;
+     position: absolute;
+     background-color: #252326;
+     min-width: 160px;
+     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+     z-index: 1;
+ }
+ 
+ .dropdown-content ul {
+     list-style-type: none; 
+     padding: 0;
+     margin: 0;
+ }
+ 
+
+ 
+ .dropdown-content ul li a {
+     display: block;
+     color: white;
+     padding: 12px 16px;
+     text-decoration: none;
+ }
+ 
+ 
+ /* Eliminar hover en submenús */
+ .dropdown:hover .dropdown-content {
+     display: block;
+ }
+ 
+ 
+ .dropdown-content ul li:hover a {
+     color: white; /* Cambiar color de texto solo cuando se hace hover en un item */
+ }
+ 
+ 
+ 
 
 /* --------------------  SLIDER MENU PRINCIPAL ---------------------------- */
 

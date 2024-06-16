@@ -682,50 +682,69 @@ td {
 
 /* DETALLE COMIDA */
 
-.menu-detalle{
+.menu-detalle {
      background-color: #DFDDE0;
      position: relative;
-     width: 600px;
-     padding: 30px 30px 30px 30px;
+     width: 80%; /* Ajusta según sea necesario */
+     padding: 30px;
      margin: 0 auto;
-     border-top-left-radius: 20px;
-     border-top-right-radius: 20px;
-     border-bottom-left-radius: 20px;
-     border-bottom-right-radius: 20px;
+     border-radius: 20px;
+     display: flex;
+     gap: 30px; /* Espacio entre la imagen y los detalles */
 }
-
-.food-item img{
-     width: 95%;
-     position: center;
-     height: 280px;
-     border-radius: 15px 15px 0 0;
+ 
+.food-item {
+     display: flex;
+     flex-direction: row; /* Alinea imagen y detalles en una fila */
+     align-items: center; /* Centra los elementos verticalmente */
+     gap: 20px; /* Espacio entre la imagen y los detalles */
 }
-
+ 
+.food-item img {
+     width: 45%; /* Ajusta según sea necesario */
+     height: auto;
+     border-radius: 15px;
+}
+ 
+.detalles {
+     flex: 1; /* Ocupa el resto del espacio disponible */
+     display: flex;
+     flex-direction: column; /* Alinea los elementos en columna */
+}
+ 
 .detalles h2 {
      font-size: 2.5rem;
      font-weight: 900;
-     color: #fff;
-     text-shadow:
-          3px 3px 2px #000,
-          -3px 3px 2px #000,
-          -3px -3px 0 #000,
-          3px -3px 0 #000;
-     text-align: center;
+     color: #000;
+     text-align: center; /* Alinea el texto a la izquierda */
+     margin-bottom: 20px; /* Espacio debajo del título */
+     border-bottom: 2px solid #ccc; /* Línea horizontal */
+     padding-bottom: 10px; /* Espacio bajo la línea */
+ }
+ 
+ 
+.detalles p {
+     margin-bottom: 10px; /* Espacio entre párrafos */
 }
-
-.detalle-menu h3{
+ 
+.detalle-menu h3 {
      color: #000000;
      font-weight: 900;
      font-size: 20px;
-
 }
-
-.detalle-menu label{
+ 
+.detalle-menu label {
      font-size: 16px;
      font-weight: 600;
 }
 
-.detalle-menu input[type="submit"] {
+.detalle-menu-footer {
+     display: flex;
+     justify-content: center;
+     margin-top: auto; /* Empuja el pie de la tarjeta al final del contenedor */
+}
+ 
+.detalle-menu-footer input[type="submit"] {
      background-color: #9191bd;
      color: #000000;
      border-radius: 20px;
@@ -735,10 +754,12 @@ td {
      box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
      font-weight: 700;
 }
-   
-.detalle-menu input[type="submit"]:hover {
+ 
+.detalle-menu-footer input[type="submit"]:hover {
      background-color: #7a7a9a;
 }
+ 
+
 
 /* -------------- DETALLE PEDIDO -------------------------------  */
 
@@ -1780,9 +1801,34 @@ html{
      /* DETALLE COMIDAS */
 
      .menu-detalle {
-          width: 400px;
-          padding: 10px 10px 10px 10px;
-     }
+          flex-direction: column; /* Cambia la dirección a columna para pantallas pequeñas */
+          width: %; /* Usa todo el ancho disponible */
+          padding: 20px; /* Reduce el padding */
+      }
+  
+      .food-item {
+          flex-direction: column; /* Cambia la dirección a columna */
+          align-items: center; /* Centra los elementos horizontalmente */
+      }
+  
+      .food-item img {
+          width: 100%; /* Imagen ocupa todo el ancho disponible */
+          height: auto;
+      }
+  
+      .detalles {
+          align-items: center; /* Centra los detalles en pantallas pequeñas */
+      }
+  
+      .detalles h2 {
+          font-size: 2rem; /* Reduce el tamaño del título */
+      }
+  
+      .detalle-menu-footer input[type="submit"] {
+          padding: 8px 12px; /* Reduce el padding del botón */
+      }
+
+
 
      /* DETALLE DE PEDIDOS */
 

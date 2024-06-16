@@ -12,6 +12,50 @@
       <p>{{ menu.descripcion_menu }}</p>
       <p class="precio">Precio ${{ menu.precio }}</p>
       {% if user.username != 'admin' %}
+      <form method="POST" action="{% url 'Add' menu.id %}" class="detalle-menu">
+        {% csrf_token %}
+        <br>
+        <h3>Selecciona tus ingredientes:</h3>
+        <label for="proteina">Proteína:</label>
+        <select name="proteina" id="proteina">
+        {% for proteina in menu.proteina.all %}
+            <option value="{{ proteina.id }}">{{ proteina.nombre }}</option>
+        {% endfor %}
+        </select>
+        
+        <h3>Vegetales:</h3>
+        {% for vegetal in menu.vegetal.all %}
+        <input type="checkbox" name="vegetales" id="vegetal{{ vegetal.id }}" value="{{ vegetal.id }}">
+        <label for="vegetal{{ vegetal.id }}">{{ vegetal.nombre }}</label><br>
+        {% endfor %}
+
+        <h3>Salsas:</h3>
+        {% for salsa in menu.salsa.all %}
+        <input type="checkbox" name="salsas" id="salsa{{ salsa.id }}" value="{{ salsa.id }}">
+        <label for="salsa{{ salsa.id }}">{{ salsa.nombre }}</label><br>
+        {% endfor %}
+        
+        <br>
+        <div class="detalle-menu-footer">
+          <input type="submit" value="Agregar Al Carrito">
+        </div>
+        
+      </form>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+
+
+{% comment %} <div class="menu-detalle">
+  <div class="food-item">
+    <img src="{{ menu.imagen.url }}" alt="{{ menu.nombre_menu }}">
+    <div class="detalles">
+      <h2>{{ menu.nombre_menu }}</h2>
+      <p>{{ menu.descripcion_menu }}</p>
+      <p class="precio">Precio ${{ menu.precio }}</p>
+      {% if user.username != 'admin' %}
     <form method="POST" action="{% url 'Add' menu.id %}" class = "detalle-menu">
         {% csrf_token %}
         <h3>Selecciona tus ingredientes:</h3>
@@ -41,7 +85,7 @@
       
     </div>
   </div>
-</div>
+</div> {% endcomment %}
 
 <br>
 {% endblock %}

@@ -1417,7 +1417,7 @@ html{
 
 /* BARRA DE BUSQUEDAD */
 
-form {
+.crud {
      background-color: #DFDDE0;
      padding: 20px;
      margin: 0;
@@ -1430,13 +1430,13 @@ form {
      border-bottom-right-radius: 20px;
 }
  
-form label {
+.crud label {
      font-weight: bold;
      margin-right: 10px;
      font-size: 16px;
 }
  
-form select {
+.crud select {
      padding: 8px;
      border: 1px solid #ccc;
      border-radius: 4px;
@@ -1444,7 +1444,7 @@ form select {
      font-size: 16px;
 }
  
-form button {
+.crud button {
      padding: 10px 20px;
      background-color: #252326;
      color: white;
@@ -1454,7 +1454,7 @@ form button {
      font-size: 16px;
 }
  
-form button:hover {
+.crud button:hover {
      background-color: #3e3e3e;
 }
 

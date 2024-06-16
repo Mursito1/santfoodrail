@@ -1524,50 +1524,49 @@ html{
 /* DETALLE DE RESPUESTA A LA RESPUESTA DEL CONTACTANOS EN ADMIN */
 
 
-.modificar-contacto{
+.modificar-contacto {
      background-color: #DFDDE0;
      position: relative;
      width: 600px;
-     padding: 30px 30px 30px 30px;
+     max-width: 100%; /* Asegura que no exceda el ancho del contenedor padre */
+     padding: 30px;
      margin: 0 auto;
      border-radius: 20px;
+     display: flex;
+     flex-direction: column;
 }
-
+ 
 .modificar-contacto h2 {
      font-size: 2.5rem;
      font-weight: 900;
      color: #fff;
-     text-shadow:
-          3px 3px 2px #000,
-          -3px 3px 2px #000,
-          -3px -3px 0 #000,
-          3px -3px 0 #000;
+     text-shadow: 3px 3px 2px #000, -3px 3px 2px #000, -3px -3px 0 #000, 3px -3px 0 #000;
      text-align: center;
 }
 
-.form-group{
+ .form-group {
      justify-content: center;
      align-items: center;
      text-align: center;
-     flex-direction: column;        
+     flex-direction: column;
+     margin-bottom: 20px; /* Añade espacio entre los grupos de formulario */
 }
-
-.form-group h1{
+ 
+.form-group h1 {
      font-size: 1.5rem;
      font-weight: 750;
 }
-
-.form-group p{
+ 
+.form-group p {
      font-weight: 600;
 }
-
+ 
 .form-footer {
      display: flex;
      justify-content: center;
      margin-top: auto; /* Empuja el pie de la tarjeta al final del contenedor */
-     
 }
-
+ 
 .modificar-contacto input[type="submit"] {
      background-color: #9191bd;
      color: #000000;
@@ -1577,13 +1576,12 @@ html{
      cursor: pointer;
      box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
      font-weight: 700;
-     
-
 }
-   
+ 
 .modificar-contacto input[type="submit"]:hover {
      background-color: #7a7a9a;
 }
+ 
 
 
 
@@ -1800,6 +1798,25 @@ html{
      form button {
           margin-bottom: 10px;
           width: 100%;
+     }
+
+     /* DETALLE DE CONTACTO - RESPUESTA DEL ADMIN PARA LOS CORREOS DE CONTACTANOS */
+
+     .modificar-contacto {
+          width: 100%; /* Usa el 100% del contenedor padre */
+          padding: 20px; /* Reduce el padding para pantallas más pequeñas */
+     }
+  
+     .modificar-contacto h2 {
+          font-size: 2rem; /* Reduce el tamaño de fuente para títulos */
+     }
+     
+      .form-group h1 {
+          font-size: 1.2rem; /* Reduce el tamaño de fuente para subtítulos */
+     }
+  
+     .modificar-contacto input[type="submit"] {
+          padding: 8px 12px; /* Ajusta el padding del botón */
      }
 
 

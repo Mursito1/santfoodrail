@@ -1459,30 +1459,51 @@ html{
 }
 
 /* Estilos para las tarjetas de contacto */
+
+.card-container {
+     display: flex;
+     flex-wrap: wrap; /* Asegura que las tarjetas se envuelvan en varias líneas si es necesario */
+     gap: 20px; /* Espacio entre las tarjetas (puedes ajustar según sea necesario) */
+     align-items: stretch; /* Iguala la altura de todas las tarjetas en la misma fila */
+}
+ 
 .card {
      background-color: #FFFFFF;
      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
      transition: box-shadow 0.3s ease;
- }
+     flex: 1 1 300px; /* Establece el ancho mínimo y máximo de la tarjeta */
+     display: flex;
+     flex-direction: column;
+}
  
- .card:hover {
+.card:hover {
      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
- }
+}
  
- .card-body {
+.card-body {
      padding: 2rem;
- }
+     flex: 1; /* Hace que el cuerpo de la tarjeta ocupe todo el espacio disponible */
+}
  
- .card-title {
-     font-size: 1.8rem;
-     margin-bottom: 0.5rem;
- }
+.card-title {
+     font-size: 2.0rem;
+     font-weight: 900;
+}
  
- .card-text {
+.card-text {
      color: #555;
- }
-
- .card-body a {
+     font-weight: 700;
+}
+ 
+ /* Nueva clase para el pie de la tarjeta */
+.card-footer {
+     display: flex;
+     justify-content: flex-end; /* Alinea el botón a la derecha */
+     margin-top: auto; /* Empuja el pie de la tarjeta al final del contenedor */
+     padding: 1rem 2rem; /* Ajusta el espaciado si es necesario */
+}
+ 
+.card-footer a {
      background-color: #9191bd;
      color: #000000;
      border-radius: 20px;
@@ -1492,13 +1513,77 @@ html{
      box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
      font-weight: 700;
      text-decoration: none;
- }
-
- .card-body a:hover{
+     margin: 0 auto;
+}
+ 
+.card-footer a:hover {
      background-color: #7a7a9a;
- }
+}
+ 
+
+/* DETALLE DE RESPUESTA A LA RESPUESTA DEL CONTACTANOS EN ADMIN */
 
 
+.modificar-contacto{
+     background-color: #DFDDE0;
+     position: relative;
+     width: 600px;
+     padding: 30px 30px 30px 30px;
+     margin: 0 auto;
+     border-radius: 20px;
+}
+
+.modificar-contacto h2 {
+     font-size: 2.5rem;
+     font-weight: 900;
+     color: #fff;
+     text-shadow:
+          3px 3px 2px #000,
+          -3px 3px 2px #000,
+          -3px -3px 0 #000,
+          3px -3px 0 #000;
+     text-align: center;
+}
+
+.form-group{
+     justify-content: center;
+     align-items: center;
+     text-align: center;
+     flex-direction: column;        
+}
+
+.form-group h1{
+     font-size: 1.5rem;
+     font-weight: 750;
+}
+
+.form-group p{
+     font-weight: 600;
+}
+
+.form-footer {
+     display: flex;
+     justify-content: center;
+     margin-top: auto; /* Empuja el pie de la tarjeta al final del contenedor */
+     
+}
+
+.modificar-contacto input[type="submit"] {
+     background-color: #9191bd;
+     color: #000000;
+     border-radius: 20px;
+     border: none;
+     padding: 10px 15px;
+     cursor: pointer;
+     box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
+     font-weight: 700;
+     
+
+}
+   
+.modificar-contacto input[type="submit"]:hover {
+     background-color: #7a7a9a;
+}
 
 
 

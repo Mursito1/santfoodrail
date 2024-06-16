@@ -26,22 +26,25 @@
   </form>
 
 
-  <div id="contacto" class="row">
+  <div class="card-container">
     {% for contacto in contactos %}
-    <div class="col-md-4 mb-4">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">{{ contacto.nombre }}</h5>
-                <p class="card-text">Tipo de contacto: {{ contacto.tipo_contacto }}</p>
-                <p class="card-text">Estado: {{ contacto.estado_contacto.estado_contacto }}</p>
-                <p class="card-text">{{ contacto.mensaje_contacto }}</p>
-                <a href="{% url 'editar_contacto' contacto.id %}" class="btn-3">Editar</a>
-            </div>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">{{ contacto.nombre }}</h5>
+            <p class="card-text">Tipo de contacto: {{ contacto.tipo_contacto }}</p>
+            <p class="card-text">Estado: {{ contacto.estado_contacto.estado_contacto }}</p>
+            <p class="card-text">{{ contacto.mensaje_contacto }}</p>
+        </div>
+        <div class="card-footer">
+            <a href="{% url 'editar_contacto' contacto.id %}" class="btn-3">Editar</a>
         </div>
     </div>
     {% endfor %}
   </div>
+
 </div>
+
+<br>
 
 
 

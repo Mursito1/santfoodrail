@@ -1,46 +1,54 @@
 {% extends "base.html" %}
 {% load static %}
 {% block contenido %}
-<div class="bg_bg">
-    <br><br><br><br>
-    <div class="row">
-        <div class="col-12 col-md-6 offset-md-3">
-            <div class="card">
-                <div class="card-body">
-                    <h2>Editar Contacto</h2>
-                    <form method="POST">
-                        {% csrf_token %}
-                        <div class="form-group">
-                            <label>Nombre:</label>
-                            <p>{{ contacto.nombre }}</p>
-                        </div>
-                        <div class="form-group">
-                            <label>Correo:</label>
-                            <p>{{ contacto.correo }}</p>
-                        </div>
-                        <div class="form-group">
-                            <label>Tipo de Contacto:</label>
-                            <p>{{ contacto.tipo_contacto }}</p>
-                        </div>
-                        <div class="form-group">
-                            <label>Mensaje:</label>
-                            <p>{{ contacto.mensaje_contacto }}</p>
-                        </div>
-                        <div class="form-group">
-                            {{ form.estado_contacto.label_tag }}
-                            {{ form.estado_contacto }}
-                        </div>
-                        <div class="form-group">
-                            <label>Respuesta:</label>
-                            <textarea name="respuesta" class="form-control" rows="4">{{ contacto.respuesta }}</textarea>
-                        </div>
-                        <br>
-                        <button type="submit" class="btn btn-primary">Guardar cambios</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+
+<br>
+<div class = "container-modificar-contacto">
+    <form action="" class="modificar-contacto">
+  
+      <h2>Editar Contacto</h2>
+        
+      <br>
+      {% csrf_token %}
+      <div class = "form-group">
+        <h1> Nombre </h1>
+        <p> {{ contacto.nombre }} </p>
+      </div>
+
+      <div class = "form-group">
+        <h1> Correo </h1>
+        <p>{{ contacto.correo }}</p>
+      </div>
+
+      
+      <div class = "form-group">
+        <h1> Tipo de Contacto </h1>
+        <p>{{ contacto.tipo_contacto }}</p>
+      </div>
+
+      
+      <div class = "form-group">
+        <h1> Mensaje </h1>
+        <p>{{ contacto.mensaje_contacto }}</p>
+      </div>
+
+      
+      <div class = "form-group">
+        {{ form.estado_contacto.label_tag }}
+        {{ form.estado_contacto }}
+      </div>
+      <br>
+      <div class = "form-group">
+        <h1> Respuesta </h1>
+        <textarea name="respuesta" class="form-control" rows="4">{{ contacto.respuesta }}</textarea>
+      </div>
+
+      <br>
+      <div class="form-footer">
+        <input type="submit" value = "Guardar">
+      </div>
+        
+    <form>
 </div>
-<br><br><br><br>
+<br>
 {% endblock %}

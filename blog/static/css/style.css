@@ -1803,7 +1803,7 @@ html{
      /* DETALLE DE CONTACTO - RESPUESTA DEL ADMIN PARA LOS CORREOS DE CONTACTANOS */
 
      .modificar-contacto {
-          width: 100%; /* Usa el 100% del contenedor padre */
+          width: 90%; /* Usa el 100% del contenedor padre */
           padding: 20px; /* Reduce el padding para pantallas más pequeñas */
      }
   

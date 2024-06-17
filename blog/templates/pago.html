@@ -2,50 +2,45 @@
 {% load static %}
 {% block contenido %}
 
-<br>
-    <div class="container-pago">
-        <br>
-        <div id="contacto" class="row">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Precio</th>
-                        <th>Cantidad</th> 
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for item in contenido_carrito %}
-                    <tr>
-                        <td>{{ item.nombre }}</td>
-                        <td>{{ item.acumulado }}</td>
-                        <td>{{ item.cantidad }}</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
-        <div class = "pagar">
-            <div class="row">
-                <div class="col">
-                    <form method="post" action="{% url 'CLS' %}">
-                        {% csrf_token %}
-                        <button type="submit" class="button-vaciar">Vaciar</button>
-                    </form>
-                </div>
+
+<div class="container-pago">
+    <div id="contacto" class="row">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                    <th>Cantidad</th> 
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in contenido_carrito %}
+                <tr>
+                    <td>{{ item.nombre }}</td>
+                    <td>{{ item.acumulado }}</td>
+                    <td>{{ item.cantidad }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="pagar">
+        <div class="row">
+            <div class="col">
+                <form method="post" action="{% url 'CLS' %}">
+                    {% csrf_token %}
+                    <button type="submit" class="button-vaciar">Vaciar Carrito</button>
+                </form>
             </div>
-            <div class="row">
-                <div class="col">
-                    <form method="post" action="{% url 'guardar_pedido' %}">
-                        {% csrf_token %}
-                        <button type="submit" class="button-pagar">Pagar</button>
-                    </form>
-                </div>
+            <div class="col">
+                <form method="post" action="{% url 'guardar_pedido' %}">
+                    {% csrf_token %}
+                    <button type="submit" class="button-pagar">Pagar</button>
+                </form>
             </div>
         </div>
     </div>
-
-<br>
+</div>
 
 {% endblock %}
 

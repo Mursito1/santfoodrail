@@ -682,6 +682,7 @@ td {
 
 /* DETALLE COMIDA */
 
+ /* Estilos del contenedor principal */
 .menu-detalle {
      background-color: #DFDDE0;
      position: relative;
@@ -690,41 +691,48 @@ td {
      margin: 0 auto;
      border-radius: 20px;
      display: flex;
+     flex-direction: row; /* Alinea en fila para pantallas grandes */
      gap: 30px; /* Espacio entre la imagen y los detalles */
 }
  
+ /* Estilos del item de comida */
 .food-item {
      display: flex;
-     flex-direction: row; /* Alinea imagen y detalles en una fila */
+     flex-direction: row; /* Alinea en fila */
      align-items: center; /* Centra los elementos verticalmente */
      gap: 20px; /* Espacio entre la imagen y los detalles */
+     width: 100%;
 }
  
+ /* Estilos de la imagen */
 .food-item img {
      width: 45%; /* Ajusta según sea necesario */
      height: auto;
      border-radius: 15px;
 }
  
+ /* Estilos de los detalles */
 .detalles {
      flex: 1; /* Ocupa el resto del espacio disponible */
      display: flex;
      flex-direction: column; /* Alinea los elementos en columna */
+     align-items: flex-start; /* Alinea los detalles a la izquierda */
 }
  
 .detalles h2 {
      font-size: 2.5rem;
      font-weight: 900;
      color: #000;
-     text-align: center; /* Alinea el texto a la izquierda */
+     text-align: left; /* Alinea el texto a la izquierda */
      margin-bottom: 20px; /* Espacio debajo del título */
      border-bottom: 2px solid #ccc; /* Línea horizontal */
      padding-bottom: 10px; /* Espacio bajo la línea */
- }
- 
+}
  
 .detalles p {
      margin-bottom: 10px; /* Espacio entre párrafos */
+     margin: 0 auto;
+     font-size: 1.2rem;
 }
  
 .detalle-menu h3 {
@@ -733,23 +741,39 @@ td {
      font-size: 20px;
 }
  
+ /* Estilos de las etiquetas y los checkboxes */
 .detalle-menu label {
-     font-size: 16px;
-     font-weight: 600;
+     display: inline-block;
+     margin-bottom: 10px;
 }
-
+ 
+.detalle-menu input[type="checkbox"] {
+     display: inline-block;
+     vertical-align: middle;
+     margin-right: 10px;
+}
+ 
+ /* Contenedor para los checkboxes y etiquetas para asegurar alineación horizontal */
+.checkbox-group {
+     display: flex;
+     align-items: center;
+     margin-bottom: 10px;
+}
+ 
 .detalle-menu-footer {
      display: flex;
      justify-content: center;
      margin-top: auto; /* Empuja el pie de la tarjeta al final del contenedor */
+     width: 100%; /* Ocupa todo el ancho disponible */
 }
+
  
 .detalle-menu-footer input[type="submit"] {
      background-color: #9191bd;
      color: #000000;
      border-radius: 20px;
      border: none;
-     padding: 10px 15px;
+     padding: 10px 15px; /* Ajusta el padding del botón */
      cursor: pointer;
      box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
      font-weight: 700;
@@ -1604,8 +1628,7 @@ html{
 }
  
 
-
-
+/* --------------------------------------------------------------
 
 /* MODALIDAD RESPONSIVA PAGINA */
 
@@ -1801,32 +1824,41 @@ html{
      /* DETALLE COMIDAS */
 
      .menu-detalle {
-          flex-direction: column; /* Cambia la dirección a columna para pantallas pequeñas */
-          width: %; /* Usa todo el ancho disponible */
+          flex-direction: column; /* Cambia la dirección a columna */
+          width: 95%; /* Usa todo el ancho disponible */
           padding: 20px; /* Reduce el padding */
-      }
-  
-      .food-item {
+     }
+    
+     .food-item {
           flex-direction: column; /* Cambia la dirección a columna */
           align-items: center; /* Centra los elementos horizontalmente */
-      }
-  
-      .food-item img {
+     }
+    
+     .food-item img {
           width: 100%; /* Imagen ocupa todo el ancho disponible */
           height: auto;
-      }
-  
-      .detalles {
+     }
+    
+     .detalles {
           align-items: center; /* Centra los detalles en pantallas pequeñas */
-      }
-  
-      .detalles h2 {
+     }
+    
+     .detalles h2 {
           font-size: 2rem; /* Reduce el tamaño del título */
-      }
-  
-      .detalle-menu-footer input[type="submit"] {
+          text-align: center;
+     }
+    
+     .detalle-menu-footer input[type="submit"] {
           padding: 8px 12px; /* Reduce el padding del botón */
-      }
+     }
+    
+     .checkbox-group {
+          flex-direction: row; /* Asegura que los checkbox y las etiquetas estén en línea */
+          align-items: center; /* Alinea verticalmente al centro */
+          justify-content: flex-start; /* Alinea al inicio horizontalmente */
+          width: 100%; /* Ocupa todo el ancho disponible */
+     }
+
 
 
 

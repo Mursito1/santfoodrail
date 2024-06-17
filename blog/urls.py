@@ -11,10 +11,20 @@ urlpatterns = [
     path('registro', views.registro, name = 'registro'),
     path('crud', views.crud, name = 'crud'),
     path('pago', views.pago, name = 'pago'),
+    
+    #------------------------------------------------------------------------------
+    # path('agregar/<int:menu_id>/', views.agregar_menu, name='Add'),
+    # path('eliminar/<int:menu_id>/', views.eliminar_menu, name='Del'),
+    # path('restar/<int:menu_id>/', views.restar_menu, name='Sub'),
+    # path('limpiar/', views.limpiar_carrito, name='CLS'),
+    #------------------------------------------------------------------------------- 
+    #NUEVO URLS 
+    
     path('agregar/<int:menu_id>/', views.agregar_menu, name='Add'),
     path('eliminar/<int:menu_id>/', views.eliminar_menu, name='Del'),
     path('restar/<int:menu_id>/', views.restar_menu, name='Sub'),
     path('limpiar/', views.limpiar_carrito, name='CLS'),
+    
     path('agregar-producto/', views.agregar_producto, name='agregar_producto'),
     path('perfil/', views.perfil, name='perfil'),
     path('modificar-producto/<id>/', views.modificar_producto, name='modificar_producto'),

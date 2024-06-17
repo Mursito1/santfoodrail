@@ -9,6 +9,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required
+from django.http import JsonResponse
 
 
 # Create your views here.
@@ -84,10 +85,16 @@ def contacto(request):
 
     return render(request, 'contacto.html', data)
 
+#-------------------------------------------------------------------------------
+#IMPLEMENTACION DEL CARRITO DE COMPRAS CON AJAX
+
+def is_ajax(request):
+    return request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest'
+
 def agregar_menu(request, menu_id):
+    carrito = Carrito(request)
+    menu = get_object_or_404(Menu, id=menu_id)
     if request.method == 'POST':
-        carrito = Carrito(request)
-        menu = Menu.objects.get(id=menu_id)
         proteina_id = request.POST.get('proteina')
         vegetales_ids = request.POST.getlist('vegetales')
         salsas_ids = request.POST.getlist('salsas')
@@ -97,26 +104,68 @@ def agregar_menu(request, menu_id):
             'salsas': salsas_ids
         }
         carrito.agregar(menu, ingredientes)
+        if is_ajax(request):
+            return JsonResponse({'success': True, 'total': carrito.total(), 'items': carrito.carrito})
         return redirect("menus")
-    else:
-        return redirect("menus")
+    return redirect("menus")
 
 def eliminar_menu(request, menu_id):
     carrito = Carrito(request)
-    menu = Menu.objects.get(id=menu_id)
-    carrito.eliminar(menu)
+    carrito.eliminar(menu_id)
+    if is_ajax(request):
+        return JsonResponse({'success': True, 'total': carrito.total(), 'items': carrito.carrito})
     return redirect("menus")
 
 def restar_menu(request, menu_id):
     carrito = Carrito(request)
-    menu = Menu.objects.get(id=menu_id)
-    carrito.restar(menu)
+    carrito.restar(menu_id)
+    if is_ajax(request):
+        return JsonResponse({'success': True, 'total': carrito.total(), 'items': carrito.carrito})
     return redirect("menus")
 
 def limpiar_carrito(request):
     carrito = Carrito(request)
     carrito.limpiar()
+    if is_ajax(request):
+        return JsonResponse({'success': True, 'total': carrito.total(), 'items': carrito.carrito})
     return redirect("menus")
+
+
+
+
+# def agregar_menu(request, menu_id):
+#     if request.method == 'POST':
+#         carrito = Carrito(request)
+#         menu = Menu.objects.get(id=menu_id)
+#         proteina_id = request.POST.get('proteina')
+#         vegetales_ids = request.POST.getlist('vegetales')
+#         salsas_ids = request.POST.getlist('salsas')
+#         ingredientes = {
+#             'proteina': proteina_id,
+#             'vegetales': vegetales_ids,
+#             'salsas': salsas_ids
+#         }
+#         carrito.agregar(menu, ingredientes)
+#         return redirect("menus")
+#     else:
+#         return redirect("menus")
+
+# def eliminar_menu(request, menu_id):
+#     carrito = Carrito(request)
+#     menu = Menu.objects.get(id=menu_id)
+#     carrito.eliminar(menu)
+#     return redirect("menus")
+
+# def restar_menu(request, menu_id):
+#     carrito = Carrito(request)
+#     menu = Menu.objects.get(id=menu_id)
+#     carrito.restar(menu)
+#     return redirect("menus")
+
+# def limpiar_carrito(request):
+#     carrito = Carrito(request)
+#     carrito.limpiar()
+#     return redirect("menus")
 
 def agregar_producto(request):
     data = {
@@ -194,3 +243,5 @@ def revisar_pedidos(request):
 def detalle_menu(request, menu_id):
     menu = get_object_or_404(Menu, pk=menu_id)
     return render(request, 'detalle.html', {'menu': menu})
+
+

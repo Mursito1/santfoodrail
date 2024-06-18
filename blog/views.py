@@ -93,109 +93,45 @@ def is_ajax(request):
     return request.headers.get('x-requested-with') == 'XMLHttpRequest'
 
 
-@require_POST
+#AGREGAR MENU PERO SIN IMAGEN
 def agregar_menu(request, menu_id):
-    carrito = Carrito(request)
-    menu = get_object_or_404(Menu, id=menu_id)
-    
-    proteina_id = request.POST.get('proteina')
-    vegetales_ids = request.POST.getlist('vegetales')
-    salsas_ids = request.POST.getlist('salsas')
-    ingredientes = {
-        'proteina': proteina_id,
-        'vegetales': vegetales_ids,
-        'salsas': salsas_ids
-    }
-    
-    carrito.agregar(menu, ingredientes)
-    
-    if request.headers.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
-        items = [{
-            'menu_id': item['menu_id'],
-            'nombre': item['nombre'],
-            'acumulado': item['acumulado'],
-            'cantidad': item['cantidad'],
-            'imagen': item['imagen'].url if item['imagen'] else '',  # Obtener la URL de la imagen, si existe
-        } for item in carrito.carrito.values()]
-        return JsonResponse({'success': True, 'total': carrito.total(), 'items': items})
-    
-    return redirect('menus')
+     carrito = Carrito(request)
+     menu = get_object_or_404(Menu, id=menu_id)
+     if request.method == 'POST':
+         proteina_id = request.POST.get('proteina')
+         vegetales_ids = request.POST.getlist('vegetales')
+         salsas_ids = request.POST.getlist('salsas')
+         ingredientes = {
+             'proteina': proteina_id,
+             'vegetales': vegetales_ids,
+             'salsas': salsas_ids
+         }
+         carrito.agregar(menu, ingredientes)
+         if is_ajax(request):
+             return JsonResponse({'success': True, 'total': carrito.total(), 'items': carrito.carrito})
+         return redirect("menus")
+     return redirect("menus")
 
 def eliminar_menu(request, menu_id):
-    carrito = Carrito(request)
-    carrito.eliminar(menu_id)
-    if is_ajax(request):
-        items = [{
-            'menu_id': item['menu_id'],
-            'nombre': item['nombre'],
-            'acumulado': item['acumulado'],
-            'cantidad': item['cantidad'],
-            'imagen': item['imagen_url'],  # Usar la URL de la imagen almacenada en el carrito
-        } for item in carrito.carrito.values()]
-        return JsonResponse({'success': True, 'total': carrito.total(), 'items': items})
-    return redirect("menus")
+     carrito = Carrito(request)
+     carrito.eliminar(menu_id)
+     if is_ajax(request):
+         return JsonResponse({'success': True, 'total': carrito.total(), 'items': carrito.carrito})
+     return redirect("menus")
 
 def restar_menu(request, menu_id):
-    carrito = Carrito(request)
-    carrito.restar(menu_id)
-    if is_ajax(request):
-        items = [{
-            'menu_id': item['menu_id'],
-            'nombre': item['nombre'],
-            'acumulado': item['acumulado'],
-            'cantidad': item['cantidad'],
-            'imagen': item['imagen_url'],  # Usar la URL de la imagen almacenada en el carrito
-        } for item in carrito.carrito.values()]
-        return JsonResponse({'success': True, 'total': carrito.total(), 'items': items})
-    return redirect("menus")
+     carrito = Carrito(request)
+     carrito.restar(menu_id)
+     if is_ajax(request):
+         return JsonResponse({'success': True, 'total': carrito.total(), 'items': carrito.carrito})
+     return redirect("menus")
 
 def limpiar_carrito(request):
-    carrito = Carrito(request)
-    carrito.limpiar()
-    if is_ajax(request):
-        return JsonResponse({'success': True, 'total': carrito.total(), 'items': carrito.carrito})
-    return redirect("menus")
-
-
-#AGREGAR MENU PERO SIN IMAGEN
-# def agregar_menu(request, menu_id):
-#     carrito = Carrito(request)
-#     menu = get_object_or_404(Menu, id=menu_id)
-#     if request.method == 'POST':
-#         proteina_id = request.POST.get('proteina')
-#         vegetales_ids = request.POST.getlist('vegetales')
-#         salsas_ids = request.POST.getlist('salsas')
-#         ingredientes = {
-#             'proteina': proteina_id,
-#             'vegetales': vegetales_ids,
-#             'salsas': salsas_ids
-#         }
-#         carrito.agregar(menu, ingredientes)
-#         if is_ajax(request):
-#             return JsonResponse({'success': True, 'total': carrito.total(), 'items': carrito.carrito})
-#         return redirect("menus")
-#     return redirect("menus")
-
-# def eliminar_menu(request, menu_id):
-#     carrito = Carrito(request)
-#     carrito.eliminar(menu_id)
-#     if is_ajax(request):
-#         return JsonResponse({'success': True, 'total': carrito.total(), 'items': carrito.carrito})
-#     return redirect("menus")
-
-# def restar_menu(request, menu_id):
-#     carrito = Carrito(request)
-#     carrito.restar(menu_id)
-#     if is_ajax(request):
-#         return JsonResponse({'success': True, 'total': carrito.total(), 'items': carrito.carrito})
-#     return redirect("menus")
-
-# def limpiar_carrito(request):
-#     carrito = Carrito(request)
-#     carrito.limpiar()
-#     if is_ajax(request):
-#         return JsonResponse({'success': True, 'total': carrito.total(), 'items': carrito.carrito})
-#     return redirect("menus")
+     carrito = Carrito(request)
+     carrito.limpiar()
+     if is_ajax(request):
+         return JsonResponse({'success': True, 'total': carrito.total(), 'items': carrito.carrito})
+     return redirect("menus")
 
 
 

@@ -57,14 +57,6 @@ class Salsa(models.Model):
         return self.nombre
 
 
-from django.core.validators import (
-    MinLengthValidator,
-    RegexValidator,
-    MinValueValidator,
-)
-from django.db import models
-from django.core.exceptions import ValidationError
-
 class Menu(models.Model):
     nombre_menu = models.CharField(
         max_length=50,

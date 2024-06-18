@@ -89,7 +89,7 @@ def contacto(request):
 #IMPLEMENTACION DEL CARRITO DE COMPRAS CON AJAX
 
 def is_ajax(request):
-    return request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest'
+    return request.headers.get('x-requested-with') == 'XMLHttpRequest'
 
 def agregar_menu(request, menu_id):
     carrito = Carrito(request)
@@ -129,7 +129,6 @@ def limpiar_carrito(request):
     if is_ajax(request):
         return JsonResponse({'success': True, 'total': carrito.total(), 'items': carrito.carrito})
     return redirect("menus")
-
 
 
 

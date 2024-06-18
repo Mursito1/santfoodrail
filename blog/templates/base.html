@@ -143,36 +143,29 @@
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
-        {% if request.session.carrito.items %}
-        <ul class="list-group mb-3">
+        <ul class="list-group mb-3" id="carrito-items">
             {% for key, value in request.session.carrito.items %}
-            <div>
-                <div class="d-flex">
+            <li class="list-group-item d-flex justify-content-between lh-sm">
+                <div>
                     <h6 class="my-0">{{ value.nombre }} x{{ value.cantidad }}</h6>
+                    <small class="text-muted">{{ value.acumulado }}</small>
                 </div>
-                <span class="text-muted">{{ value.precio }}</span>
-            </div>
-            <div>
-                <h2>{{value.acumulado}}</h2>
-                <a href="{% url 'Add' value.menu_id %}" class="badge btn btn-dark badge-dark btn-add" data-id="{{ value.menu_id }}">+</a>
-                <a href="{% url 'Sub' value.menu_id %}" class="badge btn btn-dark badge-dark btn-subtract" data-id="{{ value.menu_id }}">-</a>
-            </div>
-            <br>
+                <div>
+                    <a href="#" class="badge btn btn-dark badge-dark btn-add" data-id="{{ value.menu_id }}">+</a>
+                    <a href="#" class="badge btn btn-dark badge-dark btn-subtract" data-id="{{ value.menu_id }}">-</a>
+                </div>
+            </li>
             {% endfor %}
         </ul>
         <div class="total">
-            {{total_carrito}}
+            Total: <span id="total-carrito">{{ total_carrito }}</span>
         </div>
         <div class="d-flex">
             <a href="{% url 'pago' %}" class="btn btn-success btn-lg me-2">Pagar</a>
-            <a href="{% url 'CLS' %}" class="btn btn-secondary btn-lg" id="clear-cart">Limpiar</a>
+            <a href="#" class="btn btn-secondary btn-lg" id="clear-cart">Limpiar</a>
         </div>
-        {% else %}
-        <p>No hay elementos en el carrito</p>
-        {% endif %}
     </div>
   </div>
-
 
 
 {% comment %} <div class="offcanvas offcanvas-end" tabindex="-1" id="carritoOffcanvas" aria-labelledby="carritoOffcanvasLabel">
@@ -279,84 +272,79 @@
 {% comment %} FUNCIONALIDAD PARA EL CARRITO DE COMPRAS {% endcomment %}
 
 
+<!-- jQuery and Bootstrap Scripts -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+<!-- Custom Script -->
 <script>
-$(document).ready(function() {
-  // Add item
-  $('.btn-add').click(function(e) {
-    e.preventDefault();
-    var menu_id = $(this).data('id');
-    var url = '/agregar/' + menu_id + '/';
-    $.ajax({
-      url: url,
-      type: 'POST',
-      data: {
-        'csrfmiddlewaretoken': '{{ csrf_token }}',
-      }, // Include CSRF token
-      success: function(response) {
-        updateCart(response.items, response.total);
-      }
+    $(document).ready(function() {
+        // Agregar item
+        $(document).on('click', '.btn-add', function(e) {
+            e.preventDefault();
+            var menu_id = $(this).data('id');
+            $.ajax({
+                url: '/agregar/' + menu_id + '/',
+                type: 'POST',
+                data: {
+                    'csrfmiddlewaretoken': '{{ csrf_token }}',
+                },
+                success: function(response) {
+                    updateCart(response.items, response.total);
+                }
+            });
+        });
+
+        // Restar item
+        $(document).on('click', '.btn-subtract', function(e) {
+            e.preventDefault();
+            var menu_id = $(this).data('id');
+            $.ajax({
+                url: '/restar/' + menu_id + '/',
+                type: 'POST',
+                data: {
+                    'csrfmiddlewaretoken': '{{ csrf_token }}',
+                },
+                success: function(response) {
+                    updateCart(response.items, response.total);
+                }
+            });
+        });
+
+        // Limpiar carrito
+        $('#clear-cart').click(function(e) {
+            e.preventDefault();
+            $.ajax({
+                url: '/limpiar/',
+                type: 'POST',
+                data: {
+                    'csrfmiddlewaretoken': '{{ csrf_token }}',
+                },
+                success: function(response) {
+                    updateCart(response.items, response.total);
+                }
+            });
+        });
+
+        function updateCart(items, total) {
+            var cartHtml = '';
+            $.each(items, function(key, item) {
+                cartHtml += '<li class="list-group-item d-flex justify-content-between lh-sm">' +
+                            '<div>' +
+                            '<h6 class="my-0">' + item.nombre + ' x' + item.cantidad + '</h6>' +
+                            '<small class="text-muted">' + item.acumulado + '</small>' +
+                            '</div>' +
+                            '<div>' +
+                            '<a href="#" class="badge btn btn-dark badge-dark btn-add" data-id="' + item.menu_id + '">+</a>' +
+                            '<a href="#" class="badge btn btn-dark badge-dark btn-subtract" data-id="' + item.menu_id + '">-</a>' +
+                            '</div>' +
+                            '</li>';
+            });
+            $('#carrito-items').html(cartHtml);
+            $('#total-carrito').text(total);
+        }
     });
-  });
-
-  // Subtract item
-  $('.btn-subtract').click(function(e) {
-    e.preventDefault();
-    var menu_id = $(this).data('id');
-    var url = '/restar/' + menu_id + '/';
-    $.ajax({
-      url: url,
-      type: 'POST',
-      data: {
-        'csrfmiddlewaretoken': '{{ csrf_token }}',
-      }, // Include CSRF token
-      success: function(response) {
-        updateCart(response.items, response.total);
-      }
-    });
-  });
-
-  // Clear cart
-  $('#clear-cart').click(function(e) {
-    e.preventDefault();
-    var url = '/limpiar/';
-    $.ajax({
-      url: url,
-      type: 'POST',
-      data: {
-        'csrfmiddlewaretoken': '{{ csrf_token }}',
-      }, // Include CSRF token
-      success: function(response) {
-        updateCart(response.items, response.total);
-      }
-    });
-  });
-
-  function updateCart(items, total) {
-    var cartHtml = '';
-    $.each(items, function(key, item) {
-      cartHtml += '<div>' +
-                  '<div class="d-flex">' +
-                  '<h6 class="my-0">' + item.nombre + ' x' + item.cantidad + '</h6>' +
-                  '</div>' +
-                  '<span class="text-muted">' + item.precio + '</span>' +
-                  '<div>' +
-                  '<h2>' + item.acumulado + '</h2>' +
-                  '<a href="/agregar/' + item.menu_id + '/" class="badge btn btn-dark badge-dark btn-add" data-id="' + item.menu_id + '">+</a>' +
-                  '<a href="/restar/' + item.menu_id + '/" class="badge btn btn-dark badge-dark btn-subtract" data-id="' + item.menu_id + '">-</a>' +
-                  '</div>' +
-                  '<br>' +
-                  '</div>';
-    });
-    $('.list-group').html(cartHtml);
-    $('.total').text(total);
-  }
-});
-</script>
-
-
-
-
+  </script>
 </body>
 
 

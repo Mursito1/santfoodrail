@@ -13,10 +13,11 @@ class ContactoAdminForm(forms.ModelForm):
 
     class Meta:
         model = Contacto
-        fields = ["estado_contacto", "respuesta"] 
+        fields = ["estado_contacto", "respuesta"]
 
     def __init__(self, *args, **kwargs):
         super(ContactoAdminForm, self).__init__(*args, **kwargs)
-        for field in self.fields:
-            if field != 'estado_contacto':
-                self.fields[field].widget.attrs['readonly'] = True
+        
+        for field_name, field in self.fields.items():
+            if field_name not in ["estado_contacto", "respuesta"]:
+                field.widget.attrs['readonly'] = True

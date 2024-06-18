@@ -3,52 +3,57 @@
 {% block contenido %}
 
 <br>
-<div class = "container-modificar-contacto">
-    <form action="" class="modificar-contacto">
-  
-      <h2>Editar Contacto</h2>
+<div class="container-modificar-contacto">
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    
+    <form method="post" class="modificar-contacto">
+        {% csrf_token %}
+        {{ form.contacto_id }}
         
-      <br>
-      {% csrf_token %}
-      <div class = "form-group">
-        <h1> Nombre </h1>
-        <p> {{ contacto.nombre }} </p>
-      </div>
-
-      <div class = "form-group">
-        <h1> Correo </h1>
-        <p>{{ contacto.correo }}</p>
-      </div>
-
-      
-      <div class = "form-group">
-        <h1> Tipo de Contacto </h1>
-        <p>{{ contacto.tipo_contacto }}</p>
-      </div>
-
-      
-      <div class = "form-group">
-        <h1> Mensaje </h1>
-        <p>{{ contacto.mensaje_contacto }}</p>
-      </div>
-
-      
-      <div class = "form-group">
-        {{ form.estado_contacto.label_tag }}
-        {{ form.estado_contacto }}
-      </div>
-      <br>
-      <div class = "form-group">
-        <h1> Respuesta </h1>
-        <textarea name="respuesta" class="form-control" rows="4">{{ contacto.respuesta }}</textarea>
-      </div>
-
-      <br>
-      <div class="form-footer">
-        <input type="submit" value = "Guardar">
-      </div>
+        <h2>Editar Contacto</h2>
         
-    <form>
+        <div class="form-group">
+            <label for="id_nombre">Nombre</label>
+            <p>{{ contacto.nombre }}</p>
+        </div>
+        
+        <div class="form-group">
+            <label for="id_correo">Correo</label>
+            <p>{{ contacto.correo }}</p>
+        </div>
+        
+        <div class="form-group">
+            <label for="id_tipo_contacto">Tipo de Contacto</label>
+            <p>{{ contacto.tipo_contacto }}</p>
+        </div>
+        
+        <div class="form-group">
+            <label for="id_mensaje_contacto">Mensaje</label>
+            <p>{{ contacto.mensaje_contacto }}</p>
+        </div>
+        
+        <div class="form-group">
+            {{ form.estado_contacto.label_tag }}
+            {{ form.estado_contacto }}
+        </div>
+        
+        <div class="form-group">
+            <label for="id_respuesta">Respuesta</label>
+            {{ form.respuesta }}
+        </div>
+
+        <div class="form-footer">
+            <input type="submit" value="Guardar">
+        </div>
+    </form>
 </div>
+
 <br>
 {% endblock %}
+

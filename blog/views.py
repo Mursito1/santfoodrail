@@ -35,15 +35,16 @@ def crud(request):
         contactos = contactos.filter(tipo_contacto__id=tipo_filter)
 
     if request.method == 'POST':
-        form = ContactoAdminForm(request.POST)
+        # Obtener el contacto a editar si existe
+        contacto_id = request.POST.get('contacto_id')
+        contacto = get_object_or_404(Contacto, pk=contacto_id) if contacto_id else None
+
+        # Crear el formulario con los datos del contacto a editar
+        form = ContactoAdminForm(request.POST, instance=contacto)
         if form.is_valid():
-            contacto = form.save(commit=False)
-            if contacto.respuesta:
-                contacto.estado_contacto_id = 3
-            else:
-                contacto.estado_contacto_id = 2
-            contacto.save() 
-            return redirect('crud') 
+            form.save()
+            messages.success(request, 'El contacto se ha editado exitosamente.')
+            return redirect('crud')
     else:
         form = ContactoAdminForm()
 
@@ -51,7 +52,7 @@ def crud(request):
         'contactos': contactos,
         'estados_contacto': estados_contacto,
         'tipos_contacto': tipos_contacto,
-        'form': form 
+        'form': form
     })
 
 

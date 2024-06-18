@@ -1,9 +1,11 @@
-{% extends "base.html"%}
+{% extends "base.html" %}
 {% load static %}
+{% load crispy_forms_tags %}
+
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-{%block contenido%}
-{% load crispy_forms_tags %}
+
+{% block contenido %}
 
 <br><br>
 <div class="container-form-contacto">
@@ -17,20 +19,31 @@
     <div class="form-information-contacto">
         <div class="form-information-childs-contacto">
             <h2>CONTACTANOS</h2>
-            <form action = "" method = "post" class = "formulario_contacto">
-              <div class = "contacto">
 
-                {% csrf_token %}
-                {{ form | crispy }}
-                
-              </div>
-              <br>
-              <input type="submit" value = "Enviar">
-              <input type="reset" value = "Limpiar">
+            <!-- Mostrar mensajes de éxito o error -->
+            {% if messages %}
+                <div class="alert alert-dismissible fade show" role="alert">
+                    {% for message in messages %}
+                        <div class="alert {% if message.tags %} alert-{{ message.tags }}{% endif %}">
+                            {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            <form action="" method="post" class="formulario_contacto">
+                <div class="contacto">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                </div>
+                <br>
+                <input type="submit" value="Enviar" class="btn btn-primary">
+                <input type="reset" value="Limpiar" class="btn btn-secondary">
             </form>
         </div>
     </div>
 </div>
 <br><br>
 
-{%endblock%}
+{% endblock %}

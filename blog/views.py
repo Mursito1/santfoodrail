@@ -35,11 +35,9 @@ def crud(request):
         contactos = contactos.filter(tipo_contacto__id=tipo_filter)
 
     if request.method == 'POST':
-        # Obtener el contacto a editar si existe
         contacto_id = request.POST.get('contacto_id')
         contacto = get_object_or_404(Contacto, pk=contacto_id) if contacto_id else None
 
-        # Crear el formulario con los datos del contacto a editar
         form = ContactoAdminForm(request.POST, instance=contacto)
         if form.is_valid():
             form.save()
@@ -93,8 +91,6 @@ def contacto(request):
 def is_ajax(request):
     return request.headers.get('x-requested-with') == 'XMLHttpRequest'
 
-
-#AGREGAR MENU PERO SIN IMAGEN
 def agregar_menu(request, menu_id):
      carrito = Carrito(request)
      menu = get_object_or_404(Menu, id=menu_id)
@@ -133,42 +129,6 @@ def limpiar_carrito(request):
      if is_ajax(request):
          return JsonResponse({'success': True, 'total': carrito.total(), 'items': carrito.carrito})
      return redirect("menus")
-
-
-
-# def agregar_menu(request, menu_id):
-#     if request.method == 'POST':
-#         carrito = Carrito(request)
-#         menu = Menu.objects.get(id=menu_id)
-#         proteina_id = request.POST.get('proteina')
-#         vegetales_ids = request.POST.getlist('vegetales')
-#         salsas_ids = request.POST.getlist('salsas')
-#         ingredientes = {
-#             'proteina': proteina_id,
-#             'vegetales': vegetales_ids,
-#             'salsas': salsas_ids
-#         }
-#         carrito.agregar(menu, ingredientes)
-#         return redirect("menus")
-#     else:
-#         return redirect("menus")
-
-# def eliminar_menu(request, menu_id):
-#     carrito = Carrito(request)
-#     menu = Menu.objects.get(id=menu_id)
-#     carrito.eliminar(menu)
-#     return redirect("menus")
-
-# def restar_menu(request, menu_id):
-#     carrito = Carrito(request)
-#     menu = Menu.objects.get(id=menu_id)
-#     carrito.restar(menu)
-#     return redirect("menus")
-
-# def limpiar_carrito(request):
-#     carrito = Carrito(request)
-#     carrito.limpiar()
-#     return redirect("menus")
 
 def agregar_producto(request):
     data = {

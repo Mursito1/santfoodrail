@@ -46,32 +46,3 @@
 <br><br>
 {% endblock %}
 
-
-{% comment %} <div class="bg_bg">
-    <div class="row">
-      <div class="col-12 col-md-6 offset-md-3">
-        <div class="card">
-          <div class="card-body">
-            <h2>Nuevo Producto</h2>
-            <form action="" class="formulario_contacto" method="post" enctype="multipart/form-data">
-                {% csrf_token %}
-                {{ form.nombre_menu|as_crispy_field }}
-                {{ form.precio|as_crispy_field }}
-                {{ form.ganancia|as_crispy_field }}
-                {{ form.estado_menu|as_crispy_field }}
-                {{ form.descripcion_menu|as_crispy_field }}
-                {{ form.imagen|as_crispy_field }}
-                {{ form.proteina|as_crispy_field }}
-                {{ form.vegetal|as_crispy_field }}
-                {{ form.salsa|as_crispy_field }}
-              <br>
-              <div class="d-flex justify-content">
-                <input type="reset" value="Cancelar" class="btn btn-secondary">
-                &nbsp;
-                <input type="submit" value="Guardar" class="btn btn-primary">
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div> {% endcomment %}

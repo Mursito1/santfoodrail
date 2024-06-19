@@ -13,6 +13,7 @@ class MenuForm(forms.ModelForm):
             'proteina': forms.CheckboxSelectMultiple,
             'vegetal': forms.CheckboxSelectMultiple,
             'salsa': forms.CheckboxSelectMultiple,
+            'categoria': forms.CheckboxSelectMultiple,
         }
 
 class ProteinaForm(forms.ModelForm):

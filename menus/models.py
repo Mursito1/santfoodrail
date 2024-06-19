@@ -11,6 +11,21 @@ class Calificacion(models.Model):
     def __str__(self):
         return self.calificacion
 
+class Categoria(models.Model):
+    nombre = models.CharField(
+        max_length=50,
+        validators=[
+            MinLengthValidator(3),
+            RegexValidator(
+                regex='^[a-zA-Z ]+$',
+                message='El nombre de la categoria solo puede contener letras y debe ser mayor a 3 letras'
+            ),
+        ]
+    )
+
+    def __str__(self):
+        return self.nombre
+
 class Proteina(models.Model):
     nombre = models.CharField(
         max_length=50,
@@ -63,7 +78,7 @@ class Menu(models.Model):
         validators=[
             MinLengthValidator(8),
             RegexValidator(
-                regex='^[A-Z][a-zA-Z ]+$',
+                regex=r'^(?!^[.\s]*$)[a-zA-Z0-9áéíóúÁÉÍÓÚ.,\s]+$',
                 message='El nombre del menú debe comenzar con una letra mayúscula y solo puede contener letras y espacios.',
                 code='invalid_nombre_menu'
             )
@@ -77,8 +92,8 @@ class Menu(models.Model):
         validators=[
             MinLengthValidator(10),
             RegexValidator(
-                regex='^(?!^[. ]*$)[a-zA-Z., ]+$',
-                message='La descripción solo puede contener letras, puntos y espacios. No puede estar compuesta solo por puntos o espacios.',
+                regex=r'^(?!^[.\s]*$)[a-zA-Z0-9áéíóúÁÉÍÓÚ.,\s]+$',
+                message='La descripción solo puede contener letras, números, puntos y espacios. No puede estar compuesta solo por puntos o espacios.',
                 code='invalid_descripcion_menu'
             )
         ]
@@ -87,6 +102,7 @@ class Menu(models.Model):
     proteina = models.ManyToManyField(Proteina)
     vegetal = models.ManyToManyField(Vegetal)
     salsa = models.ManyToManyField(Salsa)
+    categoria = models.ManyToManyField(Categoria)
 
     def __str__(self):
         return self.nombre_menu

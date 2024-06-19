@@ -138,7 +138,7 @@ def agregar_producto(request):
         formulario = MenuForm(data=request.POST, files=request.FILES)
         if formulario.is_valid():
             formulario.save()
-            data["mensaje"] = "Guardado correctamente"
+            messages.success(request, "Se ha guardado correctamente")
         else:
             data["form"] = formulario
     return render(request, 'administracion/agregar.html', data)

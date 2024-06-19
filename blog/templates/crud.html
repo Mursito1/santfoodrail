@@ -46,29 +46,6 @@
 
 <br>
 
-
-
-
-
-
-
-
-    {% comment %} <div id="contacto" class="row">
-        {% for contacto in contactos %}
-        <div class="col">
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">{{ contacto.nombre }}</h5>
-                    <h5 class="card-title">{{ contacto.tipo_contacto }}</h5>
-                    <h5 class="card-title">Estado: {{ contacto.estado_contacto.estado_contacto }}</h5>
-                    <p class="card-text">{{ contacto.mensaje_contacto }}</p>
-                    <a href="{% url 'editar_contacto' contacto.id %}" class="btn btn-primary">Editar</a>
-                </div>
-            </div>
-        </div>
-        {% endfor %}
-    </div>
-</div> {% endcomment %}
 {% else %}
 <div class="card">
     <h1>No tienes los permisos para ingresar a esta página</h1>

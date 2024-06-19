@@ -13,7 +13,7 @@ class Calificacion(models.Model):
 
 class Proteina(models.Model):
     nombre = models.CharField(
-        max_length=20,
+        max_length=50,
         validators=[
             MinLengthValidator(3),
             RegexValidator(

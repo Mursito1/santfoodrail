@@ -14,4 +14,19 @@ class MenuForm(forms.ModelForm):
             'vegetal': forms.CheckboxSelectMultiple,
             'salsa': forms.CheckboxSelectMultiple,
         }
+
+class ProteinaForm(forms.ModelForm):
+    class Meta:
+        model = Proteina
+        fields = ['nombre']
+
+class SalsaForm(forms.ModelForm):
+    class Meta:
+        model = Salsa
+        fields = ['nombre']
+
+class VegetalForm(forms.ModelForm):
+    class Meta:
+        model = Vegetal
+        fields = ['nombre']
         

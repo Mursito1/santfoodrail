@@ -3,7 +3,7 @@ from contactos.forms import ContactoAdminForm, ContactoForm
 from contactos.models import Contacto, Estado_contacto, Tipo_contacto
 from menus.carrito import Carrito
 from pedidos.models import Pedido, PedidoItem
-from .forms import CustomUserCreationForm, MenuForm
+from .forms import CustomUserCreationForm, MenuForm, ProteinaForm, SalsaForm, VegetalForm
 from menus.models import Menu
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
@@ -207,4 +207,44 @@ def detalle_menu(request, menu_id):
     menu = get_object_or_404(Menu, pk=menu_id)
     return render(request, 'detalle.html', {'menu': menu})
 
+def agregar_proteina(request):
+    data = {
+        'form': ProteinaForm()
+    }
 
+    if request.method == 'POST':
+        formulario = ProteinaForm(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            messages.success(request, "Se ha guardado correctamente")
+        else:
+            data["form"] = formulario
+    return render(request, 'administracion/agregar_proteina.html', data)
+
+def agregar_salsa(request):
+    data = {
+        'form': SalsaForm()
+    }
+
+    if request.method == 'POST':
+        formulario = SalsaForm(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            messages.success(request, "Se ha guardado correctamente")
+        else:
+            data["form"] = formulario
+    return render(request, 'administracion/agregar_salsa.html', data)
+
+def agregar_vegetal(request):
+    data = {
+        'form': VegetalForm()
+    }
+
+    if request.method == 'POST':
+        formulario = VegetalForm(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            messages.success(request, "Se ha guardado correctamente")
+        else:
+            data["form"] = formulario
+    return render(request, 'administracion/agregar_vegetal.html', data)

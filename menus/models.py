@@ -17,7 +17,7 @@ class Proteina(models.Model):
         validators=[
             MinLengthValidator(3),
             RegexValidator(
-                regex='^[a-zA-Z]+$',
+                regex='^[a-zA-Z ]+$',
                 message='El nombre de la proteina solo puede contener letras y debe ser mayor a 3 letras'
             ),
         ]
@@ -32,7 +32,7 @@ class Vegetal(models.Model):
         validators=[
             MinLengthValidator(3),
             RegexValidator(
-                regex='^[a-zA-Z]+$',
+                regex='^[a-zA-Z ]+$',
                 message='El nombre del vegetal solo puede contener letras y debe ser mayor a 3 letras'
             ),
         ]
@@ -47,7 +47,7 @@ class Salsa(models.Model):
         validators=[
             MinLengthValidator(3),
             RegexValidator(
-                regex='^[a-zA-Z]+$',
+                regex='^[a-zA-Z ]+$',
                 message='El nombre de la salsa solo puede contener letras y debe ser mayor a 3 letras'
             ),
         ]

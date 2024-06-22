@@ -25,4 +25,11 @@ urlpatterns = [
     path('agregar-proteina/', views.agregar_proteina, name='agregar_proteina'),
     path('agregar-salsa/', views.agregar_salsa, name='agregar_salsa'),
     path('agregar-vegetal/', views.agregar_vegetal, name='agregar_vegetal'),
+    path('ingredientes/', views.lista_ingredientes, name='lista_ingredientes'),
+    path('proteina/editar/<int:id>/', views.editar_proteina, name='editar_proteina'),
+    path('proteina/eliminar/<int:id>/', views.eliminar_proteina, name='eliminar_proteina'),
+    path('vegetal/editar/<int:id>/', views.editar_vegetal, name='editar_vegetal'),
+    path('vegetal/eliminar/<int:id>/', views.eliminar_vegetal, name='eliminar_vegetal'),
+    path('salsa/editar/<int:id>/', views.editar_salsa, name='editar_salsa'),
+    path('salsa/eliminar/<int:id>/', views.eliminar_salsa, name='eliminar_salsa'),
 ]

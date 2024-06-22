@@ -9,7 +9,7 @@ class Tipo_contacto(models.Model):
         validators=[
             MinLengthValidator(3),
             RegexValidator(
-                regex='^[a-zA-Z]+$',
+                regex='^[a-zA-ZñÑ]+$',
                 message='El tipo de contacto solo puede contener letras y debe ser mayor a 3 letras'
             ),
         ]
@@ -29,7 +29,7 @@ class Contacto(models.Model):
         max_length=100,  
         validators=[
             RegexValidator(
-                regex='^[a-zA-Z]+$',
+                regex='^[a-zA-ZñÑ]+$',
                 message='El nombre solo puede contener letras',
                 code='invalid_nombre'
             )
@@ -49,7 +49,7 @@ class Contacto(models.Model):
         validators=[
             MinLengthValidator(10),
             RegexValidator(
-                regex='^(?!.*[^a-zA-Z. ])[a-zA-Z]+(?:[a-zA-Z. ]*[a-zA-Z]+)*$',
+                regex=r'^(?!.*[^a-zA-Z. ñÑáéíóúÁÉÍÓÚ])[a-zA-Z]+(?:[a-zA-Z. ñÑáéíóúÁÉÍÓÚ]*[a-zA-Z]+)*$',
                 message='El mensaje solo puede contener letras y puntos. Además, no pueden ser solo puntos.',
                 code='invalid_mensaje_contacto'
             )

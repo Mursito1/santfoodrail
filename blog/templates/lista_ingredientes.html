@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+{% load static %}
+{% block contenido %}
+{% if user.username == 'admin' %}
+
+<div class="container-fluid">
+    <form class="crud" method="get" action="">
+        <div class="form-group">
+          <label for="id_proteina">Filtrar por proteína:</label>
+          <input type="text" name="proteina" id="id_proteina" class="form-control" placeholder="Nombre de la proteína">
+        </div>
+        <div class="form-group">
+          <label for="id_vegetal">Filtrar por vegetal:</label>
+          <input type="text" name="vegetal" id="id_vegetal" class="form-control" placeholder="Nombre del vegetal">
+        </div>
+        <div class="form-group">
+          <label for="id_salsa">Filtrar por salsa:</label>
+          <input type="text" name="salsa" id="id_salsa" class="form-control" placeholder="Nombre de la salsa">
+        </div>
+        <button type="submit" class="btn btn-primary">Filtrar</button>
+        <a href="{% url 'lista_ingredientes' %}" class="btn btn-secondary">Quitar Filtro</a>
+      </form>
+      <br><br>
+  {% if messages %}
+                <div class="alert-container">
+                    {% for message in messages %}
+                        <div class="alert {% if message.tags %} alert-{{ message.tags }}{% endif %} alert-dismissible fade show" role="alert">
+                            {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            <div class="container">
+                <div class="card mb-4">
+                  <div class="card-header">
+                    <h3>Proteínas</h3><a href="{% url 'agregar_proteina' %}" class="btn btn-success">+</a>
+                  </div>
+                  <div class="card-body">
+                    <div class="row">
+                      {% for proteina in proteinas %}
+                      <div class="col-md-4">
+                        <div class="card mb-4">
+                          <div class="card-body">
+                            <h5 class="card-title">{{ proteina.nombre }}</h5>
+                          </div>
+                          <div class="card-footer">
+                            <a href="{% url 'editar_proteina' proteina.id %}" class="btn btn-secondary">Editar</a>
+                            <form action="{% url 'eliminar_proteina' proteina.id %}" method="post" style="display:inline;">
+                              {% csrf_token %}
+                              <button type="submit" class="btn btn-danger">Eliminar</button>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                      {% endfor %}
+                    </div>
+                  </div>
+                </div>
+              
+                <div class="card mb-4">
+                  <div class="card-header">
+                    <h3>Vegetales</h3><a href="{% url 'agregar_vegetal' %}" class="btn btn-success">+</a>
+                  </div>
+                  <div class="card-body">
+                    <div class="row">
+                      {% for vegetal in vegetales %}
+                      <div class="col-md-4">
+                        <div class="card mb-4">
+                          <div class="card-body">
+                            <h5 class="card-title">{{ vegetal.nombre }}</h5>
+                          </div>
+                          <div class="card-footer">
+                            <a href="{% url 'editar_vegetal' vegetal.id %}" class="btn btn-secondary">Editar</a>
+                            <form action="{% url 'eliminar_vegetal' vegetal.id %}" method="post" style="display:inline;">
+                              {% csrf_token %}
+                              <button type="submit" class="btn btn-danger">Eliminar</button>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                      {% endfor %}
+                    </div>
+                  </div>
+                </div>
+                <div class="card mb-4">
+                  <div class="card-header">
+                    <h3>Salsas</h3><a href="{% url 'agregar_salsa' %}" class="btn btn-success">+</a>
+                  </div>
+                  <div class="card-body">
+                    <div class="row">
+                      {% for salsa in salsas %}
+                      <div class="col-md-4">
+                        <div class="card mb-4">
+                          <div class="card-body">
+                            <h5 class="card-title">{{ salsa.nombre }}</h5>
+                          </div>
+                          <div class="card-footer">
+                            <a href="{% url 'editar_salsa' salsa.id %}" class="btn btn-secondary">Editar</a>
+                            <form action="{% url 'eliminar_salsa' salsa.id %}" method="post" style="display:inline;">
+                              {% csrf_token %}
+                              <button type="submit" class="btn btn-danger">Eliminar</button>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                      {% endfor %}
+                    </div>
+                  </div>
+                </div>
+              
+              </div>
+
+{% else %}
+<div class="card">
+    <h1>No tienes los permisos para ingresar a esta página</h1>
+    <a href="{% url 'index' %}">Volver al inicio</a>
+</div>
+{% endif %}
+{% endblock %}
+

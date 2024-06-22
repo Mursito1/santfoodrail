@@ -4,7 +4,7 @@ from contactos.models import Contacto, Estado_contacto, Tipo_contacto
 from menus.carrito import Carrito
 from pedidos.models import Pedido, PedidoItem
 from .forms import CustomUserCreationForm, MenuForm, ProteinaForm, SalsaForm, VegetalForm
-from menus.models import Menu
+from menus.models import Menu, Proteina, Salsa, Vegetal
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.core.paginator import Paginator
@@ -248,3 +248,87 @@ def agregar_vegetal(request):
         else:
             data["form"] = formulario
     return render(request, 'administracion/agregar_vegetal.html', data)
+
+def lista_ingredientes(request):
+    proteinas = Proteina.objects.all()
+    vegetales = Vegetal.objects.all()
+    salsas = Salsa.objects.all()
+
+    proteina_filtrada = request.GET.get('proteina')
+    if proteina_filtrada:
+        proteinas = proteinas.filter(nombre__icontains=proteina_filtrada)
+    
+    vegetal_filtrado = request.GET.get('vegetal')
+    if vegetal_filtrado:
+        vegetales = vegetales.filter(nombre__icontains=vegetal_filtrado)
+    
+    salsa_filtrada = request.GET.get('salsa')
+    if salsa_filtrada:
+        salsas = salsas.filter(nombre__icontains=salsa_filtrada)
+
+    context = {
+        'proteinas': proteinas,
+        'vegetales': vegetales,
+        'salsas': salsas,
+    }
+    return render(request, 'lista_ingredientes.html', context)
+
+def eliminar_proteina(request, id):
+    proteina = get_object_or_404(Proteina, id=id)
+    if request.method == 'POST':
+        proteina.delete()
+        messages.success(request, 'Proteína eliminada correctamente.')
+        return redirect('lista_ingredientes')
+    return render(request, 'confirmar_eliminacion.html', {'objeto': proteina})
+
+def eliminar_vegetal(request, id):
+    vegetal = get_object_or_404(Vegetal, id=id)
+    if request.method == 'POST':
+        vegetal.delete()
+        messages.success(request, 'Vegetal eliminado correctamente.')
+        return redirect('lista_ingredientes')
+    return render(request, 'confirmar_eliminacion.html', {'objeto': vegetal})
+
+def eliminar_salsa(request, id):
+    salsa = get_object_or_404(Salsa, id=id)
+    if request.method == 'POST':
+        salsa.delete()
+        messages.success(request, 'Salsa eliminada correctamente.')
+        return redirect('lista_ingredientes')
+    return render(request, 'confirmar_eliminacion.html', {'objeto': salsa})
+
+def editar_proteina(request, id):
+    proteina = get_object_or_404(Proteina, id=id)
+    if request.method == 'POST':
+        form = ProteinaForm(request.POST, instance=proteina)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Proteína editada correctamente.')
+            return redirect('lista_ingredientes')
+    else:
+        form = ProteinaForm(instance=proteina)
+    return render(request, 'administracion/editar_ingrediente.html', {'form': form, 'tipo_ingrediente': 'proteina'})
+
+def editar_vegetal(request, id):
+    vegetal = get_object_or_404(Vegetal, id=id)
+    if request.method == 'POST':
+        form = VegetalForm(request.POST, instance=vegetal)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Vegetal editado correctamente.')
+            return redirect('lista_ingredientes')
+    else:
+        form = VegetalForm(instance=vegetal)
+    return render(request, 'administracion/editar_ingrediente.html', {'form': form, 'tipo_ingrediente': 'vegetal'})
+
+def editar_salsa(request, id):
+    salsa = get_object_or_404(Salsa, id=id)
+    if request.method == 'POST':
+        form = SalsaForm(request.POST, instance=salsa)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Salsa editada correctamente.')
+            return redirect('lista_ingredientes')
+    else:
+        form = SalsaForm(instance=salsa)
+    return render(request, 'administracion/editar_ingrediente.html', {'form': form, 'tipo_ingrediente': 'salsa'})

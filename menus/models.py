@@ -17,7 +17,7 @@ class Categoria(models.Model):
         validators=[
             MinLengthValidator(3),
             RegexValidator(
-                regex='^[a-zA-Z ]+$',
+                regex='^[a-zA-ZñÑ ]+$',
                 message='El nombre de la categoria solo puede contener letras y debe ser mayor a 3 letras'
             ),
         ]
@@ -32,7 +32,7 @@ class Proteina(models.Model):
         validators=[
             MinLengthValidator(3),
             RegexValidator(
-                regex='^[a-zA-Z ]+$',
+                regex='^[a-zA-ZñÑ ]+$',
                 message='El nombre de la proteina solo puede contener letras y debe ser mayor a 3 letras'
             ),
         ]
@@ -47,7 +47,7 @@ class Vegetal(models.Model):
         validators=[
             MinLengthValidator(3),
             RegexValidator(
-                regex='^[a-zA-Z ]+$',
+                regex='^[a-zA-ZñÑ ]+$',
                 message='El nombre del vegetal solo puede contener letras y debe ser mayor a 3 letras'
             ),
         ]
@@ -62,7 +62,7 @@ class Salsa(models.Model):
         validators=[
             MinLengthValidator(3),
             RegexValidator(
-                regex='^[a-zA-Z ]+$',
+                regex='^[a-zA-ZñÑ ]+$',
                 message='El nombre de la salsa solo puede contener letras y debe ser mayor a 3 letras'
             ),
         ]
@@ -78,7 +78,7 @@ class Menu(models.Model):
         validators=[
             MinLengthValidator(8),
             RegexValidator(
-                regex=r'^(?!^[.\s]*$)[a-zA-Z0-9áéíóúÁÉÍÓÚ.,\s]+$',
+                regex='^[A-ZÑ][a-zA-ZñÑ ]+$',
                 message='El nombre del menú debe comenzar con una letra mayúscula y solo puede contener letras y espacios.',
                 code='invalid_nombre_menu'
             )
@@ -92,7 +92,7 @@ class Menu(models.Model):
         validators=[
             MinLengthValidator(10),
             RegexValidator(
-                regex=r'^(?!^[.\s]*$)[a-zA-Z0-9áéíóúÁÉÍÓÚ.,\s]+$',
+                regex=r'^(?!^[.\s]*$)[a-zA-Z0-9áéíóúñÑÁÉÍÓÚ.,\s]+$',
                 message='La descripción solo puede contener letras, números, puntos y espacios. No puede estar compuesta solo por puntos o espacios.',
                 code='invalid_descripcion_menu'
             )

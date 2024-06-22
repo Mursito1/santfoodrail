@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+{% block contenido %}
+{% load crispy_forms_tags %}
+{% if user.username == 'admin' %}
+
+<br><br>
+<div class="container-editar">
+  <form action="" class="formulario-editar" method="post" enctype="multipart/form-data">
+
+    <h2>Editar {{ tipo_ingrediente|capfirst }}</h2>
+
+    <div class="editar">
+        {% csrf_token %}
+        {{ form|crispy }}
+    </div>
+    <br>
+    <input type="submit" value="Guardar" class="btn btn-primary">
+    <a href="{% url 'lista_ingredientes' %}" class="btn btn-secondary">Cancelar</a>
+  </form>
+</div>
+{% else %}
+<div class="card">
+    <h1>No tienes los permisos para ingresar a esta página</h1>
+    <a href="{% url 'index' %}">Volver al inicio</a>
+</div>
+{% endif %}
+
+<br><br>
+{% endblock %}

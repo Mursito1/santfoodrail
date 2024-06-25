@@ -5,12 +5,6 @@ from django.core.validators import MinValueValidator, RegexValidator, MinLengthV
 
 # Create your models here.
 
-class Calificacion(models.Model):
-    calificacion = models.IntegerField()
-
-    def __str__(self):
-        return self.calificacion
-
 class Categoria(models.Model):
     nombre = models.CharField(
         max_length=50,
@@ -115,13 +109,6 @@ class Menu(models.Model):
                 'descripcion_menu': 'La descripción debe tener al menos 10 caracteres.'
             })
 
-    
-class Calificacion_Menu(models.Model):
-    id_menu = models.ForeignKey(Menu, on_delete=models.PROTECT)
-    id_calificacion = models.ForeignKey(Calificacion, on_delete=models.PROTECT, null=True)
-
-    def int(self):
-        return self.id
 
     
 

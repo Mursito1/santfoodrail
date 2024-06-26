@@ -32,4 +32,5 @@ urlpatterns = [
     path('vegetal/eliminar/<int:id>/', views.eliminar_vegetal, name='eliminar_vegetal'),
     path('salsa/editar/<int:id>/', views.editar_salsa, name='editar_salsa'),
     path('salsa/eliminar/<int:id>/', views.eliminar_salsa, name='eliminar_salsa'),
+    path('editar-usuario/', views.editar_usuario, name='editar_usuario'),
 ]

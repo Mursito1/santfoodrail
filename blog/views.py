@@ -3,7 +3,7 @@ from contactos.forms import ContactoAdminForm, ContactoForm
 from contactos.models import Contacto, Estado_contacto, Tipo_contacto
 from menus.carrito import Carrito
 from pedidos.models import Pedido, PedidoItem
-from .forms import CustomUserCreationForm, MenuForm, ProteinaForm, SalsaForm, VegetalForm
+from .forms import CustomUserCreationForm, MenuForm, ProteinaForm, SalsaForm, UserForm, VegetalForm
 from menus.models import Menu, Proteina, Salsa, Vegetal
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
@@ -69,6 +69,23 @@ def registro(request):
             return redirect(to="index")
         data["form"] = formulario
     return render(request, 'registration/registro.html', data)
+
+@login_required
+def editar_usuario(request):
+    user = request.user
+    
+    if request.method == 'POST':
+        form = UserForm(request.POST, instance=user)
+        if form.is_valid():
+            form.save()
+            return redirect('perfil') 
+    else:
+        form = UserForm(instance=user)
+    
+    return render(request, 'editar_usuario.html', {'form': form})
+
+def perfil(request):
+    return render(request, 'perfil.html')
 
 def contacto(request):
     data = {

@@ -97,36 +97,39 @@
 </main>
 
 <main class = "products">
-  <div class = "tabs container">
-    
-    <input type = "radio" name = "tabs" id = "tab1" checked = "checked" class = "tabInput" value ="1">
-    <label for = "tab1"> Nuestros Productos</label>
-    
-    <div class = "tab">
-      <div class = "swiper mySwiper-2" id = "swiper1">
-        <div class = "swiper-wrapper">
+<main class="products">
+  <div class="tabs container">
+    <input type="radio" name="tabs" id="tab1" checked="checked" class="tabInput" value="1">
+    <label for="tab1"> Nuestros Productos</label>
+    <div class="tab">
+      <div class="swiper mySwiper-2" id="swiper1">
+        <div class="swiper-wrapper">
           {% for menu in menus %}
-          <div class = "swiper-slide">
-            <div class = "product">
+            
+              <div class="swiper-slide">
+                <div class="product">
+                  <div class="product-img">
+                    <img src="{{ menu.imagen.url }}" alt="{{ menu.nombre_menu }}">
+                  </div>
+                  <div class="product-txt">
+                    <h4>{{ menu.nombre_menu }}</h4>
+                    <p>Calidad Premium</p>
+                    <span class="price">${{ menu.precio }}</span>
+                  </div>
+                </div>
+              </div>
 
-              <div class = "product-img">
-                <h4> Nuevo </h4>
-                <img src="{{ menu.imagen.url }}" alt="#"/>
-              </div>
-              <div class = "product-txt">
-                <h4> {{ menu.nombre_menu }} <h4>
-                <p> Calidad Premium </p>
-                <span class = "price"> ${{ menu.precio }} </span>
-              </div>
-            </div>
-          </div>
           {% endfor %}
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
       </div>
-      <div class = "swiper-button-next"></div>
-      <div class = "swiper-button-prev"></div>
     </div>
   </div>
 </main>
+
+
+
   
 
 <div class="title">
@@ -180,6 +183,8 @@
 <br>
 
 
+
+
 <script>
   var swiper1 = new Swiper(".mySwiper-1", {
     slidesPerView: 1,
@@ -225,6 +230,6 @@
         thisSwiper.update();
     });
   });
-  </script>
+  </script> 
 {%endblock%}
 

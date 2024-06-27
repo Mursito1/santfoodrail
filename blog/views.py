@@ -13,6 +13,7 @@ from django.http import JsonResponse
 from django.views.decorators.http import require_POST
 
 
+
 # Create your views here.
 def render_articles(request):
     menus = Menu.objects.all()
@@ -69,6 +70,11 @@ def registro(request):
             return redirect(to="index")
         data["form"] = formulario
     return render(request, 'registration/registro.html', data)
+
+#-----------------------------------------------------------------------------------------------------------
+# RECUPERAR CONTRASEÑ
+
+
 
 @login_required
 def editar_usuario(request):

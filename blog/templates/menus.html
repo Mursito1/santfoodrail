@@ -1,34 +1,42 @@
-{% extends "base.html"%}
+{% extends "base.html" %}
 {% load static %}
 {% block contenido %}
-
+{% if messages %}
+    <div class="alert-container">
+        {% for message in messages %}
+            <div class="alert {% if message.tags %} alert-{{ message.tags }}{% endif %} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
 <div class="menu-compras">
-  {% for menu in menus %}
-    {% if user.username == 'admin' or menu.estado_menu %}
-      <div class="food-items" id="lista">
-        <img src="{{ menu.imagen.url }}"/>
-        <div class="detalles">
-          <div class="detalles-categoria">
-            <h5>{{ menu.nombre_menu }}</h5>
-            <br>
-            <p>{{ menu.descripcion_menu }}</p>
-            <br>
-            <p class="precio">Precio: ${{ menu.precio }}</p>
-            {% if user.username == 'admin' %}
-              <p>Estado: {{ menu.estado_menu|yesno:"Activo,Inactivo" }}</p>
-              <p>Stock: {{ menu.stock }}</p>
-            {% endif %}
-          </div>
-          <br>      
-          {% if user.username == 'admin' %}
-            <a href="{% url 'modificar_producto' menu.id %}" class = "button-menu">Editar</a>
-          {% else %}
-            <a href="{% url 'detalle_menu' menu.id %}" class = "button-menu">Ver detalles</a>
-          {% endif %}
-        </div>
-      </div>
-    {% endif %}
-  {% endfor %}
+    {% for menu in menus %}
+        {% if user.username == 'admin' or menu.stock > 0 %}
+            <div class="food-items" id="lista">
+                <img src="{{ menu.imagen.url }}"/>
+                <div class="detalles">
+                    <div class="detalles-categoria">
+                        <h5>{{ menu.nombre_menu }}</h5>
+                        <br>
+                        <p>{{ menu.descripcion_menu }}</p>
+                        <br>
+                        <p class="precio">Precio: ${{ menu.precio }}</p>
+                        {% if user.username == 'admin' %}
+                            <p>Estado: {{ menu.estado_menu|yesno:"Activo,Inactivo" }}</p>
+                            <p>Stock: {{ menu.stock }}</p>
+                        {% endif %}
+                    </div>
+                    <br>      
+                    {% if user.username == 'admin' %}
+                        <a href="{% url 'modificar_producto' menu.id %}" class="button-menu">Editar</a>
+                    {% else %}
+                        <a href="{% url 'detalle_menu' menu.id %}" class="button-menu">Ver detalles</a>
+                    {% endif %}
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
 </div>
-
 {% endblock %}

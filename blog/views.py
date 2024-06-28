@@ -224,6 +224,7 @@ def guardar_pedido(request):
             request.session["carrito"] = {}
             request.session.modified = True
 
+            messages.success(request, "Tu pedido ha sido realizado con éxito.")
         return redirect('menus')
     
 def revisar_pedidos(request):

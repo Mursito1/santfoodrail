@@ -217,9 +217,13 @@ def guardar_pedido(request):
                     cantidad=item["cantidad"],
                 )
 
+                menu = Menu.objects.get(id=item["menu_id"])
+                menu.stock -= item["cantidad"]
+                menu.save()
+
             request.session["carrito"] = {}
             request.session.modified = True
-        
+
         return redirect('menus')
     
 def revisar_pedidos(request):

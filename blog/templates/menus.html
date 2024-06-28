@@ -16,6 +16,7 @@
             <p class="precio">Precio: ${{ menu.precio }}</p>
             {% if user.username == 'admin' %}
               <p>Estado: {{ menu.estado_menu|yesno:"Activo,Inactivo" }}</p>
+              <p>Stock: {{ menu.stock }}</p>
             {% endif %}
           </div>
           <br>      

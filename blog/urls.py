@@ -10,6 +10,10 @@ urlpatterns = [
     path('contacto', views.contacto, name = 'contacto'),
     path('login', views.login, name = 'login'),
     path('registro', views.registro, name = 'registro'),
+    path('reset_password/', auth_views.PasswordResetView.as_view(template_name="registration/password_reset_form.html"), name='password_reset'),
+    path('reset_password_send/', auth_views.PasswordResetDoneView.as_view(template_name="registration/password_reset_done.html"), name='password_reset_done'),
+    path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name="registration/password_reset_confirm.html"), name='password_reset_confirm'),
+    path('reset_password_complete/', auth_views.PasswordResetCompleteView.as_view(template_name="registration/password_reset_complete.html"), name='password_reset_complete'),
     path('crud', views.crud, name = 'crud'),
     path('pago', views.pago, name = 'pago'),   
     path('agregar/<int:menu_id>/', views.agregar_menu, name='Add'),
@@ -34,10 +38,7 @@ urlpatterns = [
     path('salsa/editar/<int:id>/', views.editar_salsa, name='editar_salsa'),
     path('salsa/eliminar/<int:id>/', views.eliminar_salsa, name='eliminar_salsa'),
     path('editar-usuario/', views.editar_usuario, name='editar_usuario'),
-    path('reset_password/', auth_views.PasswordResetView.as_view(template_name="registration/password_reset.html"), name='password_reset'),
-    path('reset_password_send/', auth_views.PasswordResetDoneView.as_view(template_name="registration/password_reset_done.html"), name='password_reset_done'),
-    path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name="registration/password_reset_confirm.html"), name='password_reset_confirm'),
-    path('reset_password_complete/', auth_views.PasswordResetCompleteView.as_view(template_name="registration/password_reset_complete.html"), name='password_reset_complete'),
+    
 
 ]
 

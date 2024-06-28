@@ -96,7 +96,7 @@
   </div>
 </main>
 
-<main class = "products">
+
 <main class="products">
   <div class="tabs container">
     <input type="radio" name="tabs" id="tab1" checked="checked" class="tabInput" value="1">
@@ -105,20 +105,18 @@
       <div class="swiper mySwiper-2" id="swiper1">
         <div class="swiper-wrapper">
           {% for menu in menus %}
-            
-              <div class="swiper-slide">
-                <div class="product">
-                  <div class="product-img">
-                    <img src="{{ menu.imagen.url }}" alt="{{ menu.nombre_menu }}">
-                  </div>
-                  <div class="product-txt">
-                    <p>{{ menu.nombre_menu }}</p>
-                    <p>Calidad Premium</p>
-                    <span class="price">${{ menu.precio }}</span>
-                  </div>
-                </div>
+          <div class="swiper-slide">
+            <div class="product">
+              <div class="product-img">
+                <h4>Nuevo</h4>
+                <img src="{{ menu.imagen.url }}">
               </div>
-
+              <div class="product-txt">
+                <p>{{ menu.nombre_menu }}</p>
+                <span class="price">${{ menu.precio }}</span>
+              </div>
+            </div>
+          </div>
           {% endfor %}
         </div>
         <div class="swiper-button-next"></div>

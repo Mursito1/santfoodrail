@@ -43,7 +43,11 @@ class UserForm(forms.ModelForm):
         return username
 
 class CustomUserCreationForm(UserCreationForm):
-    pass 
+    email = forms.EmailField(label='Email', max_length=254)
+
+    class Meta:
+        model = User
+        fields = ('username', 'email', 'password1', 'password2')
 
 class MenuForm(forms.ModelForm):
     class Meta:

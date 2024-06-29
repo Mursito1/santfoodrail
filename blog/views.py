@@ -13,7 +13,6 @@ from django.http import JsonResponse
 from django.views.decorators.http import require_POST
 
 
-
 # Create your views here.
 def render_articles(request):
     menus = Menu.objects.all()
@@ -360,3 +359,6 @@ def editar_salsa(request, id):
     else:
         form = SalsaForm(instance=salsa)
     return render(request, 'administracion/editar_ingrediente.html', {'form': form, 'tipo_ingrediente': 'salsa'})
+
+
+

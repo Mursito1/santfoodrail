@@ -5,16 +5,26 @@ from django.core.validators import MinValueValidator, RegexValidator, MinLengthV
 
 # Create your models here.
 
+def no_tres_caracteres_repetidos(value):
+    if len(value) >= 3:
+        if value[0] == value[1] == value[2]:
+            raise ValidationError(
+                'El nombre no puede consistir en tres caracteres repetidos.',
+                code='invalid'
+            )
+
 class Categoria(models.Model):
     nombre = models.CharField(
         max_length=50,
         validators=[
             MinLengthValidator(3),
+            no_tres_caracteres_repetidos,
             RegexValidator(
                 regex='^[a-zA-ZñÑ ]+$',
                 message='El nombre de la categoria solo puede contener letras y debe ser mayor a 3 letras'
             ),
-        ]
+        ],
+        unique=True,
     )
 
     def __str__(self):
@@ -25,11 +35,13 @@ class Proteina(models.Model):
         max_length=50,
         validators=[
             MinLengthValidator(3),
+            no_tres_caracteres_repetidos,
             RegexValidator(
                 regex='^[a-zA-ZñÑ ]+$',
                 message='El nombre de la proteina solo puede contener letras y debe ser mayor a 3 letras'
             ),
-        ]
+        ],
+        unique= True,
     )
 
     def __str__(self):
@@ -40,11 +52,13 @@ class Vegetal(models.Model):
         max_length=50,
         validators=[
             MinLengthValidator(3),
+            no_tres_caracteres_repetidos,
             RegexValidator(
                 regex='^[a-zA-ZñÑ ]+$',
                 message='El nombre del vegetal solo puede contener letras y debe ser mayor a 3 letras'
             ),
-        ]
+        ],
+        unique=True,
     )
 
     def __str__(self):
@@ -55,11 +69,13 @@ class Salsa(models.Model):
         max_length=50,
         validators=[
             MinLengthValidator(3),
+            no_tres_caracteres_repetidos,
             RegexValidator(
                 regex='^[a-zA-ZñÑ ]+$',
                 message='El nombre de la salsa solo puede contener letras y debe ser mayor a 3 letras'
             ),
-        ]
+        ],
+        unique=True,
     )
 
     def __str__(self):
@@ -71,6 +87,7 @@ class Menu(models.Model):
         max_length=50,
         validators=[
             MinLengthValidator(8),
+            no_tres_caracteres_repetidos,
             RegexValidator(
                 regex='^[A-ZÑ][a-zA-ZñÑ ]+$',
                 message='El nombre del menú debe comenzar con una letra mayúscula y solo puede contener letras y espacios.',

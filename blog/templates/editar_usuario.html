@@ -18,8 +18,10 @@
     {% endif %}
   
     <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
+        <div>
+            {% csrf_token %}
+            {{ form.as_p }}
+        </div>
         <button type="submit">Guardar cambios</button>
     </form>
 </div>

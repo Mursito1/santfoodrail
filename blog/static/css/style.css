@@ -330,6 +330,7 @@ td {
      flex-grow: 1;
      width: 100%;
      display: none;
+     padding-top: 20px;
      
 }
 
@@ -355,7 +356,7 @@ td {
      
 
 .product{
-     width: 50%;
+     width: 100%;
      text-align: left;
 }
 
@@ -373,8 +374,8 @@ td {
 }
 
 .product-img img{
-     width: 100px;
-     height: 90px;
+     width: 150px;
+     height: 120px;
 }
 
 .product-txt{
@@ -1521,7 +1522,6 @@ html{
 
 
 
-/* FORMULARIO DE RECLAMOS EN CRUD DE ADMINISTRADOR */ 
 
 /* BARRA DE BUSQUEDAD */
 
@@ -1690,6 +1690,7 @@ html{
      background-color: #7a7a9a;
 }
  
+
 
 /* --------------------------------------------------------------
 

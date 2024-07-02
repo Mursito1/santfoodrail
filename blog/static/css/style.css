@@ -1245,6 +1245,13 @@ html{
      background-color: #7a7a9a;
 }
 
+.form-information-childs a{
+     text-decoration: none;
+     color: #DFDDE0;
+     font-weight: 700;
+}
+
+
 /*----------------------- CONTACTANOS ---------------------------------*/
 
 .container-form-contacto {

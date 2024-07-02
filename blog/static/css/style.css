@@ -610,59 +610,69 @@ td {
 
 
 /* ---------------------------------------- menus ------------------------------*/
-
-.menu-compras{
-     padding: 30px 10px 30px 10px;
+.menu-compras {
+     padding: 30px 10px;
      display: grid;
-     grid-template-columns: repeat(auto-fit,minmax(350px,1fr));
-     grid-gap: 20px 40px;
+     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+     grid-gap: 20px;
 }
-
-.food-items{
+ 
+.food-items {
      background-color: rgb(245, 240, 240);
      position: relative;
-     grid-template-rows: auto 1fr;
      border-radius: 15px;
      box-shadow: 20px 20px 2px 2px rgba(15, 14, 14, 0.6);
      transition: .2s ease-in-out;
+     display: flex; /* Utilizamos flexbox para alinear verticalmente */
+     flex-direction: column; /* Alinea los elementos en columna */
+     overflow: hidden; /* Para ocultar el desbordamiento de la imagen */
 }
-
-.food-items img{
+ 
+.food-items img {
      width: 100%;
-     position: center;
      height: 280px;
      border-radius: 15px 15px 0 0;
 }
-
-.detalles{
-     padding: 20px 10px;
-     display: grid;
-     grid-template-rows: auto 1fr 50px;
-     grid-row-gap: 15px;
-    
-     
+ 
+.contenido-principal {
+     flex: 1; /* Aprovecha el espacio disponible */
+     display: flex;
+     flex-direction: column; /* Alinea los elementos en columna */
+     padding: 20px 10px; /* Ajusta el espaciado interno */
 }
-
-.detalles-categoria h5{
+ 
+.detalles-categoria h5 {
      color: #000000;
      font-weight: 800;
      font-size: 20px;
      text-align: center;
+     margin-bottom: 10px; /* Espacio entre el título y el siguiente párrafo */
 }
-
-.precio{
+ 
+.precio {
      text-align: center;
+     margin-bottom: 10px; /* Espacio entre el precio y el siguiente párrafo */
 }
-
-.detalles p{
+ 
+.detalles p {
      color: #000000;
      font-size: 16px;
      line-height: 28px;
      text-align: center;
      font-weight: 800;
-     
+     margin-bottom: 10px; /* Espacio entre párrafos */
 }
-
+ 
+.footer-menu {
+     padding: 10px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     margin-top: auto; /* Coloca el pie de tarjeta al final */
+     background-color: #f0f0f0; /* Color de fondo para separación */
+     border-top: 1px solid #ccc; /* Línea superior para separación visual */
+}
+ 
 .button-menu {
      background-color: #9191bd;
      color: #000000;
@@ -673,16 +683,14 @@ td {
      box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
      font-weight: 700;
      text-decoration: none;
-     display: flex;
-     justify-content: center;
-
-   }
-   
+     margin: 0 10px; /* Espacio entre botones */
+}
+ 
 .button-menu:hover {
      background-color: #7a7a9a;
-   }
+}
 
-/* DETALLE COMIDA */
+/* ---------------------  DETALLE COMIDA -----------------------------*/
 
  /* Estilos del contenedor principal */
 .menu-detalle {

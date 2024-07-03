@@ -1763,6 +1763,38 @@ html{
      margin-bottom: 20px;
 }
 
+/* -------------- BOTONES CRUD ---------------------------------- */
+
+.crud {
+     display: flex;
+     flex-wrap: wrap;
+ }
+ 
+ .crud label,
+ .crud select {
+     margin-right: 10px;
+     margin-bottom: 10px;
+ }
+ 
+ .crud .botones {
+     display: flex;
+     flex-wrap: wrap;
+     margin-top: 10px;
+ }
+ 
+ .crud .botones button,
+ .crud .botones a.btn-secondary {
+     flex: 1;
+     max-width: 150px;
+     text-align: center;
+     border-radius: 20px; /* Ajusta el radio de borde para que los botones sean redondeados */
+ }
+ 
+ .crud .botones button {
+     margin-right: 10px;
+ }
+ 
+ 
  
 
 /* --------------------------------------------------------------

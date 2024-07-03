@@ -5,26 +5,29 @@
 
 
 <div class="container-fluid">
-  <form class = "crud" method="get" action="">
-    <label for="id_estado_contacto">Filtrar por estado de contacto:</label>
-    <select name="estado_contacto" id="id_estado_contacto">
-        <option value="">Todos</option>
-        {% for estado in estados_contacto %}
-            <option value="{{ estado.id }}">{{ estado.estado_contacto }}</option>
-        {% endfor %}
-    </select>
-
-    <label for="id_tipo_contacto">Filtrar por tipo de contacto:</label>
-    <select name="tipo_contacto" id="id_tipo_contacto">
-        <option value="">Todos</option>
-        {% for tipo in tipos_contacto %}
-            <option value="{{ tipo.id }}">{{ tipo.tipo_contacto }}</option>
-        {% endfor %}
-    </select>
-
-    <button type="submit">Filtrar</button>
-    <a href="{% url 'crud' %}" class="btn btn-secondary">Quitar Filtro</a>
-  </form>
+    <form class="crud" method="get" action="">
+        <label for="id_estado_contacto">Filtrar por estado de contacto:</label>
+        <select name="estado_contacto" id="id_estado_contacto">
+            <option value="">Todos</option>
+            {% for estado in estados_contacto %}
+                <option value="{{ estado.id }}">{{ estado.estado_contacto }}</option>
+            {% endfor %}
+        </select>
+    
+        <label for="id_tipo_contacto">Filtrar por tipo de contacto:</label>
+        <select name="tipo_contacto" id="id_tipo_contacto">
+            <option value="">Todos</option>
+            {% for tipo in tipos_contacto %}
+                <option value="{{ tipo.id }}">{{ tipo.tipo_contacto }}</option>
+            {% endfor %}
+        </select>
+        <div class="d-flex justify-content-between"> <!-- Utilizamos flexbox para alinear los botones -->
+            <button type="submit" class="btn btn-primary flex-fill me-2">Filtrar</button> <!-- btn-primary para color azul -->
+            <a href="{% url 'lista_ingredientes' %}" class="btn btn-secondary flex-fill">Quitar Filtro</a> <!-- btn-secondary para color gris -->
+        </div>
+    </form>
+    
+    
 
 
   <div class="card-container">

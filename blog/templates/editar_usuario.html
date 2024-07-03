@@ -1,6 +1,47 @@
 {% extends "base.html" %}
 {% load static %}
 {% block contenido %}
+    {% load crispy_forms_tags %}
+    {% if user.is_authenticated %}
+    
+        <br><br>
+        <div class="container-agregar">
+            {% if messages %}
+                <div class="alert-container">
+                    {% for message in messages %}
+                        <div class="alert {% if message.tags %} alert-{{ message.tags }}{% endif %} alert-dismissible fade show" role="alert">
+                            {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            
+            <form method="post">
+                <div>
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                </div>
+                <div class = "text-center">
+                <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                </div>
+            </form>
+        </div>
+    
+    {% else %}
+    
+        <div class="card">
+            <h1>No tienes los permisos para ingresar a esta página</h1>
+            <a href="{% url 'index' %}">Volver al inicio</a>
+        </div>
+    
+    {% endif %}
+    <br><br>
+{% endblock %}
+
+{% comment %} {% extends "base.html" %}
+{% load static %}
+{% block contenido %}
 {% load crispy_forms_tags %}
 {% if user.is_authenticated %}
 
@@ -32,5 +73,5 @@
 </div>
 {% endif %}
 <br><br>
-{% endblock %}
+{% endblock %} {% endcomment %}
 

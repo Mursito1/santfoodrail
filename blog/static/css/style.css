@@ -1704,8 +1704,53 @@ html{
 .modificar-contacto input[type="submit"]:hover {
      background-color: #7a7a9a;
 }
- 
+ /* ---------------PERFIL DE USUARIO ---------------------------*/
 
+/* Estilos para el contenedor principal */
+.custom-container {
+     background-color: #DFDDE0; /* Color de fondo personalizado */
+     padding: 20px;
+     border: 1px solid #dee2e6;
+     border-radius: 8px;
+     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+     margin: 20px; /* Agrega margen alrededor del contenedor */
+     display: grid;
+     grid-template-columns: 1fr 1fr; /* Dos columnas de igual tamaño */
+     gap: 20px; /* Espacio entre columnas */
+ }
+ 
+ /* Estilos para el contenido dentro del contenedor */
+ .custom-content {
+     grid-column: 1 / span 2; /* Ocupa las dos columnas */
+ }
+ 
+ /* Estilos para la tabla */
+ .custom-container table {
+     width: 100%;
+     border-collapse: collapse;
+     margin-top: 20px; /* Añade margen superior */
+ }
+ 
+ .custom-container th, .custom-container td {
+     padding: 10px;
+     text-align: left;
+ }
+ 
+ .custom-container th {
+     background-color: #343a40;
+     color: #fff;
+ }
+ 
+ .custom-container td {
+     border-bottom: 1px solid #dee2e6;
+ }
+ 
+ /* Estilos para el botón de inicio de sesión */
+ .custom-container .btn-primary {
+     margin-top: 10px;
+     justify-self: end; /* Alinear el botón a la derecha */
+ }
+   
 
 /* --------------------------------------------------------------
 

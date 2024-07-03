@@ -3,6 +3,53 @@
 
 {% block contenido %}
 
+<div class="custom-container">
+    <div class="menu-usuario">
+        {% if user.is_authenticated %}
+            <div>
+                <h2 class="mb-4">Detalles del Usuario</h2>
+                <p><strong>Nombre de usuario:</strong> {{ user.username }}</p>
+                <p><strong>Nombre:</strong> {{ user.first_name }}</p>
+                <p><strong>Apellido:</strong> {{ user.last_name }}</p>
+                <p><strong>Correo electrónico:</strong> {{ user.email }}</p>
+                <p><strong>Fecha de registro:</strong> {{ user.date_joined|date:"d/m/Y" }}</p>
+                <a href="{% url 'editar_usuario' %}" class="btn btn-primary">Editar Perfil</a>
+            </div>
+        {% else %}
+            <h2>Acceso Restringido</h2>
+            <p>Debes iniciar sesión para ver tus opciones.</p>
+            <a href="{% url 'login' %}" class="btn btn-primary">Iniciar Sesión</a>
+        {% endif %}
+    </div>
+
+    <div>
+        <h2 class="mb-4">Resumen</h2>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ver Pedidos</td>
+                        <td><a href="{% url 'menus' %}">Ir a Ver Pedidos</a></td>
+                    </tr>
+                    <!-- Agrega más filas según sea necesario -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+{% comment %} {% extends "base.html" %}
+{% load static %}
+
+{% block contenido %}
+
 <div class="card">
     <div class="card-body">
         <div class="menu-compras">
@@ -35,5 +82,5 @@
     </div>
 </div>
 
-{% endblock %}
+{% endblock %} {% endcomment %}
 

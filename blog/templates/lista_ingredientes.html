@@ -4,23 +4,26 @@
 {% if user.username == 'admin' %}
 
 <div class="container-fluid">
-    <form class="crud" method="get" action="">
-        <div class="form-group">
-          <label for="id_proteina">Filtrar por proteína:</label>
-          <input type="text" name="proteina" id="id_proteina" class="form-control" placeholder="Nombre de la proteína">
-        </div>
-        <div class="form-group">
-          <label for="id_vegetal">Filtrar por vegetal:</label>
-          <input type="text" name="vegetal" id="id_vegetal" class="form-control" placeholder="Nombre del vegetal">
-        </div>
-        <div class="form-group">
-          <label for="id_salsa">Filtrar por salsa:</label>
-          <input type="text" name="salsa" id="id_salsa" class="form-control" placeholder="Nombre de la salsa">
-        </div>
-        <button type="submit" class="btn btn-primary">Filtrar</button>
-        <a href="{% url 'lista_ingredientes' %}" class="btn btn-secondary">Quitar Filtro</a>
-      </form>
-      <br><br>
+  <form class="crud" method="get" action="">
+    <div class="form-group">
+        <label for="id_proteina">Filtrar por proteína:</label>
+        <input type="text" name="proteina" id="id_proteina" class="form-control" placeholder="Nombre de la proteína">
+    </div>
+    <div class="form-group">
+        <label for="id_vegetal">Filtrar por vegetal:</label>
+        <input type="text" name="vegetal" id="id_vegetal" class="form-control" placeholder="Nombre del vegetal">
+    </div>
+    <div class="form-group">
+        <label for="id_salsa">Filtrar por salsa:</label>
+        <input type="text" name="salsa" id="id_salsa" class="form-control" placeholder="Nombre de la salsa">
+    </div>
+    <div class="d-flex justify-content-between"> <!-- Utilizamos flexbox para alinear los botones -->
+        <button type="submit" class="btn btn-primary flex-fill me-2">Filtrar</button> <!-- btn-primary para color azul -->
+        <a href="{% url 'lista_ingredientes' %}" class="btn btn-secondary flex-fill">Quitar Filtro</a> <!-- btn-secondary para color gris -->
+    </div>
+  </form>
+  <br><br>
+
   {% if messages %}
                 <div class="alert-container">
                     {% for message in messages %}

@@ -57,7 +57,7 @@ body {
 .swiper-pagination-bullet-active{
      background-color: #DB241B;
 }
-/*--------------------------------------------------------------------- header ---------------------------------------------------------------------*/
+/*----------------------------------------- header -------------------------------------------*/
 
 
 .container{
@@ -235,7 +235,7 @@ td {
  
  
  .dropdown-content ul li:hover a {
-     color: white; /* Cambiar color de texto solo cuando se hace hover en un item */
+     color: white; 
  }
  
  
@@ -455,7 +455,7 @@ td {
      
 }
 
-.card:hover{
+.card-1:hover{
      box-shadow: 5px 5px 20px rgba(0,0,0,0,4);
      transform: translateY(-3%); /* el traslado de la tajeta sera en formato vertical en -3 % de su valor */
 
@@ -495,6 +495,10 @@ td {
      color: #fff
 }
 
+.card-header h3{
+     font-weight: bold;
+     font-size: 35px;
+}
 
 @media (max-width: 991px){
      .container-cards{
@@ -1717,39 +1721,39 @@ html{
      display: grid;
      grid-template-columns: 1fr 1fr; /* Dos columnas de igual tamaño */
      gap: 20px; /* Espacio entre columnas */
- }
+}
  
  /* Estilos para el contenido dentro del contenedor */
- .custom-content {
+.custom-content {
      grid-column: 1 / span 2; /* Ocupa las dos columnas */
- }
+}
  
  /* Estilos para la tabla */
- .custom-container table {
+.custom-container table {
      width: 100%;
      border-collapse: collapse;
      margin-top: 20px; /* Añade margen superior */
- }
+}
  
- .custom-container th, .custom-container td {
+.custom-container th, .custom-container td {
      padding: 10px;
      text-align: left;
- }
+}
  
- .custom-container th {
+.custom-container th {
      background-color: #343a40;
      color: #fff;
- }
+}
  
- .custom-container td {
+.custom-container td {
      border-bottom: 1px solid #dee2e6;
- }
+}
  
  /* Estilos para el botón de inicio de sesión */
- .custom-container .btn-primary {
+.custom-container .btn-primary {
      margin-top: 10px;
      justify-self: end; /* Alinear el botón a la derecha */
- }
+}
 
 /* Estilos para la línea horizontal */
 .custom-hr {
@@ -1757,8 +1761,9 @@ html{
      border-top: 2px solid #555; /* Aumenta el grosor y cambia el color */
      margin-top: 10px;
      margin-bottom: 20px;
- }
-  
+}
+
+ 
 
 /* --------------------------------------------------------------
 

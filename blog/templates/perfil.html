@@ -8,6 +8,7 @@
         {% if user.is_authenticated %}
             <div>
                 <h2 class="mb-4">Detalles del Usuario</h2>
+                <hr class="custom-hr">
                 <p><strong>Nombre de usuario:</strong> {{ user.username }}</p>
                 <p><strong>Nombre:</strong> {{ user.first_name }}</p>
                 <p><strong>Apellido:</strong> {{ user.last_name }}</p>
@@ -43,44 +44,4 @@
 </div>
 
 {% endblock %}
-
-
-{% comment %} {% extends "base.html" %}
-{% load static %}
-
-{% block contenido %}
-
-<div class="card">
-    <div class="card-body">
-        <div class="menu-compras">
-            {% if user.is_authenticated %}
-                <h1>Tabla de Nombres y Enlaces</h1>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Nombre</th>
-                            <th>Enlace</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Ejemplo 1</td>
-                            <td><a href="{% url 'editar_usuario' %}">Ir a Ejemplo 1</a></td>
-                        </tr>
-                        <tr>
-                            <td>Ejemplo 2</td>
-                            <td><a href="{% url 'menus' %}">Ir a Ejemplo 2</a></td>
-                        </tr>
-                        <!-- Agrega más filas según sea necesario -->
-                    </tbody>
-                </table>
-            {% else %}
-                <h1>Debes iniciar sesión para ver tu perfil</h1>
-                <a href="{% url 'login' %}">Iniciar Sesión</a>
-            {% endif %}
-        </div>
-    </div>
-</div>
-
-{% endblock %} {% endcomment %}
 

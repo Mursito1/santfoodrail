@@ -1750,7 +1750,15 @@ html{
      margin-top: 10px;
      justify-self: end; /* Alinear el botón a la derecha */
  }
-   
+
+/* Estilos para la línea horizontal */
+.custom-hr {
+     border: none;
+     border-top: 2px solid #555; /* Aumenta el grosor y cambia el color */
+     margin-top: 10px;
+     margin-bottom: 20px;
+ }
+  
 
 /* --------------------------------------------------------------
 

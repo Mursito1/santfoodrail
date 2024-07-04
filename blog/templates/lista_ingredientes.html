@@ -25,15 +25,15 @@
   <br><br>
 
   {% if messages %}
-                <div class="alert-container">
-                    {% for message in messages %}
-                        <div class="alert {% if message.tags %} alert-{{ message.tags }}{% endif %} alert-dismissible fade show" role="alert">
-                            {{ message }}
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-                    {% endfor %}
-                </div>
-            {% endif %}
+  <div class="alert-container">
+    {% for message in messages %}
+        <div class="alert {% if message.tags %} alert-{{ message.tags }}{% endif %} alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endfor %}
+  </div>
+  {% endif %}
             <div class="container">
                 <div class="card mb-4">
                   <div class="card-header">
@@ -114,6 +114,8 @@
               
               </div>
 
+                
+            
 {% else %}
 <div class="card">
     <h1>No tienes los permisos para ingresar a esta página</h1>

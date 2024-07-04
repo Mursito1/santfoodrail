@@ -53,7 +53,6 @@ def validate_message_sense(value):
             code='invalid'
         )
 
-
 class Contacto(models.Model):
     nombre = models.CharField(
         max_length=100,
@@ -71,8 +70,8 @@ class Contacto(models.Model):
         validators=[
             EmailValidator(message='Introduzca una dirección de correo electrónico válida'),
             RegexValidator(
-                regex=r'^(?!.*a@a.cl).*$',
-                message='El correo no puede ser "a@a.cl"',
+                regex=r'^[^@]+@.{5,}(\.cl|\.com)$',
+                message='El correo debe tener al menos 5 caracteres después del "@" y terminar en ".cl" o ".com"',
                 code='invalid_correo'
             )
         ]
@@ -106,25 +105,25 @@ class Contacto(models.Model):
     def __str__(self):
         return self.nombre
 
-
-
-
-
 # class Contacto(models.Model):
 #     nombre = models.CharField(
-#         max_length=100,  
+#         max_length=100,
 #         validators=[
+#             MinLengthValidator(3, message='El nombre debe tener al menos 3 caracteres'),
 #             RegexValidator(
-#                 regex='^[a-zA-ZñÑ]+$',
+#                 regex=r'^[a-zA-ZñÑ]+$',
 #                 message='El nombre solo puede contener letras',
 #                 code='invalid_nombre'
-#             )
+#             ),
+#             validate_unique_chars
 #         ]
 #     )
 #     correo = models.EmailField(
 #         validators=[
-#             EmailValidator(
-#                 message='Introduzca una dirección de correo electrónico válida',
+#             EmailValidator(message='Introduzca una dirección de correo electrónico válida'),
+#             RegexValidator(
+#                 regex=r'^(?!.*a@a.cl).*$',
+#                 message='El correo no puede ser "a@a.cl"',
 #                 code='invalid_correo'
 #             )
 #         ]
@@ -133,16 +132,27 @@ class Contacto(models.Model):
 #     mensaje_contacto = models.CharField(
 #         max_length=300,
 #         validators=[
-#             MinLengthValidator(10),
+#             MinLengthValidator(10, message='El mensaje debe tener al menos 10 caracteres'),
 #             RegexValidator(
-#                 regex=r'^(?!.*[^a-zA-Z. ñÑáéíóúÁÉÍÓÚ])[a-zA-Z]+(?:[a-zA-Z. ñÑáéíóúÁÉÍÓÚ]*[a-zA-Z]+)*$',
+#                 regex=r'^(?!.*([^a-zA-Z. ñÑáéíóúÁÉÍÓÚ])).*$',
 #                 message='El mensaje solo puede contener letras y puntos. Además, no pueden ser solo puntos.',
 #                 code='invalid_mensaje_contacto'
-#             )
+#             ),
+#             validate_unique_chars,
+#             validate_message_sense
 #         ]
 #     )
 #     estado_contacto = models.ForeignKey(Estado_contacto, on_delete=models.SET_DEFAULT, default=1, blank=True, null=True)
 #     respuesta = models.TextField(blank=True, null=True)
     
+#     def save(self, *args, **kwargs):
+#         if not self.nombre.strip():
+#             raise DjangoValidationError(_('El nombre no puede estar vacío o contener solo espacios en blanco.'))
+#         if not self.correo.strip():
+#             raise DjangoValidationError(_('El correo no puede estar vacío o contener solo espacios en blanco.'))
+#         if not self.mensaje_contacto.strip():
+#             raise DjangoValidationError(_('El mensaje no puede estar vacío o contener solo espacios en blanco.'))
+#         super().save(*args, **kwargs)
+
 #     def __str__(self):
 #         return self.nombre

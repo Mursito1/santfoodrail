@@ -28,6 +28,7 @@ urlpatterns = [
     path('api/menus/', include('menus.urls')),
     path('api/pedidos/', include('pedidos.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
+    path('password_reset/', auth_views.PasswordResetView.as_view(template_name='registration/password_reset_form.html'), name='password_reset'),
     
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

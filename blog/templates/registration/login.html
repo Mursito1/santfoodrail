@@ -11,20 +11,20 @@
         <div class="info-childs">
             <h2>Bienvenido Nuevamente</h2>
             <p>Para disfrutar de todos los beneficios que tenemos para ti inicia sesión con tus datos o</p>
-            <a href="{% url 'registro' %}">Registrate</a>
+            <a href="{% url 'registro' %}">Regístrate</a>
             
         </div>
     </div>
     <div class="form-information">
         <div class="form-information-childs">
-            <h2>Iniciar Sesion</h2>
+            <h2>Iniciar Sesión</h2>
             <form action = "" method = "post" class = "form">
               <div class = "registro">
                 {{ form | crispy }}
                 {% csrf_token %}
               </div>
               <br>
-              <input type="submit" value = "Iniciar Sesion">
+              <input type="submit" value = "Iniciar Sesión">
             </form>
             <a href="{% url 'password_reset' %}">¿Olvidaste tu contraseña?</a>
         </div>

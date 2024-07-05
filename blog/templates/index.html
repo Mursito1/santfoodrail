@@ -22,11 +22,11 @@
             <div class = "slider-txt">
               <h1> Hamburguesa Bre-Bacon </h1>
               <p>
-                Exquisita hamburguesa con 200 gr de carne, queso cheedar, tocino ahumado a la plancha, pepinillo, 
+                Exquisita hamburguesa con 200 gr de carne, queso chedar, tocino ahumado a la plancha, pepinillo, 
                 lechuga, tomate y el aderezo que más te guste.. 
                 <br>
                 Puedes elegir entre salsa de la casa, tártara, de queso, barbacoa, mayonesa casera o de ajo. 
-                Todo esto es un fresco y suave pan marraqueta.
+                Todo esto es un fresco y suave pan de hamburguesa.
               </p>
               <div class = "botones">
                 <a href = "{% url 'menus' %}" class = "btn-1"> Pidela Ya </a>
@@ -46,10 +46,10 @@
               <h1> Baguette Mixto </h1>
               <p>
                 En este delicioso y sabroso sándwich puedes elegir jamón de pierna acaramelado o jamón de pavo ahumado,
-                también lo puedes pedir mixto, además lleva tomate aceitunas, pimentón verde, queso mozarela, 
-                lechuga, salsa de la casa y pepinillo, todo esto en un crujiente pan baguete.
+                también lo puedes pedir mixto, además lleva tomate, aceitunas, pimentón verde, queso mozzarella, 
+                lechuga, salsa de la casa y pepinillo, todo esto en un crujiente pan baguette.
                 <br>
-                Le puedes agregar la salsa que más te guste tártara, de queso, barbacoa, mayonesa casera o de ajo. 
+                Le puedes agregar la salsa que más te guste: tártara, de queso, barbacoa, mayonesa casera o de ajo. 
               </p>
               <div class = "botones">
                 <a href = "{% url 'menus' %}" class = "btn-1"> Pidela Ya </a>
@@ -67,13 +67,13 @@
             <div class = "slider-txt">
               <h1> Hamburguesa La Toscana</h1>
               <p>
-                Exquisita hamburguesa con 200 gr de carne a la parrilla queso cheedar, cebolla caramelizada, pepinillo dulce, aceitunas,
+                Exquisita hamburguesa con 200 gr de carne a la parrilla queso chedar, cebolla caramelizada, pepinillo dulce, aceitunas,
                 lechuga, tomate, salsa de la casa, todo en un fresco y crujiente pan toscano.
                 <br> 
                 Puedes también agregar el aderezo que más te guste para disfrutar del mejor sabor! 
               </p>
               <div class = "botones">
-                <a href = "{% url 'menus' %}" class = "btn-1"> Pidela Ya </a>
+                <a href = "{% url 'menus' %}" class = "btn-1"> Pídela Ya </a>
               </div>
             </div>
             <div class = "slider-img">
@@ -145,8 +145,8 @@
     </figure>
     <div class="contenido-card">
       <h3>Delivery Burger</h3>
-      <p>Hamburguesa seleccionada con los mejores ingredientes, especial para poder salir de un apuro en comer algo delicioso, carne de primera seleccion acompañado de 
-        tomate, lechuga, cebolla y una rica capa de mayonesa casera con cibullete que le da un toque de sabor unico.
+      <p>Hamburguesa seleccionada con los mejores ingredientes, especial para poder salir de un apuro en comer algo delicioso, carne de primera selección acompañado de 
+        tomate, lechuga, cebolla y una rica capa de mayonesa casera con ciboullete que le da un toque de sabor único.
       </p>
     </div>
   </div>
@@ -156,9 +156,9 @@
       <img src="{% static 'images/food5.png' %}" alt="#"/>
     </figure>
     <div class="contenido-card">
-      <h3>Menu Vegetariano</h3>
+      <h3>Menú Vegetariano</h3>
       <p>Como nuestra misión es tener variedad para todos nuestros clientes, no puede faltar la opción más liviana y saludable. Preparada con tortilla recién hecha, 
-        los mejores y más frescos ingredientes, tomate, lechuga pepinillo,pollo en tiras y aderezo al gusto
+        los mejores y más frescos ingredientes, tomate, lechuga, pepinillo, pollo en tiras y aderezo al gusto.
       </p>
     </div>
   </div>
@@ -170,7 +170,7 @@
     <div class="contenido-card">
       <h3>Pizza</h3>
       <p>Como en todo local, siempre nos intentamos adecuar a todos los gustos, con los mejores ingredientes, una base de masa delgada con bordes de queso, 
-        ademas de una base de salsa de tomate, queso mozzarella y peperonni para darle un sazon de picante.
+        ademas de una base de salsa de tomate, queso mozzarella y peperonni para darle un sazón de picante.
       </p>
       
     </div>
@@ -223,8 +223,8 @@
   
   tabInputs.forEach(function(input) {
     input.addEventListener('change', function() {
-        let id = input.getAttribute('aria-valuemax'); // corregido
-        let thisSwiper = document.getElementById('swiper' + id).swiper; // corregido
+        let id = input.getAttribute('aria-valuemax');
+        let thisSwiper = document.getElementById('swiper' + id).swiper;
         thisSwiper.update();
     });
   });

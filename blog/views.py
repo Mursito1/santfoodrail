@@ -114,22 +114,29 @@ def is_ajax(request):
     return request.headers.get('x-requested-with') == 'XMLHttpRequest'
 
 def agregar_menu(request, menu_id):
-     carrito = Carrito(request)
-     menu = get_object_or_404(Menu, id=menu_id)
-     if request.method == 'POST':
-         proteina_id = request.POST.get('proteina')
-         vegetales_ids = request.POST.getlist('vegetales')
-         salsas_ids = request.POST.getlist('salsas')
-         ingredientes = {
-             'proteina': proteina_id,
-             'vegetales': vegetales_ids,
-             'salsas': salsas_ids
-         }
-         carrito.agregar(menu, ingredientes)
-         if is_ajax(request):
-             return JsonResponse({'success': True, 'total': carrito.total(), 'items': carrito.carrito})
-         return redirect("menus")
-     return redirect("menus")
+    carrito = Carrito(request)
+    menu = get_object_or_404(Menu, id=menu_id)
+    if request.method == 'POST':
+        proteina_id = request.POST.get('proteina')
+        vegetales_ids = request.POST.getlist('vegetales')
+        salsas_ids = request.POST.getlist('salsas')
+
+        # Obtener los nombres de los ingredientes
+        proteina_nombre = Proteina.objects.get(id=proteina_id).nombre if proteina_id else None
+        vegetales_nombres = [Vegetal.objects.get(id=vid).nombre for vid in vegetales_ids]
+        salsas_nombres = [Salsa.objects.get(id=sid).nombre for sid in salsas_ids]
+
+        ingredientes = {
+            'proteina': proteina_nombre,
+            'vegetales': vegetales_nombres,
+            'salsas': salsas_nombres
+        }
+
+        carrito.agregar(menu, ingredientes)
+        if is_ajax(request):
+            return JsonResponse({'success': True, 'total': carrito.total(), 'items': carrito.carrito})
+        return redirect("menus")
+    return redirect("menus")
 
 def eliminar_menu(request, menu_id):
      carrito = Carrito(request)

@@ -19,6 +19,9 @@
                     <td>{{ item.nombre }}</td>
                     <td>{{ item.acumulado }}</td>
                     <td>{{ item.cantidad }}</td>
+                    <td>Proteína: {{ item.ingredientes.proteina }}</td>
+                    <td>Vegetales: {% for vegetal in item.ingredientes.vegetales %}{{ vegetal }}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                    <td>Salsas: {% for salsa in item.ingredientes.salsas %}{{ salsa }}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
                 </tr>
                 {% endfor %}
             </tbody>

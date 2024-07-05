@@ -120,8 +120,6 @@ def agregar_menu(request, menu_id):
         proteina_id = request.POST.get('proteina')
         vegetales_ids = request.POST.getlist('vegetales')
         salsas_ids = request.POST.getlist('salsas')
-
-        # Obtener los nombres de los ingredientes
         proteina_nombre = Proteina.objects.get(id=proteina_id).nombre if proteina_id else None
         vegetales_nombres = [Vegetal.objects.get(id=vid).nombre for vid in vegetales_ids]
         salsas_nombres = [Salsa.objects.get(id=sid).nombre for sid in salsas_ids]

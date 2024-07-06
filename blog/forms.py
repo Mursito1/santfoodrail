@@ -4,6 +4,7 @@ from django.contrib.auth.forms import UserCreationForm
 from menus.models import Menu, Proteina, Salsa, Vegetal
 from django.contrib.auth.models import User
 from django.core.validators import RegexValidator
+from django.core.exceptions import ValidationError
 
 class UserForm(forms.ModelForm):
     class Meta:
@@ -43,11 +44,12 @@ class UserForm(forms.ModelForm):
 
         return username
 
+
 class CustomUserCreationForm(UserCreationForm):
     email = forms.EmailField(label='Email', max_length=254,
         validators=[
             RegexValidator(
-                regex=r'^[^@]+@[a-zA-Z0-9.]+\.[a-zA-Z]{2,4}$',
+                regex=r'^[^@]+@[a-zA-Z0-9.]{5,}\.[a-zA-Z]{2,4}$',
                 message='El correo debe tener al menos 5 caracteres después del "@" y terminar en ".cl" o ".com"',
                 code='invalid_email'
             )
@@ -64,9 +66,22 @@ class CustomUserCreationForm(UserCreationForm):
         ]
     )
 
+    def clean_username(self):
+        username = self.cleaned_data['username']
+        
+        # Validar caracteres repetidos consecutivos
+        previous_char = ''
+        for char in username:
+            if char == previous_char:
+                raise ValidationError('El nombre de usuario no puede contener caracteres repetidos consecutivos.')
+            previous_char = char
+        
+        return username
+
     class Meta:
         model = User
         fields = ('username', 'email', 'password1', 'password2')
+
 
 # class CustomUserCreationForm(UserCreationForm):
 #     email = forms.EmailField(label='Email', max_length=254)

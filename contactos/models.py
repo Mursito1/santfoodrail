@@ -76,9 +76,6 @@ class Contacto(models.Model):
             )
         ]
     )
-
-    
-    
     tipo_contacto = models.ForeignKey(Tipo_contacto, on_delete=models.PROTECT)
     mensaje_contacto = models.CharField(
         max_length=300,

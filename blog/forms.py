@@ -3,6 +3,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from menus.models import Menu, Proteina, Salsa, Vegetal
 from django.contrib.auth.models import User
+from django.core.validators import RegexValidator
 
 class UserForm(forms.ModelForm):
     class Meta:
@@ -43,11 +44,36 @@ class UserForm(forms.ModelForm):
         return username
 
 class CustomUserCreationForm(UserCreationForm):
-    email = forms.EmailField(label='Email', max_length=254)
+    email = forms.EmailField(label='Email', max_length=254,
+        validators=[
+            RegexValidator(
+                regex=r'^[^@]+@[a-zA-Z0-9.]+\.[a-zA-Z]{2,4}$',
+                message='El correo debe tener al menos 5 caracteres después del "@" y terminar en ".cl" o ".com"',
+                code='invalid_email'
+            )
+        ]
+    )
+
+    username = forms.CharField(label='Username',
+        validators=[
+            RegexValidator(
+                regex=r'^[a-zA-Z0-9]+$',
+                message='El nombre de usuario solo puede contener letras y números',
+                code='invalid_username'
+            )
+        ]
+    )
 
     class Meta:
         model = User
         fields = ('username', 'email', 'password1', 'password2')
+
+# class CustomUserCreationForm(UserCreationForm):
+#     email = forms.EmailField(label='Email', max_length=254)
+
+#     class Meta:
+#         model = User
+#         fields = ('username', 'email', 'password1', 'password2')
 
 class MenuForm(forms.ModelForm):
     class Meta:

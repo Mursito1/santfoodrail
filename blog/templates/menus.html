@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
+{% load humanize %}  <!-- Asegúrate de cargar el filtro intcomma -->
+
 {% block contenido %}
 {% if messages %}
     <div class="alert-container">
@@ -23,7 +25,9 @@
                             <br>
                             <p>{{ menu.descripcion_menu }}</p>
                             <br>
-                            <p class="precio">Precio: ${{ menu.precio }}</p>
+                            {% with precio_entero=menu.precio|intcomma %}
+                                <p class="precio">Precio: ${{ precio_entero }}</p>
+                            {% endwith %}
                             {% if user.username == 'admin' %}
                                 <p>Estado: {{ menu.estado_menu|yesno:"Activo,Inactivo" }}</p>
                                 <p>Stock: {{ menu.stock }}</p>
@@ -43,5 +47,7 @@
     {% endfor %}
 </div>
 {% endblock %}
+
+
 
 

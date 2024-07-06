@@ -11,7 +11,7 @@ def agregar_al_carrito(request, menu_id):
         carrito.agregar(menu, [])
     except ValidationError as e:
         request.session['error_message'] = str(e)
-    return redirect('ruta_a_tu_vista_de_carrito')
+    return redirect('base')
 
 
 class Carrito:

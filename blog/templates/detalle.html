@@ -1,89 +1,97 @@
 {% extends "base.html" %}
 {% load static %}
-
 {% block contenido %}
 
 <br>
 
-
 <div class="menu-detalle">
-  <div class="food-item">
-      <img src="{{ menu.imagen.url }}" alt="{{ menu.nombre_menu }}">
-      <div class="detalles-comida">
-          <h2>{{ menu.nombre_menu }}</h2>
-          <p>{{ menu.descripcion_menu }}</p>
-          <p class="precio">Precio ${{ menu.precio }}</p>
-          {% if user.username != 'admin' %}
-          <form method="POST" action="{% url 'Add' menu.id %}" class="detalle-menu">
-            {% csrf_token %}
-            <br>
-            <h3>Selecciona tu proteína:</h3>
-            <br>
-            {% for proteina in menu.proteina.all %}
-            <div class="radio-group">
-                <input type="radio" name="proteina" id="proteina{{ proteina.id }}" value="{{ proteina.id }}">
-                <label for="proteina{{ proteina.id }}">{{ proteina.nombre }}</label>
+    <div class="food-item">
+        <img src="{{ menu.imagen.url }}" alt="{{ menu.nombre_menu }}">
+        <div class="detalles-comida">
+            <h2>{{ menu.nombre_menu }}</h2>
+            <p>{{ menu.descripcion_menu }}</p>
+            <p class="precio">Precio ${{ menu.precio }}</p>
+            {% if user.username != 'admin' %}
+            <form id="form-agregar-carrito" method="POST" action="{% url 'Add' menu.id %}" class="detalle-menu">
+                {% csrf_token %}
+                <br>
+                <h3>Selecciona tu proteína:</h3>
+                <br>
+                {% for proteina in menu.proteina.all %}
+                <div class="radio-group">
+                    <input type="radio" name="proteina" id="proteina{{ proteina.id }}" value="{{ proteina.id }}">
+                    <label for="proteina{{ proteina.id }}">{{ proteina.nombre }}</label>
+                </div>
+                {% endfor %}
+                <br>
+                <h3>Vegetales:</h3>
+                {% for vegetal in menu.vegetal.all %}
+                <div class="checkbox-group">
+                    <input type="checkbox" name="vegetales" id="vegetal{{ vegetal.id }}" value="{{ vegetal.id }}">
+                    <label for="vegetal{{ vegetal.id }}">{{ vegetal.nombre }}</label>
+                </div>
+                {% endfor %}
+                <br>
+                <h3>Salsas:</h3>
+                {% for salsa in menu.salsa.all %}
+                <div class="checkbox-group">
+                    <input type="checkbox" name="salsas" id="salsa{{ salsa.id }}" value="{{ salsa.id }}">
+                    <label for="salsa{{ salsa.id }}">{{ salsa.nombre }}</label>
+                </div>
+                {% endfor %}
+                <br>
+                <div class="detalle-menu-footer">
+                    <input type="submit" value="Agregar Al Carrito">
+                </div>
+            </form>
+            <div id="mensaje-error" class="alert alert-danger mt-3" style="display: none;">
+                Debes seleccionar al menos una opción de cada parte.
             </div>
-            {% endfor %}
-            <br>
-            <h3>Vegetales:</h3>
-            {% for vegetal in menu.vegetal.all %}
-            <div class="checkbox-group">
-                <input type="checkbox" name="vegetales" id="vegetal{{ vegetal.id }}" value="{{ vegetal.id }}">
-                <label for="vegetal{{ vegetal.id }}">{{ vegetal.nombre }}</label>
-            </div>
-            {% endfor %}
-            <br>
-            <h3>Salsas:</h3>
-            {% for salsa in menu.salsa.all %}
-            <div class="checkbox-group">
-                <input type="checkbox" name="salsas" id="salsa{{ salsa.id }}" value="{{ salsa.id }}">
-                <label for="salsa{{ salsa.id }}">{{ salsa.nombre }}</label>
-            </div>
-            {% endfor %}
-            <br>
-            <div class="detalle-menu-footer">
-                <input type="submit" value="Agregar Al Carrito">
-            </div>
-          </form>
-        {% endif %}
-      </div>
-  </div>
+            <script>
+                document.getElementById('form-agregar-carrito').addEventListener('submit', function(event) {
+                    // Validar selección de proteína
+                    var proteinaSeleccionada = false;
+                    var proteinaRadios = document.getElementsByName('proteina');
+                    for (var i = 0; i < proteinaRadios.length; i++) {
+                        if (proteinaRadios[i].checked) {
+                            proteinaSeleccionada = true;
+                            break;
+                        }
+                    }
+
+                    // Validar selección de vegetales
+                    var vegetalesSeleccionados = false;
+                    var vegetalCheckboxes = document.getElementsByName('vegetales');
+                    for (var j = 0; j < vegetalCheckboxes.length; j++) {
+                        if (vegetalCheckboxes[j].checked) {
+                            vegetalesSeleccionados = true;
+                            break;
+                        }
+                    }
+
+                    // Validar selección de salsas
+                    var salsasSeleccionadas = false;
+                    var salsaCheckboxes = document.getElementsByName('salsas');
+                    for (var k = 0; k < salsaCheckboxes.length; k++) {
+                        if (salsaCheckboxes[k].checked) {
+                            salsasSeleccionadas = true;
+                            break;
+                        }
+                    }
+
+                    // Mostrar mensaje de error si no se han seleccionado todos los ingredientes
+                    if (!proteinaSeleccionada || !vegetalesSeleccionados || !salsasSeleccionadas) {
+                        event.preventDefault();  // Evitar el envío del formulario
+                        document.getElementById('mensaje-error').style.display = 'block';
+                    }
+                });
+            </script>
+            {% endif %}
+        </div>
+    </div>
 </div>
 <br>
-        
-          {% comment %} <form method="POST" action="{% url 'Add' menu.id %}" class="detalle-menu">
-              {% csrf_token %}
-              <br>
-              <h3>Selecciona tus ingredientes:</h3>
-              <br>
-              <h3>Proteina:</h3>
-              {% for proteina in menu.proteina.all %}
-              <div class="checkbox-group">
-                  <input type="checkbox" name="proteina" id="proteina{{ proteina.id }}" value="{{ proteina.id }}">
-                  <label for="proteina{{ proteina.id }}">{{ proteina.nombre }}</label>
-              </div>
-              {% endfor %}
-              <br>
-              <h3>Vegetales:</h3>
-              {% for vegetal in menu.vegetal.all %}
-              <div class="checkbox-group">
-                  <input type="checkbox" name="vegetales" id="vegetal{{ vegetal.id }}" value="{{ vegetal.id }}">
-                  <label for="vegetal{{ vegetal.id }}">{{ vegetal.nombre }}</label>
-              </div>
-              {% endfor %}
-              <br>
-              <h3>Salsas:</h3>
-              {% for salsa in menu.salsa.all %}
-              <div class="checkbox-group">
-                  <input type="checkbox" name="salsas" id="salsa{{ salsa.id }}" value="{{ salsa.id }}">
-                  <label for="salsa{{ salsa.id }}">{{ salsa.nombre }}</label>
-              </div>
-              {% endfor %}
-              <br>
-              <div class="detalle-menu-footer">
-                  <input type="submit" value="Agregar Al Carrito">
-              </div>
-          </form> {% endcomment %}
-    
+
 {% endblock %}
+
+
